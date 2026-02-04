@@ -75,7 +75,7 @@ export function Contact() {
                 href="https://www.facebook.com/profile.php?id=100064033101197" 
                 target="_blank" 
                 rel="noopener noreferrer"
-                className="flex items-center justify-center w-10 h-10 rounded-full bg-gray-100 hover:bg-[#E55625] hover:text-white transition-colors"
+                className="flex items-center justify-center w-10 h-10 rounded-full bg-gray-200 text-gray-700 hover:bg-[#E55625] hover:text-white transition-colors"
                 aria-label="Facebook"
               >
                 <Facebook className="w-5 h-5" />
@@ -84,7 +84,7 @@ export function Contact() {
                 href="https://www.instagram.com/gloria_events_solutions/" 
                 target="_blank" 
                 rel="noopener noreferrer"
-                className="flex items-center justify-center w-10 h-10 rounded-full bg-gray-100 hover:bg-[#E55625] hover:text-white transition-colors"
+                className="flex items-center justify-center w-10 h-10 rounded-full bg-gray-200 text-gray-700 hover:bg-[#E55625] hover:text-white transition-colors"
                 aria-label="Instagram"
               >
                 <Instagram className="w-5 h-5" />
@@ -93,7 +93,7 @@ export function Contact() {
                 href="https://www.tiktok.com/@gloria_events" 
                 target="_blank" 
                 rel="noopener noreferrer"
-                className="flex items-center justify-center w-10 h-10 rounded-full bg-gray-100 hover:bg-[#E55625] hover:text-white transition-colors"
+                className="flex items-center justify-center w-10 h-10 rounded-full bg-gray-200 text-gray-700 hover:bg-[#E55625] hover:text-white transition-colors"
                 aria-label="TikTok"
               >
                 <svg className="w-5 h-5" viewBox="0 0 24 24" fill="currentColor">
@@ -104,7 +104,7 @@ export function Contact() {
                 href="https://wa.me/254728288688" 
                 target="_blank" 
                 rel="noopener noreferrer"
-                className="flex items-center justify-center w-10 h-10 rounded-full bg-gray-100 hover:bg-[#25D366] hover:text-white transition-colors"
+                className="flex items-center justify-center w-10 h-10 rounded-full bg-gray-200 text-gray-700 hover:bg-[#25D366] hover:text-white transition-colors"
                 aria-label="WhatsApp"
               >
                 <MessageCircle className="w-5 h-5" />
@@ -113,7 +113,7 @@ export function Contact() {
                 href="https://www.youtube.com/@gloriaevents" 
                 target="_blank" 
                 rel="noopener noreferrer"
-                className="flex items-center justify-center w-10 h-10 rounded-full bg-gray-100 hover:bg-[#FF0000] hover:text-white transition-colors"
+                className="flex items-center justify-center w-10 h-10 rounded-full bg-gray-200 text-gray-700 hover:bg-[#FF0000] hover:text-white transition-colors"
                 aria-label="YouTube"
               >
                 <Youtube className="w-5 h-5" />
