@@ -1,7 +1,7 @@
 import { MessageCircle } from 'lucide-react'
 
 export function WhatsAppFloat() {
-  const whatsappNumber = '254776325607' 
+  const whatsappNumber = '254728288688' 
   const message = encodeURIComponent('Hello! I would like to inquire about your event services.')
   const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${message}`
 

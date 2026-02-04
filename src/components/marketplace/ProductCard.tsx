@@ -83,10 +83,10 @@ export default function ProductCard({ product, onQuickView }: ProductCardProps) 
 
         {/* Price */}
         <div className="flex items-baseline gap-1 mb-4">
-          <span className="text-2xl font-bold text-[#E55625]">
+          <span className="text-xl sm:text-2xl font-bold text-[#E55625]">
             {formatPrice(product.price)}
           </span>
-          <span className="text-sm text-gray-500 dark:text-gray-400">
+          <span className="text-sm sm:text-base font-medium text-gray-600 dark:text-gray-300">
             {product.unit}
           </span>
         </div>

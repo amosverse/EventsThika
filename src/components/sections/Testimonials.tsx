@@ -79,7 +79,7 @@ export function Testimonials() {
     <section className="relative overflow-hidden bg-[#fcfbf7] py-20">
       <div className="container-x">
         {/* Header with underline and arrow */}
-        <div className="relative mb-16 text-center">
+        <div className="relative mb-16 text-center" data-aos="fade-up">
           <h2 className="font-display text-4xl font-bold text-[#1F2645] md:text-5xl">
             What our{' '}
             <span className="relative inline-block">
