@@ -117,7 +117,7 @@ export function SiteFooter() {
               </a>
             </li>
             <li>
-              <NavLink className="underline-anim text-white hover:text-accent-light" to="/contact#contact-form">
+              <NavLink className="underline-anim text-white hover:text-accent-light" to="/contact">
                 Email us
               </NavLink>
             </li>

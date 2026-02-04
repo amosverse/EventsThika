@@ -40,7 +40,7 @@ export function Contact() {
   return (
     <section className="container-x py-16 md:py-24">
       <div className="grid gap-12 md:grid-cols-[minmax(0,1.2fr)_minmax(0,1fr)] md:items-start">
-        <header data-aos="fade-right">
+        <header>
           <p className="eyebrow">Contact</p>
           <h1 className="mt-4 font-display text-4xl tracking-tightish md:text-5xl">
             Share the date,
@@ -124,8 +124,6 @@ export function Contact() {
 
         <div
           className="card border-teal-pale p-6 md:p-7"
-          data-aos="fade-left"
-          data-aos-delay="120"
           aria-label="Contact and booking form"
         >
           {submitted ? (
