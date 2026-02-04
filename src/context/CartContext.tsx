@@ -43,8 +43,17 @@ function getInitialCart(): CartItem[] {
   const saved = localStorage.getItem(CART_STORAGE_KEY)
   if (saved) {
     try {
-      return JSON.parse(saved)
+      const parsed = JSON.parse(saved)
+      // Validate that parsed data is an array
+      if (Array.isArray(parsed)) {
+        return parsed
+      }
+      // If not valid, clear corrupted data
+      localStorage.removeItem(CART_STORAGE_KEY)
+      return []
     } catch {
+      // Clear corrupted data on parse error
+      localStorage.removeItem(CART_STORAGE_KEY)
       return []
     }
   }

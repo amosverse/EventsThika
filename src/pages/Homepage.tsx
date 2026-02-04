@@ -209,14 +209,12 @@ export function Home() {
             </p>
 
             <div className="mt-6 sm:mt-8 flex flex-row flex-wrap items-center gap-2 sm:gap-4">
-              <a
-                href="https://wa.me/254728288688?text=Hi!%20I'm%20interested%20in%20your%20Full%20Production%20services.%20Can%20you%20tell%20me%20more%20about%20what's%20included%20in%20the%20package%3F"
-                target="_blank"
-                rel="noopener noreferrer"
+              <Link
+                to="/services/full-production"
                 className="btn bg-accent hover:bg-accent-hover text-white border-transparent text-sm sm:text-base md:text-lg px-4 sm:px-6 py-2 sm:py-3 transition-all text-center flex-1 sm:flex-initial"
               >
                 See what's included
-              </a>
+              </Link>
               <a 
                 href="https://wa.me/254728288688?text=Hello!%20I'd%20like%20to%20start%20planning%20my%20event.%20Can%20we%20discuss%20the%20details%20and%20your%20services%3F" 
                 target="_blank" 
