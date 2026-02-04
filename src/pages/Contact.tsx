@@ -137,7 +137,7 @@ export function Contact() {
               </p>
             </div>
           ) : (
-            <form onSubmit={handleSubmit} noValidate className="space-y-4">
+            <form id="contact-form" onSubmit={handleSubmit} noValidate className="space-y-4">
               <div>
                 <label
                   htmlFor="name"

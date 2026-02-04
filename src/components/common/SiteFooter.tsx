@@ -112,14 +112,14 @@ export function SiteFooter() {
               </a>
             </li>
             <li>
-              <a className="underline-anim text-white hover:text-accent-light" href="tel:+10000000000">
-                +254 728288688
+              <a className="underline-anim text-white hover:text-accent-light" href="tel:+254728288688">
+                +254 728 288 688
               </a>
             </li>
             <li>
-              <NavLink className="underline-anim text-white hover:text-accent-light" to="/contact">
+              <a className="underline-anim text-white hover:text-accent-light" href="#contact-form" onClick={(e) => { e.preventDefault(); window.location.href = '/contact#contact-form'; }}>
                 Email us
-              </NavLink>
+              </a>
             </li>
           </ul>
         </div>
