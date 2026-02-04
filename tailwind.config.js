@@ -4,6 +4,7 @@ export default {
   content: ['./index.html', './src/**/*.{js,ts,jsx,tsx}'],
   theme: {
     screens: {
+      xs: '475px',   // Extra small devices
       sm: '640px',   // Mobile landscape / small tablets
       md: '768px',   // Tablet portrait
       lg: '1024px',  // Desktop / tablet landscape

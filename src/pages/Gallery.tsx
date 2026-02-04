@@ -82,12 +82,14 @@ const images: ImageItem[] = [
 const filters: Array<ImageItem['type'] | 'All'> = ['All', 'Tents', 'Decor', 'Catering', 'DJ & PA', 'Chairs', 'Full Production', 'Weddings']
 
 const breakpointColumnsObj = {
-  default: 5,
-  1536: 4,
-  1280: 4,
-  1024: 3,
-  768: 2,
-  640: 1,
+  default: 5,      // 5 columns on very large screens (1537px+)
+  1536: 4,         // 4 columns on extra large screens (1280-1536px)
+  1280: 4,         // 4 columns on large screens (1024-1280px)
+  1024: 3,         // 3 columns on desktop/tablet landscape (768-1024px)
+  768: 2,          // 2 columns on tablet portrait (640-768px)
+  640: 2,          // 2 columns on mobile landscape (475-640px)
+  475: 2,          // 2 columns on larger mobile (375-475px)
+  0: 1,            // 1 column on very small mobile (0-375px)
 }
 
 export function Gallery() {
@@ -213,16 +215,26 @@ export function Gallery() {
       </div>
 
       <div className="mt-8" style={{ opacity: 1, visibility: 'visible' }}>
-        <Masonry breakpointCols={breakpointColumnsObj} className="flex w-auto -ml-3 md:-ml-4" columnClassName="pl-3 md:pl-4 bg-clip-padding">
+        <Masonry 
+          breakpointCols={breakpointColumnsObj} 
+          className="flex w-auto -ml-2 sm:-ml-3 md:-ml-4" 
+          columnClassName="pl-2 sm:pl-3 md:pl-4 bg-clip-padding"
+        >
           {displayed.map((img) => {
             const isSaved = savedItems.has(img.id)
             const imageHeight = img.height || 320
 
             return (
-              <motion.div key={img.id} className="group relative mb-3 md:mb-4 cursor-pointer" initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.4 }}>
+              <motion.div 
+                key={img.id} 
+                className="group relative mb-2 sm:mb-3 md:mb-4 cursor-pointer" 
+                initial={{ opacity: 0, y: 20 }} 
+                animate={{ opacity: 1, y: 0 }} 
+                transition={{ duration: 0.4 }}
+              >
                 <motion.button
                   type="button"
-                  className="relative block w-full overflow-hidden rounded-2xl shadow-sm hover:shadow-2xl transition-all duration-300 bg-white"
+                  className="relative block w-full overflow-hidden rounded-xl sm:rounded-2xl shadow-sm hover:shadow-2xl transition-all duration-300 bg-white"
                   onClick={() => setActiveImage(img)}
                   whileHover={{ y: -6, scale: 1.01 }}
                   transition={{ duration: 0.3, ease: 'easeOut' }}
@@ -230,15 +242,15 @@ export function Gallery() {
                   <div className="relative overflow-hidden bg-gray-100" style={{ height: `${imageHeight}px` }}>
                     <img src={img.image} alt={img.label} loading="lazy" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                    <div className="absolute inset-0 flex flex-col justify-between p-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                      <div className="flex justify-end gap-2">
+                    <div className="absolute inset-0 flex flex-col justify-between p-3 sm:p-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                      <div className="flex justify-end gap-1.5 sm:gap-2">
                         <button
                           type="button"
                           onClick={(e) => toggleSave(img.id, e)}
-                          className={['p-2 rounded-full backdrop-blur-md transition-all duration-200', isSaved ? 'bg-red-500 text-white shadow-lg scale-110' : 'bg-white/90 text-gray-900 hover:bg-white hover:scale-110'].join(' ')}
+                          className={['p-1.5 sm:p-2 rounded-full backdrop-blur-md transition-all duration-200', isSaved ? 'bg-red-500 text-white shadow-lg scale-110' : 'bg-white/90 text-gray-900 hover:bg-white hover:scale-110'].join(' ')}
                           aria-label={isSaved ? 'Remove from saved' : 'Save to collection'}
                         >
-                          <svg className="w-5 h-5" fill={isSaved ? 'currentColor' : 'none'} viewBox="0 0 24 24" stroke="currentColor">
+                          <svg className="w-4 h-4 sm:w-5 sm:h-5" fill={isSaved ? 'currentColor' : 'none'} viewBox="0 0 24 24" stroke="currentColor">
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
                           </svg>
                         </button>
@@ -250,17 +262,17 @@ export function Gallery() {
                               navigator.share({ title: img.label, text: `Check out this ${img.type} from our gallery`, url: window.location.href })
                             }
                           }}
-                          className="p-2 rounded-full bg-white/90 backdrop-blur-md text-gray-900 hover:bg-white hover:scale-110 transition-all duration-200"
+                          className="p-1.5 sm:p-2 rounded-full bg-white/90 backdrop-blur-md text-gray-900 hover:bg-white hover:scale-110 transition-all duration-200"
                           aria-label="Share image"
                         >
-                          <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                          <svg className="w-4 h-4 sm:w-5 sm:h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8.684 13.342C8.886 12.938 9 12.482 9 12c0-.482-.114-.938-.316-1.342m0 2.684a3 3 0 110-2.684m0 2.684l6.632 3.316m-6.632-6l6.632-3.316m0 0a3 3 0 105.367-2.684 3 3 0 00-5.367 2.684zm0 9.316a3 3 0 105.368 2.684 3 3 0 00-5.368-2.684z" />
                           </svg>
                         </button>
                       </div>
                       <div className="text-left">
-                        <h3 className="text-white font-semibold text-base mb-1 drop-shadow-lg">{img.label}</h3>
-                        <span className="inline-block rounded-full bg-white/90 backdrop-blur-sm px-3 py-1 text-xs font-medium text-gray-900">{img.type}</span>
+                        <h3 className="text-white font-semibold text-sm sm:text-base mb-1 drop-shadow-lg line-clamp-2">{img.label}</h3>
+                        <span className="inline-block rounded-full bg-white/90 backdrop-blur-sm px-2 sm:px-3 py-0.5 sm:py-1 text-[10px] sm:text-xs font-medium text-gray-900">{img.type}</span>
                       </div>
                     </div>
                   </div>

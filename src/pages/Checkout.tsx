@@ -77,7 +77,19 @@ export default function Checkout() {
   const handleContinueToPayment = () => {
     if (validateForm()) {
       setCustomerInfo(formData)
-      setCurrentStep('payment')
+      
+      // Build WhatsApp message with cart details
+      const itemsList = items.map((item, idx) => 
+        `${idx + 1}. ${item.product.name} (x${item.quantity}) - ${formatPrice(item.product.price * item.quantity)}`
+      ).join('%0A')
+      
+      const message = `Hi! I'd like to enquire about renting the following items:%0A%0A${itemsList}%0A%0ASubtotal: ${formatPrice(subtotal)}%0ADelivery: ${formatPrice(deliveryFee)}%0ASetup Fee: ${formatPrice(setupFee)}%0ATotal: ${formatPrice(total)}%0A%0AEvent Details:%0AName: ${formData.name}%0AEvent Type: ${formData.eventType}%0AEvent Date: ${formData.eventDate}%0AVenue: ${formData.eventVenue}%0APhone: ${formData.phone}%0AEmail: ${formData.email}${formData.additionalNotes ? '%0A%0AAdditional Notes:%0A' + formData.additionalNotes : ''}`
+      
+      // Open WhatsApp
+      window.open(`https://wa.me/254728288688?text=${message}`, '_blank')
+      
+      // Show confirmation
+      setCurrentStep('confirmation')
     }
   }
 
@@ -347,10 +359,16 @@ export default function Checkout() {
 
                   <button
                     onClick={handleContinueToPayment}
-                    className="w-full mt-8 flex items-center justify-center gap-2 py-4 bg-[#E55625] hover:bg-[#d14a1f] text-white font-bold text-lg rounded-xl transition-colors"
+                    className="w-full mt-8 flex items-center justify-center gap-2 py-4 bg-[#25D366] hover:bg-[#1faa52] text-white font-bold text-lg rounded-xl transition-colors"
                   >
-                    Continue to Payment
-                    <ChevronRight className="w-5 h-5" />
+                    <svg 
+                      viewBox="0 0 24 24" 
+                      className="w-6 h-6"
+                      fill="currentColor"
+                    >
+                      <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
+                    </svg>
+                    Enquire on WhatsApp
                   </button>
                 </motion.div>
               )}
@@ -547,57 +565,51 @@ export default function Checkout() {
                     initial={{ scale: 0 }}
                     animate={{ scale: 1 }}
                     transition={{ delay: 0.2, type: 'spring' }}
-                    className="w-20 h-20 bg-[#4CAF50] rounded-full flex items-center justify-center mx-auto mb-6"
+                    className="w-20 h-20 bg-[#25D366] rounded-full flex items-center justify-center mx-auto mb-6"
                   >
-                    <Check className="w-10 h-10 text-white" />
+                    <svg 
+                      viewBox="0 0 24 24" 
+                      className="w-10 h-10 text-white"
+                      fill="currentColor"
+                    >
+                      <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
+                    </svg>
                   </motion.div>
 
-                  <h2 className="text-3xl font-bold text-[#1F2645] dark:text-white mb-2">
-                    Order Confirmed!
+                  <h2 className="text-3xl font-bold text-[#1F2645] dark:text-white mb-4">
+                    Enquiry Sent!
                   </h2>
-                  <p className="text-gray-600 dark:text-gray-300 mb-6">
-                    Thank you for your order. We'll be in touch soon.
+                  
+                  <p className="text-gray-600 dark:text-gray-300 mb-8">
+                    Your order details have been sent via WhatsApp. Our team will contact you shortly to confirm availability and finalize your rental.
                   </p>
 
                   <div className="bg-gray-50 dark:bg-white/5 rounded-xl p-6 mb-8">
-                    <p className="text-sm text-gray-500 dark:text-gray-400 mb-2">Order Number</p>
-                    <p className="text-2xl font-bold text-[#E55625]">{orderNumber}</p>
-                  </div>
-
-                  <div className="text-left bg-[#E55625]/10 rounded-xl p-6 mb-8">
-                    <h3 className="font-bold text-[#1F2645] dark:text-white mb-3">What's Next?</h3>
-                    <ul className="space-y-2 text-sm text-gray-600 dark:text-gray-300">
-                      <li className="flex items-start gap-2">
-                        <Check className="w-4 h-4 text-[#4CAF50] mt-0.5" />
-                        Confirmation email sent to {formData.email}
+                    <h3 className="font-bold text-[#1F2645] dark:text-white mb-4">
+                      What's Next?
+                    </h3>
+                    <ul className="text-left space-y-3 text-gray-600 dark:text-gray-300">
+                      <li className="flex items-start gap-3">
+                        <Check className="w-5 h-5 text-[#25D366] mt-0.5 flex-shrink-0" />
+                        <span>Our team will review your enquiry on WhatsApp</span>
                       </li>
-                      <li className="flex items-start gap-2">
-                        <Check className="w-4 h-4 text-[#4CAF50] mt-0.5" />
-                        Our team will call you within 24 hours to confirm details
+                      <li className="flex items-start gap-3">
+                        <Check className="w-5 h-5 text-[#25D366] mt-0.5 flex-shrink-0" />
+                        <span>We'll confirm item availability for your event date</span>
                       </li>
-                      <li className="flex items-start gap-2">
-                        <Check className="w-4 h-4 text-[#4CAF50] mt-0.5" />
-                        Equipment will be delivered and set up on {formData.eventDate}
+                      <li className="flex items-start gap-3">
+                        <Check className="w-5 h-5 text-[#25D366] mt-0.5 flex-shrink-0" />
+                        <span>Payment and delivery details will be discussed via WhatsApp</span>
                       </li>
                     </ul>
                   </div>
 
-                  <div className="space-y-3">
-                    <a
-                      href={`https://wa.me/254728288688?text=Hi!%20I'd%20like%20to%20confirm%20my%20order%20${encodeURIComponent(orderNumber)}.%20Here%20are%20my%20event%20details:%0A%0AName:%20${encodeURIComponent(formData.name)}%0AEvent%20Date:%20${encodeURIComponent(formData.eventDate)}%0AVenue:%20${encodeURIComponent(formData.eventVenue)}%0AEvent%20Type:%20${encodeURIComponent(formData.eventType)}%0A%0APlease%20confirm%20the%20booking%20details.`}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="block w-full py-4 bg-[#E55625] hover:bg-[#d14a1f] text-white font-bold text-lg rounded-xl transition-colors text-center"
-                    >
-                      Confirm Order on WhatsApp
-                    </a>
-                    <button
-                      onClick={handleConfirmOrder}
-                      className="w-full py-3 bg-gray-100 hover:bg-gray-200 text-[#1F2645] font-semibold rounded-xl transition-colors"
-                    >
-                      Back to Home
-                    </button>
-                  </div>
+                  <button
+                    onClick={handleConfirmOrder}
+                    className="w-full py-4 bg-[#E55625] hover:bg-[#d14a1f] text-white font-bold text-lg rounded-xl transition-colors"
+                  >
+                    Continue Shopping
+                  </button>
                 </motion.div>
               )}
             </AnimatePresence>

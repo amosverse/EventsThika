@@ -1,6 +1,7 @@
 import { motion, useScroll, useTransform } from 'framer-motion'
 import { useRef, useState, useEffect } from 'react'
 import { DotLottieReact } from '@lottiefiles/dotlottie-react'
+import { Link } from 'react-router-dom'
 
 import { Testimonials } from '../components/sections/Testimonials'
 
@@ -310,7 +311,7 @@ export function Home() {
 
           <div className="grid gap-4 sm:gap-5 md:gap-6 grid-cols-2 md:grid-cols-3">
             {services.map((service, index) => (
-              <a href={service.slug} key={service.slug}>
+              <Link to={service.slug} key={service.slug}>
                 <motion.article
                   className="group relative overflow-hidden rounded-xl bg-white border border-gray-200 shadow-sm hover:shadow-xl transition-all duration-500 cursor-pointer hover:bg-white/80 hover:backdrop-blur-xl"
                   style={{ opacity: 1, visibility: 'visible' }}
@@ -378,7 +379,7 @@ export function Home() {
                   className="absolute inset-0 rounded-xl border-2 border-accent opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"
                 />
               </motion.article>
-              </a>
+              </Link>
             ))}
           </div>
           
