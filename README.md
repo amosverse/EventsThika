@@ -1,128 +1,229 @@
-## Event Studio — Premium Event Production Site
+# Event Solutions Thika
 
-A portfolio-grade React + Vite + Tailwind build for a high-end event services studio. The design is editorial-first
-with a warm, minimal palette, custom SVG details, and restrained motion.
+A modern, production-ready web application for a full-service event production company offering tent rentals, décor, catering, sound/DJ systems, MC services, and complete event production packages.
 
-### Tech stack
+## 🌐 Live Demo
 
-- **React 18/19 + Vite**
-- **TypeScript**
-- **Tailwind CSS 3** with custom colors, typography, and utility components
-- **React Router** for multi-page navigation
-- **Framer Motion** for micro-interactions + SVG motion
-- **AOS** for subtle scroll reveals (fade-up / left / right)
-- **react-masonry-css** for the Gallery masonry layout
+**[View Live Site](https://your-vercel-deployment-url.vercel.app)**
 
-### Running the project
+## 🛠️ Tech Stack
 
-- **Install dependencies**
+- **React 19.2.0** — Component-based UI framework
+- **TypeScript** — Type-safe JavaScript
+- **Vite 7.2.4** — Fast build tool and dev server
+- **React Router 7.13.0** — Client-side routing
+- **Tailwind CSS 3.4.17** — Utility-first CSS framework
+- **Framer Motion 12.29.2** — Animation library for smooth interactions
+- **Lucide React** — Modern icon library
+- **React Masonry CSS** — Pinterest-style gallery layouts
 
-```bash
-npm install
+## ✨ Features
+
+- **Service Catalog**: Six dedicated service pages with detailed descriptions and WhatsApp integration
+- **Marketplace**: Browse and rent event equipment with cart functionality
+- **Pinterest-style Gallery**: Responsive masonry layout showcasing past events
+- **WhatsApp Integration**: Direct enquiry system for bookings and checkout
+- **Mobile-First Design**: Fully responsive with custom breakpoints (xs: 475px)
+- **Contact Form**: Validated form with social media integration
+- **SEO-Ready**: Proper semantic HTML and meta tags
+- **Performance Optimized**: Lazy loading, code splitting, and optimized assets
+
+## 📁 Project Structure
+
+```
+event-sol/
+├── public/               # Static assets
+├── src/
+│   ├── assets/          # Images, SVGs, and media files
+│   ├── components/
+│   │   ├── common/      # Reusable UI components (Header, Footer, Buttons, etc.)
+│   │   ├── marketplace/ # Product cards, cart sidebar, modals
+│   │   └── sections/    # Page-specific sections (Hero, Testimonials, etc.)
+│   ├── context/         # React Context (Cart state management)
+│   ├── data/            # Product data and static content
+│   ├── layouts/         # Layout wrappers with header/footer
+│   ├── pages/           # Route components
+│   │   └── services/    # Individual service pages
+│   ├── App.tsx          # Root component
+│   ├── main.tsx         # Application entry point
+│   ├── router.tsx       # React Router configuration
+│   └── index.css        # Global styles and Tailwind imports
+├── .gitignore
+├── eslint.config.js
+├── index.html
+├── package.json
+├── postcss.config.js
+├── tailwind.config.js
+├── tsconfig.json
+├── vite.config.ts
+└── README.md
 ```
 
-- **Start dev server**
+## 🚀 Getting Started
 
-```bash
-npm run dev
-```
+### Prerequisites
 
-The app will be available on the port Vite prints in your terminal (usually `http://localhost:5173`).
+- Node.js 18+ and npm/yarn/pnpm
 
-- **Build for production**
+### Installation
+
+1. **Clone the repository**
+
+   ```bash
+   git clone https://github.com/yourusername/event-sol.git
+   cd event-sol
+   ```
+
+2. **Install dependencies**
+
+   ```bash
+   npm install
+   ```
+
+3. **Run development server**
+
+   ```bash
+   npm run dev
+   ```
+
+   The app will be available at `http://localhost:5173`
+
+4. **Build for production**
+
+   ```bash
+   npm run build
+   ```
+
+   Production files will be output to the `dist/` directory.
+
+5. **Preview production build**
+
+   ```bash
+   npm run preview
+   ```
+
+## 🌍 Deployment
+
+### Vercel (Recommended)
+
+1. **Import your repository** on [Vercel](https://vercel.com)
+
+2. **Configure build settings** (usually auto-detected):
+   - **Framework Preset**: Vite
+   - **Build Command**: `npm run build`
+   - **Output Directory**: `dist`
+
+3. **Deploy** — Vercel will automatically build and deploy on every push to main
+
+### Manual Deployment
 
 ```bash
 npm run build
+# Upload the dist/ folder to your hosting provider
 ```
 
-### Structure
+## 🔧 Environment Variables
 
-- `src/layouts` — shared layout wrapper with header, footer, skip-link, and AOS bootstrapping
-- `src/components/common` — buttons, header, footer, shared primitives
-- `src/components/sections` — custom SVG illustrations and timeline connectors
-- `src/pages` — route-level pages (Home, About, Gallery, Contact, services)
-- `src/pages/services` — individual service pages (tents, décor, catering, sound/DJ, MC, full production)
+This project currently does not require environment variables for basic functionality. If you add external APIs or services:
 
-### Design notes
+```env
+# Example .env file
+VITE_API_BASE_URL=https://api.example.com
+VITE_WHATSAPP_NUMBER=254728288688
+```
 
-- **Color**: warm off‑white background (`paper`), charcoal text (`ink`), soft gray (`mist`), and a single deep
-  terracotta accent. No neon, rainbow gradients, or heavy mesh backgrounds.
-- **Type**: headings use `Cormorant Garamond` for character; body copy uses `Inter` for clarity and legibility.
-- **Motion**: hero and timeline use hand-coded SVG animations via Framer Motion; buttons, cards, and links have
-  subtle hover states only (no parallax or excessive float).
-- **Accessibility**: semantic sections, labelled navigation, skip link, focus-visible outlines, and AA-conscious
-  contrast ratios.
+Access in code via `import.meta.env.VITE_*`
 
-# React + TypeScript + Vite
+## 🐛 Troubleshooting
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+### Assets Return 404 in Production
 
-Currently, two official plugins are available:
+If images or assets don't load after deployment:
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- Ensure `vite.config.ts` has the correct `base` path
+- For Vercel, the default `/` base should work
+- For subdirectory deployments, set `base: '/subdirectory/'`
 
-## React Compiler
+```ts
+// vite.config.ts
+export default defineConfig({
+  base: '/', // or '/your-subdirectory/'
+  // ...
+})
+```
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+### Cart Data Persists Between Sessions
 
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+The cart uses `localStorage` to persist data. To clear:
 
 ```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+localStorage.removeItem('event-solutions-cart')
+localStorage.removeItem('event-solutions-customer')
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+Or clear all site data via browser DevTools → Application → Local Storage.
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+### Tailwind Classes Not Applying
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+Ensure you've imported the global CSS in `main.tsx`:
+
+```tsx
+import './index.css'
 ```
+
+And that `index.css` includes:
+
+```css
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+```
+
+### Build Errors with TypeScript
+
+Run type checking separately:
+
+```bash
+npx tsc --noEmit
+```
+
+Fix any type errors before building.
+
+## 🎨 Design System
+
+- **Colors**: 
+  - Primary: `#1F2645` (dark navy)
+  - Accent: `#E55625` (terracotta orange)
+  - Paper: `#F8F6F0` (warm off-white)
+- **Typography**: 
+  - Display: Cormorant Garamond
+  - Body: Inter
+- **Breakpoints**: 
+  - xs: 475px
+  - sm: 640px
+  - md: 768px
+  - lg: 1024px
+  - xl: 1280px
+
+## 🤝 Contributing
+
+1. Fork the repository
+2. Create a feature branch (`git checkout -b feature/amazing-feature`)
+3. Commit your changes (`git commit -m 'Add amazing feature'`)
+4. Push to the branch (`git push origin feature/amazing-feature`)
+5. Open a Pull Request
+
+### Code Style
+
+- Follow existing code formatting
+- Run `npm run build` before committing to catch type errors
+- Write meaningful commit messages
+- Test on mobile and desktop viewports
+
+## 📝 License
+
+This project is proprietary and confidential. All rights reserved.
+
+---
+
+Built with React, TypeScript, and Vite. Deployed on Vercel.
