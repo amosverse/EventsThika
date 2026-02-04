@@ -4,34 +4,34 @@ import ServiceProducts from '../../components/sections/ServiceProducts'
 
 export function FullProduction() {
   return (
-    <section className="container-x py-16 md:py-24">
-      <header className="grid gap-8 md:grid-cols-[minmax(0,1.4fr)_minmax(0,1fr)] md:items-end" data-aos="fade-up">
+    <section className="container-x py-16 md:py-24 bg-white">
+      <header className="grid gap-8 md:grid-cols-[minmax(0,1.4fr)_minmax(0,1fr)] md:items-end">
         <div>
-          <p className="eyebrow">Services · Full production</p>
-          <h1 className="mt-4 font-display text-4xl tracking-tightish md:text-5xl">
+          <p className="eyebrow text-[#E55625] font-bold">Services · Full production</p>
+          <h1 className="mt-4 font-display text-4xl tracking-tightish md:text-5xl text-[#1F2645] font-bold">
             One team from first walkthrough
             <br />
             to final guest exit.
           </h1>
-          <p className="mt-5 text-base leading-relaxed text-primary-dark opacity-80">
+          <p className="mt-5 text-base leading-relaxed text-gray-900">
             We oversee tents, décor, catering, sound, MC, and show-calling as a single production—so you don&apos;t have
             to play traffic controller.
           </p>
         </div>
-        <div className="card p-5 text-sm text-primary-dark border-teal-pale">
-          <div className="text-xs uppercase tracking-[0.14em] text-primary-dark opacity-70">Ideal for</div>
-          <p className="mt-2">
+        <div className="card p-5 text-sm text-gray-900 border-teal-pale bg-teal-50">
+          <div className="text-xs uppercase tracking-[0.14em] text-gray-700 font-semibold">Ideal for</div>
+          <p className="mt-2 text-gray-900">
             Weddings, brand experiences, fundraisers, and ceremonies where every element needs to work together.
           </p>
         </div>
       </header>
 
       <div className="mt-10 grid gap-10 md:grid-cols-[minmax(0,1.2fr)_minmax(0,1.1fr)] md:items-start">
-        <section aria-labelledby="prod-included-heading" data-aos="fade-right">
-          <h2 id="prod-included-heading" className="text-sm font-semibold tracking-tightish">
+        <section aria-labelledby="prod-included-heading">
+          <h2 id="prod-included-heading" className="text-sm font-semibold tracking-tightish text-gray-900">
             What&apos;s included
           </h2>
-          <ul className="mt-3 grid gap-3 text-sm leading-relaxed text-primary-dark opacity-80 md:grid-cols-2">
+          <ul className="mt-3 grid gap-3 text-sm leading-relaxed text-gray-900 md:grid-cols-2">
             <li>Dedicated producer as your single point of contact.</li>
             <li>Budgeting and vendor recommendations across all key categories.</li>
             <li>Run-of-show creation, including technical cues and contingency plans.</li>
@@ -42,19 +42,19 @@ export function FullProduction() {
         <section
           aria-labelledby="prod-process-heading"
           className="space-y-6 md:border-l md:border-teal-pale md:pl-8"
-          data-aos="fade-left"
-          data-aos-delay="120"
+         
+         
         >
           <div className="flex items-center gap-4">
             <TimelineConnector />
-            <h2 id="prod-process-heading" className="text-sm font-semibold tracking-tightish">
+            <h2 id="prod-process-heading" className="text-sm font-semibold tracking-tightish text-gray-900">
               Process
             </h2>
           </div>
-          <ol className="space-y-4 text-sm text-primary-dark opacity-80">
+          <ol className="space-y-4 text-sm text-gray-900">
             <li>
-              <div className="font-medium">1. Discovery and scope</div>
-              <p className="mt-1 leading-relaxed">
+              <div className="font-medium text-gray-900">1. Discovery and scope</div>
+              <p className="mt-1 leading-relaxed text-gray-800">
                 We align on priorities, budget ranges, and what &quot;success&quot; looks like for you and your guests.
               </p>
             </li>
@@ -74,28 +74,28 @@ export function FullProduction() {
         </section>
       </div>
 
-      <section className="mt-12" aria-labelledby="prod-gallery-heading" data-aos="fade-up">
-        <h2 id="prod-gallery-heading" className="text-sm font-semibold tracking-tightish">
+      <section className="mt-12" aria-labelledby="prod-gallery-heading">
+        <h2 id="prod-gallery-heading" className="text-sm font-semibold tracking-tightish text-gray-900">
           Recent productions
         </h2>
         <div className="mt-4 grid gap-4 md:grid-cols-3">
           <div className="card overflow-hidden">
             <img 
-              src="/src/assets/fullprod.jpg" 
+              src={new URL('../../assets/fullprod.jpg', import.meta.url).href}
               alt="Full Production Setup" 
               className="w-full h-48 object-cover"
             />
           </div>
           <div className="card overflow-hidden">
             <img 
-              src="/src/assets/fullprod3.jpg" 
+              src={new URL('../../assets/full-prod.jpg', import.meta.url).href}
               alt="Full Production Layout" 
               className="w-full h-48 object-cover"
             />
           </div>
           <div className="card overflow-hidden">
             <img 
-              src="/src/assets/graduation party.jpg" 
+              src={new URL('../../assets/graduation party.jpg', import.meta.url).href}
               alt="Graduation Party" 
               className="w-full h-48 object-cover"
             />
@@ -108,13 +108,14 @@ export function FullProduction() {
       <ServiceProducts category="decor" title="Décor Highlights" maxItems={4} />
       <ServiceProducts category="sound" title="Sound & Lighting" maxItems={4} />
 
-      <div className="mt-10 border-t border-border pt-8" data-aos="fade-up" data-aos-delay="120">
-        <ButtonLink to="/contact" variant="primary">
+      <div className="mt-10 border-t border-border pt-8">
+        <a href="https://wa.me/254728288688?text=Hi!%20I'm%20interested%20in%20full%20production%20services%20for%20my%20event.%20Could%20you%20please%20provide%20a%20quote%2C%20pricing%20information%2C%20and%20availability%3F" target="_blank" rel="noopener noreferrer" className="btn bg-accent hover:bg-accent-hover text-white">
           Plan full production
-        </ButtonLink>
+        </a>
       </div>
     </section>
   )
 }
+
 
 

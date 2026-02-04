@@ -60,8 +60,8 @@ export function Contact() {
             </div>
             <div>
               <div className="text-xs uppercase tracking-[0.14em] text-primary-dark opacity-70">Phone / WhatsApp</div>
-              <a className="underline-anim" href="https://wa.me/10000000000" target="_blank" rel="noreferrer">
-                +1 (000) 000-0000
+              <a className="underline-anim" href="https://wa.me/254728288688?text=Hi!%20I'd%20like%20to%20get%20in%20touch%20about%20event%20planning%20services." target="_blank" rel="noreferrer">
+                +254 728 288 688
               </a>
             </div>
           </div>

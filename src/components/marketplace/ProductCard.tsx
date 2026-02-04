@@ -3,7 +3,7 @@ import { motion } from 'framer-motion'
 import { ShoppingCart, Star, Plus, Minus, Eye } from 'lucide-react'
 import { formatPrice } from '../../data/products'
 import type { Product } from '../../data/products'
-import { useCart } from '../../context/useCart'
+
 
 interface ProductCardProps {
   product: Product
@@ -11,18 +11,7 @@ interface ProductCardProps {
 }
 
 export default function ProductCard({ product, onQuickView }: ProductCardProps) {
-  const { addItem } = useCart()
   const [quantity, setQuantity] = useState(1)
-  const [isAdding, setIsAdding] = useState(false)
-
-  const handleAddToCart = () => {
-    setIsAdding(true)
-    addItem(product, quantity)
-    setTimeout(() => {
-      setIsAdding(false)
-      setQuantity(1)
-    }, 500)
-  }
 
   return (
     <motion.div
@@ -116,21 +105,20 @@ export default function ProductCard({ product, onQuickView }: ProductCardProps) 
             </button>
           </div>
           
-          <motion.button
+          <motion.a
+            href={`https://wa.me/254728288688?text=Hi!%20I'm%20interested%20in%20renting%20${encodeURIComponent(product.name)}%20for%20my%20event.%20Can%20you%20provide%20more%20details%20about%20availability%20and%20pricing%3F`}
+            target="_blank"
+            rel="noopener noreferrer"
             whileTap={{ scale: 0.95 }}
-            onClick={handleAddToCart}
-            disabled={!product.available}
             className={`flex-1 flex items-center justify-center gap-2 py-2.5 rounded-lg font-semibold text-sm transition-all duration-300 ${
-              isAdding
-                ? 'bg-green-500 text-white'
-                : product.available
+              product.available
                 ? 'bg-[#E55625] hover:bg-[#d14a1f] text-white'
-                : 'bg-gray-300 text-gray-500 cursor-not-allowed'
+                : 'bg-gray-300 text-gray-500 cursor-not-allowed pointer-events-none'
             }`}
           >
             <ShoppingCart className="w-4 h-4" />
-            {isAdding ? 'Added!' : 'Add to Cart'}
-          </motion.button>
+            Inquire on WhatsApp
+          </motion.a>
         </div>
       </div>
     </motion.div>

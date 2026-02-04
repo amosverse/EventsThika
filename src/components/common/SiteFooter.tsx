@@ -4,8 +4,8 @@ import { LogoHorizontal } from './LogoHorizontal'
 export function SiteFooter() {
   return (
     <footer className="mt-20 border-t border-border bg-primary-dark text-white">
-      <div className="container-x grid gap-10 py-14 md:grid-cols-[1.4fr_1fr_1fr]">
-        <div className="max-w-md">
+      <div className="container-x grid gap-8 py-12 grid-cols-1 sm:grid-cols-2 lg:grid-cols-[1.4fr_1fr_1fr] sm:gap-10 lg:gap-10 lg:py-14">
+        <div className="max-w-md sm:col-span-2 lg:col-span-1">
           <LogoHorizontal className="h-20 w-auto" isDark={true} />
           <p className="mt-3 text-sm leading-relaxed text-white/70">
             Tents, décor, catering, sound, DJ/MC, and full production—built with calm process and sharp execution.

@@ -582,12 +582,22 @@ export default function Checkout() {
                     </ul>
                   </div>
 
-                  <button
-                    onClick={handleConfirmOrder}
-                    className="w-full py-4 bg-[#E55625] hover:bg-[#d14a1f] text-white font-bold text-lg rounded-xl transition-colors"
-                  >
-                    Back to Home
-                  </button>
+                  <div className="space-y-3">
+                    <a
+                      href={`https://wa.me/254728288688?text=Hi!%20I'd%20like%20to%20confirm%20my%20order%20${encodeURIComponent(orderNumber)}.%20Here%20are%20my%20event%20details:%0A%0AName:%20${encodeURIComponent(formData.name)}%0AEvent%20Date:%20${encodeURIComponent(formData.eventDate)}%0AVenue:%20${encodeURIComponent(formData.eventVenue)}%0AEvent%20Type:%20${encodeURIComponent(formData.eventType)}%0A%0APlease%20confirm%20the%20booking%20details.`}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="block w-full py-4 bg-[#E55625] hover:bg-[#d14a1f] text-white font-bold text-lg rounded-xl transition-colors text-center"
+                    >
+                      Confirm Order on WhatsApp
+                    </a>
+                    <button
+                      onClick={handleConfirmOrder}
+                      className="w-full py-3 bg-gray-100 hover:bg-gray-200 text-[#1F2645] font-semibold rounded-xl transition-colors"
+                    >
+                      Back to Home
+                    </button>
+                  </div>
                 </motion.div>
               )}
             </AnimatePresence>

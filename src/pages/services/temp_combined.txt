@@ -1,0 +1,707 @@
+import { TimelineConnector } from '../../components/sections/TimelineConnector'
+import { ButtonLink } from '../../components/common/buttons'
+import ServiceProducts from '../../components/sections/ServiceProducts'
+
+export function Catering() {
+  return (
+    <section className="container-x py-16 md:py-24" style={{ backgroundColor: '#FFFFFF', minHeight: '100vh' }}>
+      <header className="grid gap-8 md:grid-cols-[minmax(0,1.4fr)_minmax(0,1fr)] md:items-end" style={{ opacity: 1 }}>
+        <div>
+          <p className="text-xs font-bold uppercase tracking-[0.18em]" style={{ color: '#E55625' }}>Services · Catering</p>
+          <h1 className="mt-4 font-display text-4xl tracking-tightish md:text-5xl font-bold" style={{ color: '#1F2645' }}>
+            Food that matches
+            <br />
+            the way you&apos;re gathering.
+          </h1>
+          <p className="mt-5 text-base leading-relaxed" style={{ color: '#1F2645' }}>
+            We partner with caterers who understand pacing, service style, and how to move a room smoothly from welcome
+            drinks to last plates cleared.
+          </p>
+        </div>
+        <div className="card p-5 text-sm border-teal-pale" style={{ backgroundColor: '#E6FFFA', color: '#1F2645' }}>
+          <div className="text-xs uppercase tracking-[0.14em] font-semibold" style={{ color: '#1F2645' }}>Ideal for</div>
+          <p className="mt-2" style={{ color: '#1F2645' }}>
+            Plated dinners, grazing tables, cocktail service, and multi-course tasting menus aligned to your event.
+          </p>
+        </div>
+      </header>
+
+      <div className="mt-10 grid gap-10 md:grid-cols-[minmax(0,1.2fr)_minmax(0,1.1fr)] md:items-start" style={{ opacity: 1 }}>
+        <section aria-labelledby="catering-included-heading">
+          <h2 id="catering-included-heading" className="text-sm font-semibold tracking-tightish" style={{ color: '#1F2645' }}>
+            What&apos;s included
+          </h2>
+          <ul className="mt-3 grid gap-3 text-sm leading-relaxed md:grid-cols-2" style={{ color: '#1F2645' }}>
+            <li>Menu curation with dietary needs and cultural considerations in mind.</li>
+            <li>Staffing recommendations for service styles and guest count.</li>
+            <li>Coordination of back-of-house layout, power, and timing with other vendors.</li>
+            <li>Run-of-show integration so speeches, courses, and transitions work together.</li>
+          </ul>
+        </section>
+
+        <section
+          aria-labelledby="catering-process-heading"
+          className="space-y-6 md:border-l md:border-teal-pale md:pl-8"
+          style={{ opacity: 1 }}
+        >
+          <div className="flex items-center gap-4">
+            <TimelineConnector />
+            <h2 id="catering-process-heading" className="text-sm font-semibold tracking-tightish" style={{ color: '#1F2645' }}>
+              Process
+            </h2>
+          </div>
+          <ol className="space-y-4 text-sm" style={{ color: '#1F2645' }}>
+            <li>
+              <div className="font-medium" style={{ color: '#1F2645' }}>1. Event profile</div>
+              <p className="mt-1 leading-relaxed" style={{ color: '#1F2645' }}>
+                We clarify the tone, schedule, and any non-negotiables before suggesting partners or menus.
+              </p>
+            </li>
+            <li>
+              <div className="font-medium" style={{ color: '#1F2645' }}>2. Menu and service style</div>
+              <p className="mt-1 leading-relaxed" style={{ color: '#1F2645' }}>
+                We work with you and the caterer to decide how food appears in the room—and how long it stays there.
+              </p>
+            </li>
+            <li>
+              <div className="font-medium" style={{ color: '#1F2645' }}>3. On-site coordination</div>
+              <p className="mt-1 leading-relaxed" style={{ color: '#1F2645' }}>
+                Our team coordinates call times, run-of-show cues, and communication between kitchen and floor.
+              </p>
+            </li>
+          </ol>
+        </section>
+      </div>
+
+      <section className="mt-12" aria-labelledby="catering-gallery-heading" style={{ opacity: 1 }}>
+        <h2 id="catering-gallery-heading" className="text-sm font-semibold tracking-tightish" style={{ color: '#1F2645' }}>
+          Service moments
+        </h2>
+        <div className="mt-4 grid gap-4 md:grid-cols-3">
+          <div className="card overflow-hidden">
+            <img 
+              src="https://images.unsplash.com/photo-1555244162-803834f70033?w=600&q=80" 
+              alt="Catering Setup" 
+              className="w-full h-48 object-cover"
+            />
+          </div>
+          <div className="card overflow-hidden">
+            <img 
+              src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=600&q=80" 
+              alt="Catering Spread" 
+              className="w-full h-48 object-cover"
+            />
+          </div>
+          <div className="card overflow-hidden">
+            <img 
+              src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=600&q=80" 
+              alt="Traditional Catering" 
+              className="w-full h-48 object-cover"
+            />
+          </div>
+        </div>
+      </section>
+
+      {/* Marketplace Products */}
+      <ServiceProducts category="catering" />
+
+      <div className="mt-10 border-t border-border pt-8" style={{ opacity: 1 }}>
+        <ButtonLink to="/contact" variant="primary">
+          Discuss catering options
+        </ButtonLink>
+      </div>
+    </section>
+  )
+}
+
+
+
+// BACKUP
+import { TimelineConnector } from '../../components/sections/TimelineConnector'
+import { ButtonLink } from '../../components/common/buttons'
+import ServiceProducts from '../../components/sections/ServiceProducts'
+
+export function EventDecor() {
+  return (
+    <section className="container-x py-16 md:py-24" style={{ backgroundColor: '#FFFFFF', minHeight: '100vh' }}>
+      <header className="grid gap-8 md:grid-cols-[minmax(0,1.4fr)_minmax(0,1fr)] md:items-end" style={{ opacity: 1, visibility: 'visible' }}>
+        <div style={{ color: '#1F2645' }}>
+          <p className="text-xs font-bold uppercase tracking-[0.18em]" style={{ color: '#E55625' }}>Services · Event décor</p>
+          <h1 className="mt-4 font-display text-4xl tracking-tightish md:text-5xl font-bold" style={{ color: '#1F2645' }}>
+            Rooms that feel considered,
+            <br />
+            not over-decorated.
+          </h1>
+          <p className="mt-5 text-base leading-relaxed" style={{ color: '#1F2645' }}>
+            We work with florists, stylists, and lighting designers to build a clear visual language for your event—and
+            then remove anything that doesn&apos;t serve it.
+          </p>
+        </div>
+        <div className="card p-5 text-sm border-purple-pale" style={{ backgroundColor: '#F3E8FF', color: '#1F2645', opacity: 1 }}>
+          <div className="text-xs uppercase tracking-[0.14em] font-semibold" style={{ color: '#1F2645' }}>Ideal for</div>
+          <p className="mt-2" style={{ color: '#1F2645' }}>Ceremonies, receptions, brand events, and environments that photograph well by design.</p>
+        </div>
+      </header>
+
+      <div className="mt-10 grid gap-10 md:grid-cols-[minmax(0,1.2fr)_minmax(0,1.1fr)] md:items-start" style={{ opacity: 1, visibility: 'visible' }}>
+        <section aria-labelledby="decor-included-heading">
+          <h2 id="decor-included-heading" className="text-sm font-semibold tracking-tightish" style={{ color: '#1F2645' }}>
+            What&apos;s included
+          </h2>
+          <ul className="mt-3 grid gap-3 text-sm leading-relaxed md:grid-cols-2" style={{ color: '#1F2645' }}>
+            <li>Concept boards and reference pulls tailored to your venue and budget.</li>
+            <li>Tablescape design including linens, place settings, and printed pieces.</li>
+            <li>Floral direction and coordination with your florist or our partners.</li>
+            <li>Ambient and feature lighting plans that support photography and mood.</li>
+          </ul>
+        </section>
+
+        <section
+          aria-labelledby="decor-process-heading"
+          className="space-y-6 md:border-l md:border-purple-pale md:pl-8"
+          style={{ opacity: 1, visibility: 'visible' }}
+        >
+          <div className="flex items-center gap-4">
+            <TimelineConnector />
+            <h2 id="decor-process-heading" className="text-sm font-semibold tracking-tightish" style={{ color: '#1F2645' }}>
+              Process
+            </h2>
+          </div>
+          <ol className="space-y-4 text-sm" style={{ color: '#1F2645' }}>
+            <li>
+              <div className="font-medium" style={{ color: '#1F2645' }}>1. Mood and constraints</div>
+              <p className="mt-1 leading-relaxed" style={{ color: '#1F2645' }}>
+                We define what the room should feel like and any non-negotiables (cultural elements, brand colors,
+                venue guidelines).
+              </p>
+            </li>
+            <li>
+              <div className="font-medium" style={{ color: '#1F2645' }}>2. Layout and details</div>
+              <p className="mt-1 leading-relaxed" style={{ color: '#1F2645' }}>
+                We map focal points, guest flow, and décor moments that create rhythm rather than clutter.
+              </p>
+            </li>
+            <li>
+              <div className="font-medium" style={{ color: '#1F2645' }}>3. Install and styling</div>
+              <p className="mt-1 leading-relaxed" style={{ color: '#1F2645' }}>
+                Our team or your planner oversees install, with a final walk-through before doors open.
+              </p>
+            </li>
+          </ol>
+        </section>
+      </div>
+
+      <section className="mt-12" aria-labelledby="decor-gallery-heading" style={{ opacity: 1, visibility: 'visible' }}>
+        <h2 id="decor-gallery-heading" className="text-sm font-semibold tracking-tightish" style={{ color: '#1F2645' }}>
+          Detail studies
+        </h2>
+        <div className="mt-4 grid gap-4 md:grid-cols-3" style={{ opacity: 1 }}>
+          <div className="card overflow-hidden">
+            <img 
+              src="https://images.unsplash.com/photo-1519225421980-715cb0215aed?w=600&q=80" 
+              alt="Elegant Decor Setup" 
+              className="w-full h-48 object-cover"
+            />
+          </div>
+          <div className="card overflow-hidden">
+            <img 
+              src="https://images.unsplash.com/photo-1478146896981-b80fe463b330?w=600&q=80" 
+              alt="Wedding Decor Display" 
+              className="w-full h-48 object-cover"
+            />
+          </div>
+          <div className="card overflow-hidden">
+            <img 
+              src="https://images.unsplash.com/photo-1519167758481-83f29da8c861?w=600&q=80" 
+              alt="Lighting Setup" 
+              className="w-full h-48 object-cover"
+            />
+          </div>
+        </div>
+      </section>
+
+      {/* Marketplace Products */}
+      <ServiceProducts category="decor" />
+      <ServiceProducts category="chairs" title="Seating & Furniture" />
+      <ServiceProducts category="tables" title="Tables & Surfaces" />
+
+      <div className="mt-10 border-t border-border pt-8" style={{ opacity: 1, visibility: 'visible' }}>
+        <ButtonLink to="/contact" variant="primary">
+          Discuss décor options
+        </ButtonLink>
+      </div>
+    </section>
+  )
+}
+
+
+
+import { TimelineConnector } from '../../components/sections/TimelineConnector'
+import { ButtonLink } from '../../components/common/buttons'
+import ServiceProducts from '../../components/sections/ServiceProducts'
+
+export function FullProduction() {
+  return (
+    <section className="container-x py-16 md:py-24 bg-white">
+      <header className="grid gap-8 md:grid-cols-[minmax(0,1.4fr)_minmax(0,1fr)] md:items-end">
+        <div>
+          <p className="eyebrow text-[#E55625] font-bold">Services · Full production</p>
+          <h1 className="mt-4 font-display text-4xl tracking-tightish md:text-5xl text-[#1F2645] font-bold">
+            One team from first walkthrough
+            <br />
+            to final guest exit.
+          </h1>
+          <p className="mt-5 text-base leading-relaxed text-gray-900">
+            We oversee tents, décor, catering, sound, MC, and show-calling as a single production—so you don&apos;t have
+            to play traffic controller.
+          </p>
+        </div>
+        <div className="card p-5 text-sm text-gray-900 border-teal-pale bg-teal-50">
+          <div className="text-xs uppercase tracking-[0.14em] text-gray-700 font-semibold">Ideal for</div>
+          <p className="mt-2 text-gray-900">
+            Weddings, brand experiences, fundraisers, and ceremonies where every element needs to work together.
+          </p>
+        </div>
+      </header>
+
+      <div className="mt-10 grid gap-10 md:grid-cols-[minmax(0,1.2fr)_minmax(0,1.1fr)] md:items-start">
+        <section aria-labelledby="prod-included-heading">
+          <h2 id="prod-included-heading" className="text-sm font-semibold tracking-tightish text-gray-900">
+            What&apos;s included
+          </h2>
+          <ul className="mt-3 grid gap-3 text-sm leading-relaxed text-gray-900 md:grid-cols-2">
+            <li>Dedicated producer as your single point of contact.</li>
+            <li>Budgeting and vendor recommendations across all key categories.</li>
+            <li>Run-of-show creation, including technical cues and contingency plans.</li>
+            <li>On-site production management from load-in to strike.</li>
+          </ul>
+        </section>
+
+        <section
+          aria-labelledby="prod-process-heading"
+          className="space-y-6 md:border-l md:border-teal-pale md:pl-8"
+         
+         
+        >
+          <div className="flex items-center gap-4">
+            <TimelineConnector />
+            <h2 id="prod-process-heading" className="text-sm font-semibold tracking-tightish text-gray-900">
+              Process
+            </h2>
+          </div>
+          <ol className="space-y-4 text-sm text-gray-900">
+            <li>
+              <div className="font-medium text-gray-900">1. Discovery and scope</div>
+              <p className="mt-1 leading-relaxed text-gray-800">
+                We align on priorities, budget ranges, and what &quot;success&quot; looks like for you and your guests.
+              </p>
+            </li>
+            <li>
+              <div className="font-medium">2. Plan and partners</div>
+              <p className="mt-1 leading-relaxed">
+                We propose layouts, timelines, and a vendor mix—then refine everything with you before booking.
+              </p>
+            </li>
+            <li>
+              <div className="font-medium">3. Production and debrief</div>
+              <p className="mt-1 leading-relaxed">
+                Our team runs the show, handles issues quietly, and provides a simple post-event summary.
+              </p>
+            </li>
+          </ol>
+        </section>
+      </div>
+
+      <section className="mt-12" aria-labelledby="prod-gallery-heading">
+        <h2 id="prod-gallery-heading" className="text-sm font-semibold tracking-tightish text-gray-900">
+          Recent productions
+        </h2>
+        <div className="mt-4 grid gap-4 md:grid-cols-3">
+          <div className="card overflow-hidden">
+            <img 
+              src="https://images.unsplash.com/photo-1511578314322-379afb476865?w=600&q=80" 
+              alt="Full Production Setup" 
+              className="w-full h-48 object-cover"
+            />
+          </div>
+          <div className="card overflow-hidden">
+            <img 
+              src="https://images.unsplash.com/photo-1519167758481-83f29da8c861?w=600&q=80" 
+              alt="Full Production Layout" 
+              className="w-full h-48 object-cover"
+            />
+          </div>
+          <div className="card overflow-hidden">
+            <img 
+              src="https://images.unsplash.com/photo-1464366400600-7168b8af9bc3?w=600&q=80" 
+              alt="Graduation Party" 
+              className="w-full h-48 object-cover"
+            />
+          </div>
+        </div>
+      </section>
+
+      {/* Featured Products for Full Production */}
+      <ServiceProducts category="tents" title="Featured Tents" maxItems={4} />
+      <ServiceProducts category="decor" title="Décor Highlights" maxItems={4} />
+      <ServiceProducts category="sound" title="Sound & Lighting" maxItems={4} />
+
+      <div className="mt-10 border-t border-border pt-8">
+        <ButtonLink to="/contact" variant="primary">
+          Plan full production
+        </ButtonLink>
+      </div>
+    </section>
+  )
+}
+
+
+
+import { TimelineConnector } from '../../components/sections/TimelineConnector'
+import { ButtonLink } from '../../components/common/buttons'
+import ServiceProducts from '../../components/sections/ServiceProducts'
+
+export function McServices() {
+  return (
+    <section className="container-x py-16 md:py-24 bg-white">
+      <header className="grid gap-8 md:grid-cols-[minmax(0,1.4fr)_minmax(0,1fr)] md:items-end">
+        <div>
+          <p className="eyebrow text-[#E55625] font-bold">Services · MC</p>
+          <h1 className="mt-4 font-display text-4xl tracking-tightish md:text-5xl text-[#1F2645] font-bold">
+            Voices that carry the room,
+            <br />
+            without taking it over.
+          </h1>
+          <p className="mt-5 text-base leading-relaxed text-gray-900">
+            Our MCs keep guests oriented, energy steady, and transitions smooth—always in service of your event, never
+            the microphone.
+          </p>
+        </div>
+        <div className="card p-5 text-sm text-gray-900 border-purple-pale bg-purple-50">
+          <div className="text-xs uppercase tracking-[0.14em] text-gray-700 font-semibold">Ideal for</div>
+          <p className="mt-2 text-gray-900">Weddings, ceremonies, fundraisers, and conferences with live program elements.</p>
+        </div>
+      </header>
+
+      <div className="mt-10 grid gap-10 md:grid-cols-[minmax(0,1.2fr)_minmax(0,1.1fr)] md:items-start">
+        <section aria-labelledby="mc-included-heading">
+          <h2 id="mc-included-heading" className="text-sm font-semibold tracking-tightish text-gray-900">
+            What&apos;s included
+          </h2>
+          <ul className="mt-3 grid gap-3 text-sm leading-relaxed text-gray-900 md:grid-cols-2">
+            <li>Professional MCs matched to your event style and audience.</li>
+            <li>Script and cue review with your planner or internal team.</li>
+            <li>Coordination with AV, catering, and front-of-house for timing.</li>
+            <li>Guidance for speakers who are new to the microphone.</li>
+          </ul>
+        </section>
+
+        <section
+          aria-labelledby="mc-process-heading"
+          className="space-y-6 md:border-l md:border-purple-pale md:pl-8"
+         
+         
+        >
+          <div className="flex items-center gap-4">
+            <TimelineConnector />
+            <h2 id="mc-process-heading" className="text-sm font-semibold tracking-tightish text-gray-900">
+              Process
+            </h2>
+          </div>
+          <ol className="space-y-4 text-sm text-gray-900">
+            <li>
+              <div className="font-medium text-gray-900">1. Event narrative</div>
+              <p className="mt-1 leading-relaxed text-gray-800">
+                We understand the story your event is telling and where key moments land in the run of show.
+              </p>
+            </li>
+            <li>
+              <div className="font-medium">2. Script and cues</div>
+              <p className="mt-1 leading-relaxed">
+                We co-write or refine scripts, intros, and housekeeping so the MC speaks clearly and succinctly.
+              </p>
+            </li>
+            <li>
+              <div className="font-medium">3. On-the-day adjustments</div>
+              <p className="mt-1 leading-relaxed">
+                Your MC tracks timing with production so the event feels fluid, even when things shift.
+              </p>
+            </li>
+          </ol>
+        </section>
+      </div>
+
+      <section className="mt-12" aria-labelledby="mc-gallery-heading">
+        <h2 id="mc-gallery-heading" className="text-sm font-semibold tracking-tightish text-gray-900">
+          Moments on mic
+        </h2>
+        <div className="mt-4 grid gap-4 md:grid-cols-3">
+          <div className="card overflow-hidden">
+            <img 
+              src="https://images.unsplash.com/photo-1475721027785-f74eccf877e2?w=600&q=80" 
+              alt="MC with DJ Equipment" 
+              className="w-full h-48 object-cover"
+            />
+          </div>
+          <div className="card overflow-hidden">
+            <img 
+              src="https://images.unsplash.com/photo-1501281668745-f7f57925c3b4?w=600&q=80" 
+              alt="Stage with Microphone Setup" 
+              className="w-full h-48 object-cover"
+            />
+          </div>
+          <div className="card overflow-hidden">
+            <img 
+              src="https://images.unsplash.com/photo-1511578314322-379afb476865?w=600&q=80" 
+              alt="Full Event Production" 
+              className="w-full h-48 object-cover"
+            />
+          </div>
+        </div>
+      </section>
+
+      {/* Recommended Sound Equipment for MC */}
+      <ServiceProducts category="sound" title="Recommended Sound Equipment" maxItems={4} />
+
+      <div className="mt-10 border-t border-border pt-8">
+        <ButtonLink to="/contact" variant="primary">
+          Discuss MC options
+        </ButtonLink>
+      </div>
+    </section>
+  )
+}
+
+
+
+import { TimelineConnector } from '../../components/sections/TimelineConnector'
+import { ButtonLink } from '../../components/common/buttons'
+import ServiceProducts from '../../components/sections/ServiceProducts'
+
+export function SoundDj() {
+  return (
+    <section className="container-x py-16 md:py-24 bg-white">
+      <header className="grid gap-8 md:grid-cols-[minmax(0,1.4fr)_minmax(0,1fr)] md:items-end">
+        <div>
+          <p className="eyebrow text-[#E55625] font-bold">Services · Sound &amp; DJ</p>
+          <h1 className="mt-4 font-display text-4xl tracking-tightish md:text-5xl text-[#1F2645] font-bold">
+            Clear sound,
+            <br />
+            no drama.
+          </h1>
+          <p className="mt-5 text-base leading-relaxed text-gray-900">
+            We design PA systems and music direction so speeches land, dance floors stay full, and your neighbours stay
+            calm.
+          </p>
+        </div>
+        <div className="card p-5 text-sm text-gray-900 border-teal-pale bg-teal-50">
+          <div className="text-xs uppercase tracking-[0.14em] text-gray-700 font-semibold">Ideal for</div>
+          <p className="mt-2 text-gray-900">Ceremonies, receptions, conferences, and experiences where audio clarity matters.</p>
+        </div>
+      </header>
+
+      <div className="mt-10 grid gap-10 md:grid-cols-[minmax(0,1.2fr)_minmax(0,1.1fr)] md:items-start">
+        <section aria-labelledby="sound-included-heading">
+          <h2 id="sound-included-heading" className="text-sm font-semibold tracking-tightish text-gray-900">
+            What&apos;s included
+          </h2>
+          <ul className="mt-3 grid gap-3 text-sm leading-relaxed text-gray-900 md:grid-cols-2">
+            <li>PA design for ceremonies, speeches, and live or DJ sets.</li>
+            <li>On-site technicians to manage levels and troubleshoot quietly.</li>
+            <li>DJ curation, from brief to setlists, aligned to your crowd and schedule.</li>
+            <li>Microphones, monitors, and playback systems sized to your room.</li>
+          </ul>
+        </section>
+
+        <section
+          aria-labelledby="sound-process-heading"
+          className="space-y-6 md:border-l md:border-teal-pale md:pl-8"
+         
+         
+        >
+          <div className="flex items-center gap-4">
+            <TimelineConnector />
+            <h2 id="sound-process-heading" className="text-sm font-semibold tracking-tightish text-gray-900">
+              Process
+            </h2>
+          </div>
+          <ol className="space-y-4 text-sm text-gray-900">
+            <li>
+              <div className="font-medium text-gray-900">1. Room and program</div>
+              <p className="mt-1 leading-relaxed text-gray-800">
+                We map where sound needs to reach, what&apos;s being amplified, and any noise constraints.
+              </p>
+            </li>
+            <li>
+              <div className="font-medium">2. System design</div>
+              <p className="mt-1 leading-relaxed">
+                We specify speakers, microphones, and control so everything works within your technical budget.
+              </p>
+            </li>
+            <li>
+              <div className="font-medium">3. Show call</div>
+              <p className="mt-1 leading-relaxed">
+                Our technicians arrive early, line-check, and follow the run of show from first cue to last track.
+              </p>
+            </li>
+          </ol>
+        </section>
+      </div>
+
+      <section className="mt-12" aria-labelledby="sound-gallery-heading">
+        <h2 id="sound-gallery-heading" className="text-sm font-semibold tracking-tightish text-gray-900">
+          Setups
+        </h2>
+        <div className="mt-4 grid gap-4 md:grid-cols-3">
+          <div className="card overflow-hidden">
+            <img 
+              src="https://images.unsplash.com/photo-1470229722913-7c0e2dbbafd3?w=600&q=80" 
+              alt="DJ & PA Setup" 
+              className="w-full h-48 object-cover"
+            />
+          </div>
+          <div className="card overflow-hidden">
+            <img 
+              src="https://images.unsplash.com/photo-1598488035139-bdbb2231ce04?w=600&q=80" 
+              alt="PA System" 
+              className="w-full h-48 object-cover"
+            />
+          </div>
+          <div className="card overflow-hidden">
+            <img 
+              src="https://images.unsplash.com/photo-1501281668745-f7f57925c3b4?w=600&q=80" 
+              alt="Stage Setup" 
+              className="w-full h-48 object-cover"
+            />
+          </div>
+        </div>
+      </section>
+
+      {/* Marketplace Products - Sound & Lighting */}
+      <ServiceProducts category="sound" title="Sound & DJ Equipment" />
+      <ServiceProducts category="lighting" title="Lighting Solutions" />
+
+      <div className="mt-10 border-t border-border pt-8">
+        <ButtonLink to="/contact" variant="primary">
+          Discuss sound &amp; DJ options
+        </ButtonLink>
+      </div>
+    </section>
+  )
+}
+
+
+
+import { TimelineConnector } from '../../components/sections/TimelineConnector'
+import { ButtonLink } from '../../components/common/buttons'
+import ServiceProducts from '../../components/sections/ServiceProducts'
+
+export function TentRentals() {
+  return (
+    <section className="container-x py-16 md:py-24 bg-white">
+      <header className="grid gap-8 md:grid-cols-[minmax(0,1.4fr)_minmax(0,1fr)] md:items-end">
+        <div>
+          <p className="eyebrow text-[#E55625] font-bold">Services · Tent rentals</p>
+          <h1 className="mt-4 font-display text-4xl tracking-tightish md:text-5xl text-[#1F2645] font-bold">Structure that feels intentional.</h1>
+          <p className="mt-5 text-base leading-relaxed text-gray-900">
+            We design tent layouts around sightlines, service routes, and the way your guests actually move through a
+            space—not just the maximum capacity.
+          </p>
+        </div>
+        <div className="card p-5 text-sm text-gray-900 border-teal-pale bg-teal-50">
+          <div className="text-xs uppercase tracking-[0.14em] text-gray-700 font-semibold">Ideal for</div>
+          <p className="mt-2 text-gray-900">Outdoor weddings, corporate dinners, ceremonies, and multi-day festivals.</p>
+        </div>
+      </header>
+
+      <div className="mt-10 grid gap-10 md:grid-cols-[minmax(0,1.2fr)_minmax(0,1.1fr)] md:items-start">
+        <section aria-labelledby="tent-included-heading">
+          <h2 id="tent-included-heading" className="text-sm font-semibold tracking-tightish text-gray-900">
+            What&apos;s included
+          </h2>
+          <ul className="mt-3 grid gap-3 text-sm leading-relaxed text-gray-900 md:grid-cols-2">
+            <li>Framed, marquee, and stretch tent options sized to your guest count and layout.</li>
+            <li>Site visit and load-in plan, including access, power, and ground conditions.</li>
+            <li>Flooring, basic lighting, sidewalls, and weather contingencies where required.</li>
+            <li>Coordination with your venue and other vendors on timing and placement.</li>
+          </ul>
+        </section>
+
+        <section
+          aria-labelledby="tent-process-heading"
+          className="space-y-6 md:border-l md:border-teal-pale md:pl-8"
+         
+         
+        >
+          <div className="flex items-center gap-4">
+            <TimelineConnector />
+            <h2 id="tent-process-heading" className="text-sm font-semibold tracking-tightish text-gray-900">
+              Process
+            </h2>
+          </div>
+          <ol className="space-y-4 text-sm text-gray-900">
+            <li>
+              <div className="font-medium text-gray-900">1. Site and guest brief</div>
+              <p className="mt-1 leading-relaxed text-gray-800">
+                We review photos, measurements, and guest count to propose a tent footprint and orientation.
+              </p>
+            </li>
+            <li>
+              <div className="font-medium">2. Layout and clearances</div>
+              <p className="mt-1 leading-relaxed">
+                We map entrances, exits, catering routes, and technical needs before locking in dimensions.
+              </p>
+            </li>
+            <li>
+              <div className="font-medium">3. Install & handover</div>
+              <p className="mt-1 leading-relaxed">
+                Our crew installs, weights or stakes the structure, and walks the space with you or your planner.
+              </p>
+            </li>
+          </ol>
+        </section>
+      </div>
+
+      <section className="mt-12" aria-labelledby="tent-gallery-heading">
+        <h2 id="tent-gallery-heading" className="text-sm font-semibold tracking-tightish text-gray-900">
+          Recent layouts
+        </h2>
+        <div className="mt-4 grid gap-4 md:grid-cols-3">
+          <div className="card overflow-hidden">
+            <img 
+              src="https://images.unsplash.com/photo-1519167758481-83f29da8c861?w=600&q=80" 
+              alt="100 Guest Tent Setup" 
+              className="w-full h-48 object-cover"
+            />
+          </div>
+          <div className="card overflow-hidden">
+            <img 
+              src="https://images.unsplash.com/photo-1505236858219-8359eb29e329?w=600&q=80" 
+              alt="Stretch Tent Display" 
+              className="w-full h-48 object-cover"
+            />
+          </div>
+          <div className="card overflow-hidden">
+            <img 
+              src="https://images.unsplash.com/photo-1464366400600-7168b8af9bc3?w=600&q=80" 
+              alt="Pagoda Tent Setup" 
+              className="w-full h-48 object-cover"
+            />
+          </div>
+        </div>
+      </section>
+
+      {/* Marketplace Products */}
+      <ServiceProducts category="tents" />
+
+      <div className="mt-10 border-t border-border pt-8">
+        <ButtonLink to="/contact" variant="primary">
+          Request tent pricing
+        </ButtonLink>
+      </div>
+    </section>
+  )
+}
+
+
+

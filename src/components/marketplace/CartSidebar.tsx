@@ -2,7 +2,6 @@ import { motion, AnimatePresence } from 'framer-motion'
 import { X, Minus, Plus, Trash2, ShoppingBag, ArrowRight } from 'lucide-react'
 import { useCart } from '../../context/useCart'
 import { formatPrice } from '../../data/products'
-import { Link } from 'react-router-dom'
 
 export default function CartSidebar() {
   const { items, isCartOpen, setIsCartOpen, updateQuantity, removeItem, getCartTotal, getItemCount } = useCart()
@@ -147,15 +146,17 @@ export default function CartSidebar() {
                   Delivery and setup fees calculated at checkout
                 </p>
                 
-                {/* Checkout Button */}
-                <Link
-                  to="/checkout"
+                {/* WhatsApp Inquiry Button */}
+                <a
+                  href={`https://wa.me/254728288688?text=Hi!%20I'd%20like%20to%20inquire%20about%20renting%20the%20following%20items:%0A%0A${items.map(item => `${item.quantity}x%20${encodeURIComponent(item.product.name)}%20-%20${encodeURIComponent(formatPrice(item.product.price * item.quantity))}`).join('%0A')}%0A%0ATotal:%20${encodeURIComponent(formatPrice(getCartTotal()))}%0A%0ACan%20you%20provide%20more%20details%20about%20availability%20and%20booking%3F`}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   onClick={() => setIsCartOpen(false)}
                   className="w-full flex items-center justify-center gap-2 py-3 bg-[#E55625] hover:bg-[#d14a1f] text-white font-bold rounded-xl transition-colors"
                 >
-                  Proceed to Checkout
+                  Inquire on WhatsApp
                   <ArrowRight className="w-5 h-5" />
-                </Link>
+                </a>
                 
                 {/* Continue Shopping */}
                 <button

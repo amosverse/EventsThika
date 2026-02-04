@@ -31,7 +31,7 @@ export default function ServiceProducts({ category, title, maxItems = 8 }: Servi
   if (filteredProducts.length === 0) return null
 
   return (
-    <section className="mt-16 pt-12 border-t border-border" data-aos="fade-up">
+    <section className="mt-16 pt-12 border-t border-border" style={{ opacity: 1, visibility: 'visible' }}>
       <div className="flex items-center justify-between mb-8">
         <div>
           <h2 className="text-2xl font-display font-bold text-[#1F2645] tracking-tightish">
@@ -53,7 +53,7 @@ export default function ServiceProducts({ category, title, maxItems = 8 }: Servi
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
-        className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6"
+        className="grid grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6"
       >
         {filteredProducts.map((product, index) => (
           <motion.div

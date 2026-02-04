@@ -3,7 +3,6 @@ import { motion, AnimatePresence } from 'framer-motion'
 import { X, Star, ShoppingCart, Plus, Minus, Check } from 'lucide-react'
 import { formatPrice } from '../../data/products'
 import type { Product } from '../../data/products'
-import { useCart } from '../../context/useCart'
 
 interface ProductModalProps {
   product: Product | null
@@ -11,21 +10,9 @@ interface ProductModalProps {
 }
 
 export default function ProductModal({ product, onClose }: ProductModalProps) {
-  const { addItem } = useCart()
   const [quantity, setQuantity] = useState(1)
-  const [isAdding, setIsAdding] = useState(false)
 
   if (!product) return null
-
-  const handleAddToCart = () => {
-    setIsAdding(true)
-    addItem(product, quantity)
-    setTimeout(() => {
-      setIsAdding(false)
-      setQuantity(1)
-      onClose()
-    }, 800)
-  }
 
   return (
     <AnimatePresence>
@@ -128,7 +115,7 @@ export default function ProductModal({ product, onClose }: ProductModalProps) {
                 {/* Spacer */}
                 <div className="flex-1" />
 
-                {/* Quantity & Add to Cart */}
+                {/* Quantity & WhatsApp Inquiry */}
                 <div className="border-t border-gray-200 dark:border-white/10 pt-6 mt-auto">
                   <div className="flex items-center gap-4 mb-4">
                     <span className="text-sm font-semibold text-[#1F2645] dark:text-white">
@@ -156,30 +143,20 @@ export default function ProductModal({ product, onClose }: ProductModalProps) {
                     </span>
                   </div>
 
-                  <motion.button
+                  <motion.a
+                    href={`https://wa.me/254728288688?text=Hi!%20I'm%20interested%20in%20renting%20${encodeURIComponent(product.name)}%20for%20my%20event.%0A%0AQuantity:%20${quantity}%0ATotal:%20${encodeURIComponent(formatPrice(product.price * quantity))}%0A%0ACan%20you%20provide%20more%20details%20about%20availability%20and%20booking%3F`}
+                    target="_blank"
+                    rel="noopener noreferrer"
                     whileTap={{ scale: 0.98 }}
-                    onClick={handleAddToCart}
-                    disabled={!product.available}
                     className={`w-full flex items-center justify-center gap-2 py-4 rounded-xl font-bold text-lg transition-all duration-300 ${
-                      isAdding
-                        ? 'bg-green-500 text-white'
-                        : product.available
+                      product.available
                         ? 'bg-[#E55625] hover:bg-[#d14a1f] text-white'
-                        : 'bg-gray-300 text-gray-500 cursor-not-allowed'
+                        : 'bg-gray-300 text-gray-500 cursor-not-allowed pointer-events-none'
                     }`}
                   >
-                    {isAdding ? (
-                      <>
-                        <Check className="w-6 h-6" />
-                        Added to Cart!
-                      </>
-                    ) : (
-                      <>
-                        <ShoppingCart className="w-6 h-6" />
-                        Add to Cart
-                      </>
-                    )}
-                  </motion.button>
+                    <ShoppingCart className="w-6 h-6" />
+                    Inquire on WhatsApp
+                  </motion.a>
                 </div>
               </div>
             </div>

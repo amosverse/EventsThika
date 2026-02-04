@@ -12,31 +12,32 @@ export function SiteLayout() {
   const location = useLocation()
 
   useEffect(() => {
-    AOS.init({
-      duration: 720,
-      easing: 'ease-out',
-      offset: 140,
-      once: true,
-    })
+    // AOS disabled temporarily for debugging
+    // AOS.init({
+    //   duration: 720,
+    //   easing: 'ease-out',
+    //   offset: 140,
+    //   once: true,
+    // })
   }, [])
 
   useEffect(() => {
     // Ensure AOS recalculates on navigation.
-    AOS.refreshHard()
+    // AOS.refreshHard()
   }, [location.pathname])
 
   return (
-    <div className="min-h-dvh bg-background text-text-primary">
+    <div className="min-h-dvh bg-background text-text-primary antialiased">
       <a
         href="#main"
-        className="sr-only focus:not-sr-only focus:absolute focus:left-5 focus:top-5 focus:z-50 focus:rounded-lg focus:bg-surface focus:px-4 focus:py-2 focus:text-sm focus:shadow-liftSm"
+        className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-50 focus:rounded-xl focus:bg-white focus:px-6 focus:py-3 focus:text-base focus:shadow-lift focus:outline-none"
       >
         Skip to content
       </a>
 
       <SiteHeader />
 
-      <main id="main" className="pt-16">
+      <main id="main" className="pt-16 md:pt-20">
         <Outlet />
       </main>
 

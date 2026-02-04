@@ -123,64 +123,108 @@ export function Testimonials() {
 
         {/* Testimonial Cards Container */}
         <div className="relative flex items-center justify-center">
-          {/* Left Navigation */}
+          {/* Left Navigation - Hide on mobile and tablet */}
           <button
             onClick={handlePrev}
-            className="absolute left-0 z-20 flex h-12 w-12 items-center justify-center rounded-full border-2 border-[#1F2645] bg-white shadow-lg transition hover:bg-[#1F2645] hover:text-white md:left-4"
+            className="absolute left-0 z-20 hidden lg:flex h-12 w-12 items-center justify-center rounded-full border-2 border-[#1F2645] bg-white shadow-lg transition hover:bg-[#1F2645] hover:text-white lg:left-4"
             aria-label="Previous testimonial"
           >
             <ChevronLeft className="h-6 w-6" />
           </button>
 
-          {/* Cards Scattered Layout */}
-          <div className="relative mx-auto h-[450px] w-full max-w-4xl md:h-[380px]">
-            {getVisibleCards().map((testimonial, idx) => (
-              <div
-                key={`${testimonial.id}-${currentIndex}-${idx}`}
-                className={`absolute left-1/2 top-1/2 w-[280px] -translate-x-1/2 -translate-y-1/2 transition-all duration-500 md:w-[320px] ${
-                  idx === 0
-                    ? 'z-10 md:-translate-x-[180%]'
-                    : idx === 1
-                    ? 'z-20 scale-105'
-                    : 'z-10 md:translate-x-[80%]'
-                } ${testimonial.rotation}`}
-              >
+          {/* Cards Layout - Stack on mobile, 2 cols on tablet, scattered on desktop */}
+          <div className="w-full">
+            {/* Mobile & Tablet: Single/Double column layout */}
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:hidden gap-6 px-4">
+              {testimonials.slice(currentIndex, currentIndex + 2).concat(
+                testimonials.slice(0, Math.max(0, (currentIndex + 2) - testimonials.length))
+              ).slice(0, 2).map((testimonial, idx) => (
                 <div
-                  className={`relative rounded-2xl p-6 shadow-xl ${testimonial.bgColor} ${testimonial.textColor}`}
+                  key={`mobile-${testimonial.id}-${idx}`}
+                  className={`${testimonial.rotation}`}
                 >
-                  {/* Profile Image - Top Left */}
-                  <div className="absolute -top-6 -left-6 h-14 w-14 overflow-hidden rounded-full border-4 border-white shadow-lg">
-                    <img
-                      src={testimonial.image}
-                      alt={testimonial.name}
-                      className="h-full w-full object-cover"
-                    />
-                  </div>
+                  <div
+                    className={`relative rounded-2xl p-6 shadow-xl ${testimonial.bgColor} ${testimonial.textColor}`}
+                  >
+                    {/* Profile Image - Top Left */}
+                    <div className="absolute -top-6 -left-6 h-14 w-14 overflow-hidden rounded-full border-4 border-white shadow-lg">
+                      <img
+                        src={testimonial.image}
+                        alt={testimonial.name}
+                        className="h-full w-full object-cover"
+                      />
+                    </div>
 
-                  {/* Star Rating */}
-                  <div className="mb-4 flex gap-1 pt-4">
-                    {[...Array(5)].map((_, i) => (
-                      <Star key={i} className="h-5 w-5 fill-[#FFA500] text-[#FFA500]" />
-                    ))}
-                  </div>
+                    {/* Star Rating */}
+                    <div className="mb-4 flex gap-1 pt-4">
+                      {[...Array(5)].map((_, i) => (
+                        <Star key={i} className="h-5 w-5 fill-[#FFA500] text-[#FFA500]" />
+                      ))}
+                    </div>
 
-                  {/* Testimonial Text */}
-                  <p className="mb-4 text-sm leading-relaxed md:text-base">{testimonial.text}</p>
+                    {/* Testimonial Text */}
+                    <p className="mb-4 text-sm leading-relaxed md:text-base">{testimonial.text}</p>
 
-                  {/* Name and Role */}
-                  <div className="border-t border-current/20 pt-3">
-                    <p className="font-semibold">{testimonial.name}</p>
-                    <p className="text-xs opacity-80">{testimonial.role}</p>
+                    {/* Name and Role */}
+                    <div className="border-t border-current/20 pt-3">
+                      <p className="font-semibold">{testimonial.name}</p>
+                      <p className="text-xs opacity-80">{testimonial.role}</p>
+                    </div>
                   </div>
                 </div>
-              </div>
-            ))}
+              ))}
+            </div>
+
+            {/* Desktop: Scattered layout */}
+            <div className="hidden lg:block relative mx-auto h-[380px] w-full max-w-4xl">
+              {getVisibleCards().map((testimonial, idx) => (
+                <div
+                  key={`${testimonial.id}-${currentIndex}-${idx}`}
+                  className={`absolute left-1/2 top-1/2 w-[320px] -translate-x-1/2 -translate-y-1/2 transition-all duration-500 ${
+                    idx === 0
+                      ? 'z-10 -translate-x-[180%]'
+                      : idx === 1
+                      ? 'z-20 scale-105'
+                      : 'z-10 translate-x-[80%]'
+                  } ${testimonial.rotation}`}
+                >
+                  <div
+                    className={`relative rounded-2xl p-6 shadow-xl ${testimonial.bgColor} ${testimonial.textColor}`}
+                  >
+                    {/* Profile Image - Top Left */}
+                    <div className="absolute -top-6 -left-6 h-14 w-14 overflow-hidden rounded-full border-4 border-white shadow-lg">
+                      <img
+                        src={testimonial.image}
+                        alt={testimonial.name}
+                        className="h-full w-full object-cover"
+                      />
+                    </div>
+
+                    {/* Star Rating */}
+                    <div className="mb-4 flex gap-1 pt-4">
+                      {[...Array(5)].map((_, i) => (
+                        <Star key={i} className="h-5 w-5 fill-[#FFA500] text-[#FFA500]" />
+                      ))}
+                    </div>
+
+                    {/* Testimonial Text */}
+                    <p className="mb-4 text-sm leading-relaxed md:text-base">{testimonial.text}</p>
+
+                    {/* Name and Role */}
+                    <div className="border-t border-current/20 pt-3">
+                      <p className="font-semibold">{testimonial.name}</p>
+                      <p className="text-xs opacity-80">{testimonial.role}</p>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
           </div>
 
-          {/* Right Navigation */}
+          {/* Right Navigation - Hide on mobile and tablet */}
           <button
             onClick={handleNext}
-            className="absolute right-0 z-20 flex h-12 w-12 items-center justify-center rounded-full border-2 border-[#1F2645] bg-white shadow-lg transition hover:bg-[#1F2645] hover:text-white md:right-4"
+            className="absolute right-0 z-20 hidden lg:flex h-12 w-12 items-center justify-center rounded-full border-2 border-[#1F2645] bg-white shadow-lg transition hover:bg-[#1F2645] hover:text-white lg:right-4"
             aria-label="Next testimonial"
           >
             <ChevronRight className="h-6 w-6" />
