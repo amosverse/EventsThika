@@ -117,9 +117,9 @@ export function SiteFooter() {
               </a>
             </li>
             <li>
-              <a className="underline-anim text-white hover:text-accent-light" href="#contact-form" onClick={(e) => { e.preventDefault(); window.location.href = '/contact#contact-form'; }}>
+              <NavLink className="underline-anim text-white hover:text-accent-light" to="/contact#contact-form">
                 Email us
-              </a>
+              </NavLink>
             </li>
           </ul>
         </div>
