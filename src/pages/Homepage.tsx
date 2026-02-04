@@ -299,7 +299,7 @@ export function Home() {
             <h2 id="home-services-heading" className="mt-3 font-display text-4xl tracking-tightish md:text-5xl">
               Everything under one roof,
               <br />
-              <span className="text-accent">built for the day of.</span>
+              <span className="text-accent">built for the day.</span>
             </h2>
             <p className="mt-4 max-w-2xl text-base leading-relaxed text-gray-800">
               We treat your event like a live production. Clear timelines, precise layouts, and technical teams who know
