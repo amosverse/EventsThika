@@ -33,8 +33,8 @@ export function SiteHeader() {
   return (
     <header className="fixed inset-x-0 top-0 z-40 border-b border-border bg-white/95 backdrop-blur-md shadow-sm">
       <div className="container-x flex h-16 md:h-20 items-center justify-between">
-        <NavLink to="/" className="group inline-flex items-center flex-shrink-0" aria-label="Go to homepage">
-          <LogoHorizontal className="h-12 md:h-16 w-auto" />
+          <NavLink to="/" className="group inline-flex items-center flex-shrink-0" aria-label="Go to homepage">
+          <LogoHorizontal className="h-16 md:h-20 w-auto" />
         </NavLink>
 
         {/* Desktop Navigation */}
