@@ -1,6 +1,6 @@
 /** @type {import('tailwindcss').Config} */
 export default {
-  darkMode: 'class',
+  darkMode: 'media',
   content: ['./index.html', './src/**/*.{js,ts,jsx,tsx}'],
   theme: {
     screens: {
@@ -54,13 +54,17 @@ export default {
       },
       colors: {
         /* Strict Color System - Primary */
-        'primary-dark': '#1F2645',
+        'primary-dark': {
+          DEFAULT: '#1F2645',
+          dark: '#E8EAF0',
+        },
         
         /* Strict Color System - Accent */
         accent: {
           DEFAULT: '#E55625',
           hover: '#D14A1F',
           light: '#F37B4D',
+          dark: '#FF6B3D',
         },
         
         /* Strict Color System - Success */
@@ -68,30 +72,54 @@ export default {
           DEFAULT: '#4CAF50',
           light: '#81C784',
           dark: '#388E3C',
+          'dark-mode': '#66BB6A',
         },
         
         /* Additional brand colors */
         teal: {
           DEFAULT: '#14B8A6',
           subtle: '#F0FDFA',
+          'dark-subtle': '#042F2E',
         },
         purple: {
           DEFAULT: '#8B5CF6',
           subtle: '#FAF5FF',
+          'dark-subtle': '#2E1065',
         },
         
         /* Strict Color System - Backgrounds */
-        background: '#FFFFFF',
-        'background-alt': '#F5F7FA',
-        surface: '#FFFFFF',
+        background: {
+          DEFAULT: '#FFFFFF',
+          dark: '#0F1419',
+        },
+        'background-alt': {
+          DEFAULT: '#F5F7FA',
+          dark: '#1A1F2E',
+        },
+        surface: {
+          DEFAULT: '#FFFFFF',
+          dark: '#1A1F2E',
+        },
         
         /* Strict Color System - Text Hierarchy */
-        'text-primary': '#1F2645',
-        'text-secondary': 'rgba(31, 38, 69, 0.7)',
-        'text-muted': 'rgba(31, 38, 69, 0.5)',
+        'text-primary': {
+          DEFAULT: '#1F2645',
+          dark: '#E8EAF0',
+        },
+        'text-secondary': {
+          DEFAULT: 'rgba(31, 38, 69, 0.7)',
+          dark: 'rgba(232, 234, 240, 0.7)',
+        },
+        'text-muted': {
+          DEFAULT: 'rgba(31, 38, 69, 0.5)',
+          dark: 'rgba(232, 234, 240, 0.5)',
+        },
         
         /* Strict Color System - Border */
-        border: 'rgba(31, 38, 69, 0.12)',
+        border: {
+          DEFAULT: 'rgba(31, 38, 69, 0.12)',
+          dark: 'rgba(232, 234, 240, 0.12)',
+        },
       },
       fontFamily: {
         display: ['Cormorant Garamond', 'ui-serif', 'Georgia', 'serif'],
