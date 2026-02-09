@@ -4,32 +4,31 @@ import ServiceProducts from '../../components/sections/ServiceProducts'
 
 export function SoundDj() {
   return (
-    <section className="container-x py-16 md:py-24 bg-white">
+    <section className="container-x py-16 md:py-24 bg-background">
       <header className="grid gap-8 md:grid-cols-[minmax(0,1.4fr)_minmax(0,1fr)] md:items-end">
         <div>
-          <p className="eyebrow text-[#E55625] font-bold">Services · Sound &amp; DJ</p>
-          <h1 className="mt-4 font-display text-4xl tracking-tightish md:text-5xl text-[#1F2645] font-bold">
+          <p className="eyebrow text-accent font-bold">Services · Sound &amp; DJ</p>
+          <h1 className="mt-4 font-display text-4xl tracking-tightish md:text-5xl text-text-primary font-bold">
             Clear sound,
             <br />
             no drama.
           </h1>
-          <p className="mt-5 text-base leading-relaxed text-gray-900">
-            We design PA systems and music direction so speeches land, dance floors stay full, and your neighbours stay
+          <p className="mt-5 text-base leading-relaxed text-text-primary"> and music direction so speeches land, dance floors stay full, and your neighbours stay
             calm.
           </p>
         </div>
-        <div className="card p-5 text-sm text-gray-900 border-teal-pale bg-teal-50">
-          <div className="text-xs uppercase tracking-[0.14em] text-gray-700 font-semibold">Ideal for</div>
-          <p className="mt-2 text-gray-900">Ceremonies, receptions, conferences, and experiences where audio clarity matters.</p>
+        <div className="card p-5 text-sm text-text-primary border-teal-pale bg-teal-50">
+          <div className="text-xs uppercase tracking-[0.14em] text-text-secondary font-semibold">Ideal for</div>
+          <p className="mt-2 text-text-primary">Ceremonies, receptions, conferences, and experiences where audio clarity matters.</p>
         </div>
       </header>
 
       <div className="mt-10 grid gap-10 md:grid-cols-[minmax(0,1.2fr)_minmax(0,1.1fr)] md:items-start">
         <section aria-labelledby="sound-included-heading">
-          <h2 id="sound-included-heading" className="text-sm font-semibold tracking-tightish text-gray-900">
+          <h2 id="sound-included-heading" className="text-sm font-semibold tracking-tightish text-text-primary">
             What&apos;s included
           </h2>
-          <ul className="mt-3 grid gap-3 text-sm leading-relaxed text-gray-900 md:grid-cols-2">
+          <ul className="mt-3 grid gap-3 text-sm leading-relaxed text-text-primary md:grid-cols-2">
             <li>PA design for ceremonies, speeches, and live or DJ sets.</li>
             <li>On-site technicians to manage levels and troubleshoot quietly.</li>
             <li>DJ curation, from brief to setlists, aligned to your crowd and schedule.</li>
@@ -45,14 +44,14 @@ export function SoundDj() {
         >
           <div className="flex items-center gap-4">
             <TimelineConnector />
-            <h2 id="sound-process-heading" className="text-sm font-semibold tracking-tightish text-gray-900">
+            <h2 id="sound-process-heading" className="text-sm font-semibold tracking-tightish text-text-primary">
               Process
             </h2>
           </div>
-          <ol className="space-y-4 text-sm text-gray-900">
+          <ol className="space-y-4 text-sm text-text-primary">
             <li>
-              <div className="font-medium text-gray-900">1. Room and program</div>
-              <p className="mt-1 leading-relaxed text-gray-800">
+              <div className="font-medium text-text-primary">1. Room and program</div>
+              <p className="mt-1 leading-relaxed text-text-secondary">
                 We map where sound needs to reach, what&apos;s being amplified, and any noise constraints.
               </p>
             </li>
@@ -73,7 +72,7 @@ export function SoundDj() {
       </div>
 
       <section className="mt-12" aria-labelledby="sound-gallery-heading">
-        <h2 id="sound-gallery-heading" className="text-sm font-semibold tracking-tightish text-gray-900">
+        <h2 id="sound-gallery-heading" className="text-sm font-semibold tracking-tightish text-text-primary">
           Setups
         </h2>
         <div className="mt-4 grid gap-4 md:grid-cols-3">

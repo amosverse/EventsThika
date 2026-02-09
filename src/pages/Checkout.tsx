@@ -122,18 +122,18 @@ export default function Checkout() {
 
   if (items.length === 0 && currentStep !== 'confirmation') {
     return (
-      <div className="min-h-screen bg-gray-50 dark:bg-[#0F1629] flex items-center justify-center p-4">
+      <div className="min-h-screen bg-background-alt flex items-center justify-center p-4">
         <div className="text-center">
-          <Package className="w-16 h-16 text-gray-300 dark:text-gray-600 mx-auto mb-4" />
-          <h2 className="text-2xl font-bold text-[#1F2645] dark:text-white mb-2">
+          <Package className="w-16 h-16 text-text-muted mx-auto mb-4" />
+          <h2 className="text-2xl font-bold text-text-primary mb-2">
             Your cart is empty
           </h2>
-          <p className="text-gray-600 dark:text-gray-400 mb-6">
+          <p className="text-text-muted mb-6">
             Add some items before checking out
           </p>
           <Link
             to="/marketplace"
-            className="inline-flex items-center gap-2 px-6 py-3 bg-[#E55625] text-white font-semibold rounded-xl hover:bg-[#d14a1f] transition-colors"
+            className="inline-flex items-center gap-2 px-6 py-3 bg-accent text-white font-semibold rounded-xl hover:bg-accent-hover transition-colors"
           >
             <ArrowLeft className="w-5 h-5" />
             Browse Products
@@ -144,14 +144,14 @@ export default function Checkout() {
   }
 
   return (
-    <div className="min-h-screen bg-gray-50 dark:bg-[#0F1629]">
+    <div className="min-h-screen bg-background-alt">
       {/* Header */}
-      <header className="bg-white dark:bg-[#1F2645] border-b border-gray-200 dark:border-white/10 sticky top-0 z-40">
+      <header className="bg-surface border-b border-border sticky top-0 z-40">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
           <div className="flex items-center justify-between">
             <Link
               to="/marketplace"
-              className="flex items-center gap-2 text-gray-600 dark:text-gray-300 hover:text-[#E55625] transition-colors"
+              className="flex items-center gap-2 text-text-secondary hover:text-accent transition-colors"
             >
               <ArrowLeft className="w-5 h-5" />
               <span className="hidden sm:inline">Back to Marketplace</span>
@@ -164,10 +164,10 @@ export default function Checkout() {
                   <div
                     className={`w-8 h-8 rounded-full flex items-center justify-center text-sm font-bold ${
                       currentStep === step
-                        ? 'bg-[#E55625] text-white'
+                        ? 'bg-accent text-white'
                         : ['details', 'payment', 'confirmation'].indexOf(currentStep) > idx
                         ? 'bg-[#4CAF50] text-white'
-                        : 'bg-gray-200 dark:bg-white/10 text-gray-500 dark:text-gray-400'
+                        : 'bg-background-alt text-text-muted'
                     }`}
                   >
                     {['details', 'payment', 'confirmation'].indexOf(currentStep) > idx ? (
@@ -177,7 +177,7 @@ export default function Checkout() {
                     )}
                   </div>
                   {idx < 2 && (
-                    <ChevronRight className="w-5 h-5 text-gray-300 dark:text-gray-600 mx-1" />
+                    <ChevronRight className="w-5 h-5 text-text-muted mx-1" />
                   )}
                 </div>
               ))}
@@ -200,17 +200,17 @@ export default function Checkout() {
                   initial={{ opacity: 0, x: 20 }}
                   animate={{ opacity: 1, x: 0 }}
                   exit={{ opacity: 0, x: -20 }}
-                  className="bg-white dark:bg-[#1F2645]/50 rounded-2xl p-6 md:p-8 shadow-lg border border-gray-100 dark:border-white/10"
+                  className="bg-surface rounded-2xl p-6 md:p-8 shadow-lg border border-border"
                 >
-                  <h2 className="text-2xl font-bold text-[#1F2645] dark:text-white mb-6 flex items-center gap-3">
-                    <User className="w-7 h-7 text-[#E55625]" />
+                  <h2 className="text-2xl font-bold text-text-primary mb-6 flex items-center gap-3">
+                    <User className="w-7 h-7 text-accent" />
                     Event Details
                   </h2>
 
                   <div className="grid md:grid-cols-2 gap-6">
                     {/* Name */}
                     <div>
-                      <label className="block text-sm font-semibold text-[#1F2645] dark:text-white mb-2">
+                      <label className="block text-sm font-semibold text-text-primary mb-2">
                         Full Name *
                       </label>
                       <div className="relative">
@@ -221,9 +221,9 @@ export default function Checkout() {
                           value={formData.name}
                           onChange={handleInputChange}
                           placeholder="John Doe"
-                          className={`w-full pl-10 pr-4 py-3 bg-gray-50 dark:bg-white/5 border ${
-                            errors.name ? 'border-red-500' : 'border-gray-200 dark:border-white/10'
-                          } rounded-xl text-[#1F2645] dark:text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#E55625]`}
+                          className={`w-full pl-10 pr-4 py-3 bg-background-alt border ${
+                            errors.name ? 'border-red-500' : 'border-border'
+                          } rounded-xl text-text-primary placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-accent`}
                         />
                       </div>
                       {errors.name && <p className="text-red-500 text-sm mt-1">{errors.name}</p>}
@@ -231,7 +231,7 @@ export default function Checkout() {
 
                     {/* Email */}
                     <div>
-                      <label className="block text-sm font-semibold text-[#1F2645] dark:text-white mb-2">
+                      <label className="block text-sm font-semibold text-text-primary mb-2">
                         Email Address *
                       </label>
                       <div className="relative">
@@ -242,9 +242,9 @@ export default function Checkout() {
                           value={formData.email}
                           onChange={handleInputChange}
                           placeholder="john@example.com"
-                          className={`w-full pl-10 pr-4 py-3 bg-gray-50 dark:bg-white/5 border ${
-                            errors.email ? 'border-red-500' : 'border-gray-200 dark:border-white/10'
-                          } rounded-xl text-[#1F2645] dark:text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#E55625]`}
+                          className={`w-full pl-10 pr-4 py-3 bg-background-alt border ${
+                            errors.email ? 'border-red-500' : 'border-border'
+                          } rounded-xl text-text-primary placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-accent`}
                         />
                       </div>
                       {errors.email && <p className="text-red-500 text-sm mt-1">{errors.email}</p>}
@@ -252,7 +252,7 @@ export default function Checkout() {
 
                     {/* Phone */}
                     <div>
-                      <label className="block text-sm font-semibold text-[#1F2645] dark:text-white mb-2">
+                      <label className="block text-sm font-semibold text-text-primary mb-2">
                         Phone Number *
                       </label>
                       <div className="relative">
@@ -263,9 +263,9 @@ export default function Checkout() {
                           value={formData.phone}
                           onChange={handleInputChange}
                           placeholder="0712 345 678"
-                          className={`w-full pl-10 pr-4 py-3 bg-gray-50 dark:bg-white/5 border ${
-                            errors.phone ? 'border-red-500' : 'border-gray-200 dark:border-white/10'
-                          } rounded-xl text-[#1F2645] dark:text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#E55625]`}
+                          className={`w-full pl-10 pr-4 py-3 bg-background-alt border ${
+                            errors.phone ? 'border-red-500' : 'border-border'
+                          } rounded-xl text-text-primary placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-accent`}
                         />
                       </div>
                       {errors.phone && <p className="text-red-500 text-sm mt-1">{errors.phone}</p>}
@@ -273,16 +273,16 @@ export default function Checkout() {
 
                     {/* Event Type */}
                     <div>
-                      <label className="block text-sm font-semibold text-[#1F2645] dark:text-white mb-2">
+                      <label className="block text-sm font-semibold text-text-primary mb-2">
                         Event Type *
                       </label>
                       <select
                         name="eventType"
                         value={formData.eventType}
                         onChange={handleInputChange}
-                        className={`w-full px-4 py-3 bg-gray-50 dark:bg-white/5 border ${
-                          errors.eventType ? 'border-red-500' : 'border-gray-200 dark:border-white/10'
-                        } rounded-xl text-[#1F2645] dark:text-white focus:outline-none focus:ring-2 focus:ring-[#E55625]`}
+                        className={`w-full px-4 py-3 bg-background-alt border ${
+                          errors.eventType ? 'border-red-500' : 'border-border'
+                        } rounded-xl text-text-primary focus:outline-none focus:ring-2 focus:ring-accent`}
                       >
                         <option value="">Select event type</option>
                         <option value="wedding">Wedding</option>
@@ -298,7 +298,7 @@ export default function Checkout() {
 
                     {/* Event Date */}
                     <div>
-                      <label className="block text-sm font-semibold text-[#1F2645] dark:text-white mb-2">
+                      <label className="block text-sm font-semibold text-text-primary mb-2">
                         Event Date *
                       </label>
                       <div className="relative">
@@ -309,9 +309,9 @@ export default function Checkout() {
                           value={formData.eventDate}
                           onChange={handleInputChange}
                           min={new Date().toISOString().split('T')[0]}
-                          className={`w-full pl-10 pr-4 py-3 bg-gray-50 dark:bg-white/5 border ${
-                            errors.eventDate ? 'border-red-500' : 'border-gray-200 dark:border-white/10'
-                          } rounded-xl text-[#1F2645] dark:text-white focus:outline-none focus:ring-2 focus:ring-[#E55625]`}
+                          className={`w-full pl-10 pr-4 py-3 bg-background-alt border ${
+                            errors.eventDate ? 'border-red-500' : 'border-border'
+                          } rounded-xl text-text-primary focus:outline-none focus:ring-2 focus:ring-accent`}
                         />
                       </div>
                       {errors.eventDate && <p className="text-red-500 text-sm mt-1">{errors.eventDate}</p>}
@@ -319,7 +319,7 @@ export default function Checkout() {
 
                     {/* Venue */}
                     <div>
-                      <label className="block text-sm font-semibold text-[#1F2645] dark:text-white mb-2">
+                      <label className="block text-sm font-semibold text-text-primary mb-2">
                         Event Venue *
                       </label>
                       <div className="relative">
@@ -330,9 +330,9 @@ export default function Checkout() {
                           value={formData.eventVenue}
                           onChange={handleInputChange}
                           placeholder="e.g., Blue Post Hotel, Thika"
-                          className={`w-full pl-10 pr-4 py-3 bg-gray-50 dark:bg-white/5 border ${
-                            errors.eventVenue ? 'border-red-500' : 'border-gray-200 dark:border-white/10'
-                          } rounded-xl text-[#1F2645] dark:text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#E55625]`}
+                          className={`w-full pl-10 pr-4 py-3 bg-background-alt border ${
+                            errors.eventVenue ? 'border-red-500' : 'border-border'
+                          } rounded-xl text-text-primary placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-accent`}
                         />
                       </div>
                       {errors.eventVenue && <p className="text-red-500 text-sm mt-1">{errors.eventVenue}</p>}
@@ -340,7 +340,7 @@ export default function Checkout() {
 
                     {/* Additional Notes */}
                     <div className="md:col-span-2">
-                      <label className="block text-sm font-semibold text-[#1F2645] dark:text-white mb-2">
+                      <label className="block text-sm font-semibold text-text-primary mb-2">
                         Additional Notes
                       </label>
                       <div className="relative">
@@ -351,7 +351,7 @@ export default function Checkout() {
                           onChange={handleInputChange}
                           placeholder="Any special requirements, color themes, or setup instructions..."
                           rows={4}
-                          className="w-full pl-10 pr-4 py-3 bg-gray-50 dark:bg-white/5 border border-gray-200 dark:border-white/10 rounded-xl text-[#1F2645] dark:text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#E55625] resize-none"
+                          className="w-full pl-10 pr-4 py-3 bg-background-alt border border-border rounded-xl text-text-primary placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-accent resize-none"
                         />
                       </div>
                     </div>
@@ -380,10 +380,10 @@ export default function Checkout() {
                   initial={{ opacity: 0, x: 20 }}
                   animate={{ opacity: 1, x: 0 }}
                   exit={{ opacity: 0, x: -20 }}
-                  className="bg-white dark:bg-[#1F2645]/50 rounded-2xl p-6 md:p-8 shadow-lg border border-gray-100 dark:border-white/10"
+                  className="bg-surface rounded-2xl p-6 md:p-8 shadow-lg border border-border"
                 >
-                  <h2 className="text-2xl font-bold text-[#1F2645] dark:text-white mb-6 flex items-center gap-3">
-                    <CreditCard className="w-7 h-7 text-[#E55625]" />
+                  <h2 className="text-2xl font-bold text-text-primary mb-6 flex items-center gap-3">
+                    <CreditCard className="w-7 h-7 text-accent" />
                     Payment Method
                   </h2>
 
@@ -393,25 +393,25 @@ export default function Checkout() {
                       onClick={() => setPaymentMethod('card')}
                       className={`w-full p-4 rounded-xl border-2 transition-all flex items-center gap-4 ${
                         paymentMethod === 'card'
-                          ? 'border-[#E55625] bg-[#E55625]/5'
-                          : 'border-gray-200 dark:border-white/10 hover:border-[#E55625]/50'
+                          ? 'border-accent bg-[#E55625]/5'
+                          : 'border-border hover:border-accent/50'
                       }`}
                     >
                       <div className={`w-12 h-12 rounded-full flex items-center justify-center ${
-                        paymentMethod === 'card' ? 'bg-[#E55625] text-white' : 'bg-gray-100 dark:bg-white/10'
+                        paymentMethod === 'card' ? 'bg-accent text-white' : 'bg-background-alt'
                       }`}>
                         <CreditCard className="w-6 h-6" />
                       </div>
                       <div className="text-left flex-1">
-                        <h3 className="font-bold text-[#1F2645] dark:text-white">
+                        <h3 className="font-bold text-text-primary">
                           Card Payment (Stripe)
                         </h3>
-                        <p className="text-sm text-gray-500 dark:text-gray-400">
+                        <p className="text-sm text-text-muted">
                           Visa, Mastercard, American Express
                         </p>
                       </div>
                       {paymentMethod === 'card' && (
-                        <Check className="w-6 h-6 text-[#E55625]" />
+                        <Check className="w-6 h-6 text-accent" />
                       )}
                     </button>
 
@@ -421,19 +421,19 @@ export default function Checkout() {
                       className={`w-full p-4 rounded-xl border-2 transition-all flex items-center gap-4 ${
                         paymentMethod === 'mpesa'
                           ? 'border-[#4CAF50] bg-[#4CAF50]/5'
-                          : 'border-gray-200 dark:border-white/10 hover:border-[#4CAF50]/50'
+                          : 'border-border hover:border-[#4CAF50]/50'
                       }`}
                     >
                       <div className={`w-12 h-12 rounded-full flex items-center justify-center ${
-                        paymentMethod === 'mpesa' ? 'bg-[#4CAF50] text-white' : 'bg-gray-100 dark:bg-white/10'
+                        paymentMethod === 'mpesa' ? 'bg-[#4CAF50] text-white' : 'bg-background-alt'
                       }`}>
                         <Smartphone className="w-6 h-6" />
                       </div>
                       <div className="text-left flex-1">
-                        <h3 className="font-bold text-[#1F2645] dark:text-white">
+                        <h3 className="font-bold text-text-primary">
                           M-Pesa (Lipa Na M-Pesa)
                         </h3>
-                        <p className="text-sm text-gray-500 dark:text-gray-400">
+                        <p className="text-sm text-text-muted">
                           Pay via STK Push to your phone
                         </p>
                       </div>
@@ -451,41 +451,41 @@ export default function Checkout() {
                         initial={{ opacity: 0, height: 0 }}
                         animate={{ opacity: 1, height: 'auto' }}
                         exit={{ opacity: 0, height: 0 }}
-                        className="space-y-4 mb-8 p-4 bg-gray-50 dark:bg-white/5 rounded-xl"
+                        className="space-y-4 mb-8 p-4 bg-background-alt rounded-xl"
                       >
-                        <p className="text-sm text-gray-600 dark:text-gray-400 flex items-center gap-2">
+                        <p className="text-sm text-text-muted flex items-center gap-2">
                           <ShieldCheck className="w-4 h-4 text-[#4CAF50]" />
                           Demo Mode - No actual payment will be processed
                         </p>
                         <div>
-                          <label className="block text-sm font-semibold text-[#1F2645] dark:text-white mb-2">
+                          <label className="block text-sm font-semibold text-text-primary mb-2">
                             Card Number
                           </label>
                           <input
                             type="text"
                             placeholder="4242 4242 4242 4242"
-                            className="w-full px-4 py-3 bg-white dark:bg-white/10 border border-gray-200 dark:border-white/10 rounded-xl text-[#1F2645] dark:text-white placeholder-gray-400"
+                            className="w-full px-4 py-3 bg-surface border border-border rounded-xl text-text-primary placeholder-gray-400"
                           />
                         </div>
                         <div className="grid grid-cols-2 gap-4">
                           <div>
-                            <label className="block text-sm font-semibold text-[#1F2645] dark:text-white mb-2">
+                            <label className="block text-sm font-semibold text-text-primary mb-2">
                               Expiry
                             </label>
                             <input
                               type="text"
                               placeholder="MM/YY"
-                              className="w-full px-4 py-3 bg-white dark:bg-white/10 border border-gray-200 dark:border-white/10 rounded-xl text-[#1F2645] dark:text-white placeholder-gray-400"
+                              className="w-full px-4 py-3 bg-surface border border-border rounded-xl text-text-primary placeholder-gray-400"
                             />
                           </div>
                           <div>
-                            <label className="block text-sm font-semibold text-[#1F2645] dark:text-white mb-2">
+                            <label className="block text-sm font-semibold text-text-primary mb-2">
                               CVC
                             </label>
                             <input
                               type="text"
                               placeholder="123"
-                              className="w-full px-4 py-3 bg-white dark:bg-white/10 border border-gray-200 dark:border-white/10 rounded-xl text-[#1F2645] dark:text-white placeholder-gray-400"
+                              className="w-full px-4 py-3 bg-surface border border-border rounded-xl text-text-primary placeholder-gray-400"
                             />
                           </div>
                         </div>
@@ -498,24 +498,24 @@ export default function Checkout() {
                         initial={{ opacity: 0, height: 0 }}
                         animate={{ opacity: 1, height: 'auto' }}
                         exit={{ opacity: 0, height: 0 }}
-                        className="space-y-4 mb-8 p-4 bg-gray-50 dark:bg-white/5 rounded-xl"
+                        className="space-y-4 mb-8 p-4 bg-background-alt rounded-xl"
                       >
-                        <p className="text-sm text-gray-600 dark:text-gray-400 flex items-center gap-2">
+                        <p className="text-sm text-text-muted flex items-center gap-2">
                           <ShieldCheck className="w-4 h-4 text-[#4CAF50]" />
                           Demo Mode - STK Push simulation
                         </p>
                         <div>
-                          <label className="block text-sm font-semibold text-[#1F2645] dark:text-white mb-2">
+                          <label className="block text-sm font-semibold text-text-primary mb-2">
                             M-Pesa Phone Number
                           </label>
                           <input
                             type="tel"
                             defaultValue={formData.phone}
                             placeholder="0712 345 678"
-                            className="w-full px-4 py-3 bg-white dark:bg-white/10 border border-gray-200 dark:border-white/10 rounded-xl text-[#1F2645] dark:text-white placeholder-gray-400"
+                            className="w-full px-4 py-3 bg-surface border border-border rounded-xl text-text-primary placeholder-gray-400"
                           />
                         </div>
-                        <p className="text-xs text-gray-500 dark:text-gray-400">
+                        <p className="text-xs text-text-muted">
                           You will receive an STK push prompt on your phone to complete the payment
                         </p>
                       </motion.div>
@@ -525,7 +525,7 @@ export default function Checkout() {
                   <div className="flex gap-4">
                     <button
                       onClick={() => setCurrentStep('details')}
-                      className="flex-1 py-4 border-2 border-gray-200 dark:border-white/20 text-[#1F2645] dark:text-white font-semibold rounded-xl hover:bg-gray-50 dark:hover:bg-white/5 transition-colors"
+                      className="flex-1 py-4 border-2 border-border text-text-primary font-semibold rounded-xl hover:bg-gray-50 dark:hover:bg-white/5 transition-colors"
                     >
                       Back
                     </button>
@@ -534,8 +534,8 @@ export default function Checkout() {
                       disabled={!paymentMethod || isProcessing}
                       className={`flex-1 flex items-center justify-center gap-2 py-4 font-bold text-lg rounded-xl transition-colors ${
                         paymentMethod && !isProcessing
-                          ? 'bg-[#E55625] hover:bg-[#d14a1f] text-white'
-                          : 'bg-gray-300 text-gray-500 cursor-not-allowed'
+                          ? 'bg-accent hover:bg-accent-hover text-white'
+                          : 'bg-border text-text-muted cursor-not-allowed'
                       }`}
                     >
                       {isProcessing ? (
@@ -559,7 +559,7 @@ export default function Checkout() {
                   key="confirmation"
                   initial={{ opacity: 0, scale: 0.95 }}
                   animate={{ opacity: 1, scale: 1 }}
-                  className="bg-white dark:bg-[#1F2645]/50 rounded-2xl p-8 md:p-12 shadow-lg border border-gray-100 dark:border-white/10 text-center"
+                  className="bg-surface rounded-2xl p-8 md:p-12 shadow-lg border border-border text-center"
                 >
                   <motion.div
                     initial={{ scale: 0 }}
@@ -576,19 +576,19 @@ export default function Checkout() {
                     </svg>
                   </motion.div>
 
-                  <h2 className="text-3xl font-bold text-[#1F2645] dark:text-white mb-4">
+                  <h2 className="text-3xl font-bold text-text-primary mb-4">
                     Enquiry Sent!
                   </h2>
                   
-                  <p className="text-gray-600 dark:text-gray-300 mb-8">
+                  <p className="text-text-secondary mb-8">
                     Your order details have been sent via WhatsApp. Our team will contact you shortly to confirm availability and finalize your rental.
                   </p>
 
-                  <div className="bg-gray-50 dark:bg-white/5 rounded-xl p-6 mb-8">
-                    <h3 className="font-bold text-[#1F2645] dark:text-white mb-4">
+                  <div className="bg-background-alt rounded-xl p-6 mb-8">
+                    <h3 className="font-bold text-text-primary mb-4">
                       What's Next?
                     </h3>
-                    <ul className="text-left space-y-3 text-gray-600 dark:text-gray-300">
+                    <ul className="text-left space-y-3 text-text-secondary">
                       <li className="flex items-start gap-3">
                         <Check className="w-5 h-5 text-[#25D366] mt-0.5 flex-shrink-0" />
                         <span>Our team will review your enquiry on WhatsApp</span>
@@ -606,7 +606,7 @@ export default function Checkout() {
 
                   <button
                     onClick={handleConfirmOrder}
-                    className="w-full py-4 bg-[#E55625] hover:bg-[#d14a1f] text-white font-bold text-lg rounded-xl transition-colors"
+                    className="w-full py-4 bg-accent hover:bg-accent-hover text-white font-bold text-lg rounded-xl transition-colors"
                   >
                     Continue Shopping
                   </button>
@@ -618,9 +618,9 @@ export default function Checkout() {
           {/* Order Summary Sidebar */}
           {currentStep !== 'confirmation' && (
             <div className="lg:col-span-1">
-              <div className="bg-white dark:bg-[#1F2645]/50 rounded-2xl p-6 shadow-lg border border-gray-100 dark:border-white/10 sticky top-24">
-                <h3 className="text-lg font-bold text-[#1F2645] dark:text-white mb-4 flex items-center gap-2">
-                  <Package className="w-5 h-5 text-[#E55625]" />
+              <div className="bg-surface rounded-2xl p-6 shadow-lg border border-border sticky top-24">
+                <h3 className="text-lg font-bold text-text-primary mb-4 flex items-center gap-2">
+                  <Package className="w-5 h-5 text-accent" />
                   Order Summary
                 </h3>
 
@@ -634,14 +634,14 @@ export default function Checkout() {
                         className="w-12 h-12 rounded-lg object-cover"
                       />
                       <div className="flex-1 min-w-0">
-                        <p className="text-sm font-medium text-[#1F2645] dark:text-white truncate">
+                        <p className="text-sm font-medium text-text-primary truncate">
                           {item.product.name}
                         </p>
-                        <p className="text-xs text-gray-500 dark:text-gray-400">
+                        <p className="text-xs text-text-muted">
                           Qty: {item.quantity}
                         </p>
                       </div>
-                      <span className="text-sm font-semibold text-[#1F2645] dark:text-white">
+                      <span className="text-sm font-semibold text-text-primary">
                         {formatPrice(item.product.price * item.quantity)}
                       </span>
                     </div>
@@ -649,22 +649,22 @@ export default function Checkout() {
                 </div>
 
                 {/* Totals */}
-                <div className="border-t border-gray-200 dark:border-white/10 pt-4 space-y-2">
+                <div className="border-t border-border pt-4 space-y-2">
                   <div className="flex justify-between text-sm">
-                    <span className="text-gray-600 dark:text-gray-400">Subtotal</span>
-                    <span className="text-[#1F2645] dark:text-white">{formatPrice(subtotal)}</span>
+                    <span className="text-text-muted">Subtotal</span>
+                    <span className="text-text-primary">{formatPrice(subtotal)}</span>
                   </div>
                   <div className="flex justify-between text-sm">
-                    <span className="text-gray-600 dark:text-gray-400">Delivery</span>
-                    <span className="text-[#1F2645] dark:text-white">{formatPrice(deliveryFee)}</span>
+                    <span className="text-text-muted">Delivery</span>
+                    <span className="text-text-primary">{formatPrice(deliveryFee)}</span>
                   </div>
                   <div className="flex justify-between text-sm">
-                    <span className="text-gray-600 dark:text-gray-400">Setup Fee</span>
-                    <span className="text-[#1F2645] dark:text-white">{formatPrice(setupFee)}</span>
+                    <span className="text-text-muted">Setup Fee</span>
+                    <span className="text-text-primary">{formatPrice(setupFee)}</span>
                   </div>
-                  <div className="flex justify-between text-lg font-bold pt-2 border-t border-gray-200 dark:border-white/10">
-                    <span className="text-[#1F2645] dark:text-white">Total</span>
-                    <span className="text-[#E55625]">{formatPrice(total)}</span>
+                  <div className="flex justify-between text-lg font-bold pt-2 border-t border-border">
+                    <span className="text-text-primary">Total</span>
+                    <span className="text-accent">{formatPrice(total)}</span>
                   </div>
                 </div>
               </div>

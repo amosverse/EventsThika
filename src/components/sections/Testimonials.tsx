@@ -19,8 +19,8 @@ const testimonials: Testimonial[] = [
     role: 'Wedding Client',
     image: 'https://i.pravatar.cc/150?img=5',
     text: 'Event Solutions Thika transformed our wedding into a magical experience. Every detail was perfect, from the elegant tent setup to the stunning décor. Highly recommended!',
-    bgColor: 'bg-[#FFE4E1]',
-    textColor: 'text-gray-900',
+    bgColor: 'bg-surface dark:bg-slate-700',
+    textColor: 'text-text-primary dark:text-white',
     rotation: 'rotate-[-2deg]',
   },
   {
@@ -29,8 +29,8 @@ const testimonials: Testimonial[] = [
     role: 'Corporate Event Manager',
     image: 'https://i.pravatar.cc/150?img=12',
     text: 'Professional, reliable, and creative. They handled our annual company gala flawlessly. The team understood our vision and delivered beyond expectations.',
-    bgColor: 'bg-[#B8C5D6]',
-    textColor: 'text-white',
+    bgColor: 'bg-accent dark:bg-accent',
+    textColor: 'text-white dark:text-white',
     rotation: 'rotate-[3deg]',
   },
   {
@@ -39,8 +39,8 @@ const testimonials: Testimonial[] = [
     role: 'Birthday Celebration',
     image: 'https://i.pravatar.cc/150?img=9',
     text: 'From planning to execution, everything was seamless. The sound system was crystal clear, the MC was engaging, and our guests are still talking about it!',
-    bgColor: 'bg-[#E55625]',
-    textColor: 'text-white',
+    bgColor: 'bg-primary dark:bg-[#2A3050]',
+    textColor: 'text-white dark:text-white',
     rotation: 'rotate-[-1deg]',
   },
   {
@@ -49,8 +49,8 @@ const testimonials: Testimonial[] = [
     role: 'Fundraiser Organizer',
     image: 'https://i.pravatar.cc/150?img=14',
     text: 'Their attention to detail and calm professionalism made our charity fundraiser a huge success. They coordinated everything perfectly and kept us stress-free throughout.',
-    bgColor: 'bg-[#1F2645]',
-    textColor: 'text-white',
+    bgColor: 'bg-background-alt dark:bg-slate-800',
+    textColor: 'text-text-primary dark:text-white',
     rotation: 'rotate-[2deg]',
   },
 ]
@@ -76,11 +76,11 @@ export function Testimonials() {
   }
 
   return (
-    <section className="relative overflow-hidden bg-[#fcfbf7] py-20">
+    <section className="relative overflow-hidden bg-background py-20">
       <div className="container-x">
         {/* Header with underline and arrow */}
         <div className="relative mb-16 text-center" data-aos="fade-up">
-          <h2 className="font-display text-4xl font-bold text-[#1F2645] md:text-5xl">
+          <h2 className="font-display text-4xl font-bold text-text-primary md:text-5xl">
             What our{' '}
             <span className="relative inline-block">
               clients
@@ -123,15 +123,6 @@ export function Testimonials() {
 
         {/* Testimonial Cards Container */}
         <div className="relative flex items-center justify-center">
-          {/* Left Navigation - Hide on mobile and tablet */}
-          <button
-            onClick={handlePrev}
-            className="absolute left-0 z-20 hidden lg:flex h-12 w-12 items-center justify-center rounded-full border-2 border-[#1F2645] bg-white shadow-lg transition hover:bg-[#1F2645] hover:text-white lg:left-4"
-            aria-label="Previous testimonial"
-          >
-            <ChevronLeft className="h-6 w-6" />
-          </button>
-
           {/* Cards Layout - Stack on mobile, 2 cols on tablet, scattered on desktop */}
           <div className="w-full">
             {/* Mobile & Tablet: Single/Double column layout */}
@@ -144,10 +135,10 @@ export function Testimonials() {
                   className={`${testimonial.rotation}`}
                 >
                   <div
-                    className={`relative rounded-2xl p-6 shadow-xl ${testimonial.bgColor} ${testimonial.textColor}`}
+                    className={`relative rounded-2xl p-6 shadow-xl border border-border ${testimonial.bgColor} ${testimonial.textColor}`}
                   >
                     {/* Profile Image - Top Left */}
-                    <div className="absolute -top-6 -left-6 h-14 w-14 overflow-hidden rounded-full border-4 border-white shadow-lg">
+                    <div className="absolute -top-6 -left-6 h-14 w-14 overflow-hidden rounded-full border-4 border-background shadow-lg">
                       <img
                         src={testimonial.image}
                         alt={testimonial.name}
@@ -189,10 +180,10 @@ export function Testimonials() {
                   } ${testimonial.rotation}`}
                 >
                   <div
-                    className={`relative rounded-2xl p-6 shadow-xl ${testimonial.bgColor} ${testimonial.textColor}`}
+                    className={`relative rounded-2xl p-6 shadow-xl border border-border ${testimonial.bgColor} ${testimonial.textColor}`}
                   >
                     {/* Profile Image - Top Left */}
-                    <div className="absolute -top-6 -left-6 h-14 w-14 overflow-hidden rounded-full border-4 border-white shadow-lg">
+                    <div className="absolute -top-6 -left-6 h-14 w-14 overflow-hidden rounded-full border-4 border-background shadow-lg">
                       <img
                         src={testimonial.image}
                         alt={testimonial.name}
@@ -220,11 +211,21 @@ export function Testimonials() {
               ))}
             </div>
           </div>
+        </div>
 
-          {/* Right Navigation - Hide on mobile and tablet */}
+        {/* Navigation Buttons - Below cards */}
+        <div className="mt-8 flex justify-center items-center gap-4">
+          <button
+            onClick={handlePrev}
+            className="flex h-11 w-11 items-center justify-center rounded-full border-2 border-text-primary bg-surface shadow-lg transition hover:bg-accent hover:text-white"
+            aria-label="Previous testimonial"
+          >
+            <ChevronLeft className="h-6 w-6" />
+          </button>
+          
           <button
             onClick={handleNext}
-            className="absolute right-0 z-20 hidden lg:flex h-12 w-12 items-center justify-center rounded-full border-2 border-[#1F2645] bg-white shadow-lg transition hover:bg-[#1F2645] hover:text-white lg:right-4"
+            className="flex h-11 w-11 items-center justify-center rounded-full border-2 border-text-primary bg-surface shadow-lg transition hover:bg-accent hover:text-white"
             aria-label="Next testimonial"
           >
             <ChevronRight className="h-6 w-6" />
@@ -238,7 +239,7 @@ export function Testimonials() {
               key={idx}
               onClick={() => setCurrentIndex(idx)}
               className={`h-2 w-2 rounded-full transition ${
-                idx === currentIndex ? 'bg-[#E55625] w-8' : 'bg-[#1F2645]/30'
+                idx === currentIndex ? 'bg-accent w-8' : 'bg-text-primary/30'
               }`}
               aria-label={`Go to testimonial ${idx + 1}`}
             />

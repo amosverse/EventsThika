@@ -1,6 +1,6 @@
 /** @type {import('tailwindcss').Config} */
 export default {
-  darkMode: 'media',
+  darkMode: 'class',
   content: ['./index.html', './src/**/*.{js,ts,jsx,tsx}'],
   theme: {
     screens: {
@@ -53,33 +53,29 @@ export default {
         'fluid-5xl': 'clamp(3rem, 2.4rem + 2.5vw, 4rem)',
       },
       colors: {
-        /* Strict Color System - Primary */
-        'primary-dark': {
-          DEFAULT: '#1F2645',
-          dark: '#E8EAF0',
-        },
+        /* Semantic Color System - Uses CSS Variables */
+        'primary': 'var(--color-primary)',
+        'primary-dark': 'var(--color-primary-dark)',
         
-        /* Strict Color System - Accent */
-        accent: {
-          DEFAULT: '#E55625',
-          hover: '#D14A1F',
-          light: '#F37B4D',
-          dark: '#FF6B3D',
+        /* Accent Colors */
+        'accent': {
+          DEFAULT: 'var(--color-accent)',
+          hover: 'var(--color-accent-hover)',
+          light: 'var(--color-accent-light)',
         },
+        'accent-orange': 'var(--color-accent-orange)',
         
-        /* Strict Color System - Success */
-        success: {
-          DEFAULT: '#4CAF50',
-          light: '#81C784',
-          dark: '#388E3C',
-          'dark-mode': '#66BB6A',
-        },
+        /* Success & Secondary */
+        'success': 'var(--color-success)',
+        'success-green': 'var(--color-success-green)',
+        'secondary': 'var(--color-secondary)',
         
-        /* Additional brand colors */
+        /* Brand Colors */
         teal: {
           DEFAULT: '#14B8A6',
           subtle: '#F0FDFA',
           'dark-subtle': '#042F2E',
+          pale: '#CCF7ED',
         },
         purple: {
           DEFAULT: '#8B5CF6',
@@ -87,39 +83,19 @@ export default {
           'dark-subtle': '#2E1065',
         },
         
-        /* Strict Color System - Backgrounds */
-        background: {
-          DEFAULT: '#FFFFFF',
-          dark: '#0F1419',
-        },
-        'background-alt': {
-          DEFAULT: '#F5F7FA',
-          dark: '#1A1F2E',
-        },
-        surface: {
-          DEFAULT: '#FFFFFF',
-          dark: '#1A1F2E',
-        },
+        /* Semantic Backgrounds */
+        'background': 'var(--color-background)',
+        'background-alt': 'var(--color-background-alt)',
+        'surface': 'var(--color-surface)',
+        'surface-hover': 'var(--color-surface-hover)',
         
-        /* Strict Color System - Text Hierarchy */
-        'text-primary': {
-          DEFAULT: '#1F2645',
-          dark: '#E8EAF0',
-        },
-        'text-secondary': {
-          DEFAULT: 'rgba(31, 38, 69, 0.7)',
-          dark: 'rgba(232, 234, 240, 0.7)',
-        },
-        'text-muted': {
-          DEFAULT: 'rgba(31, 38, 69, 0.5)',
-          dark: 'rgba(232, 234, 240, 0.5)',
-        },
+        /* Semantic Text */
+        'text-primary': 'var(--color-text-primary)',
+        'text-secondary': 'var(--color-text-secondary)',
+        'text-muted': 'var(--color-text-muted)',
         
-        /* Strict Color System - Border */
-        border: {
-          DEFAULT: 'rgba(31, 38, 69, 0.12)',
-          dark: 'rgba(232, 234, 240, 0.12)',
-        },
+        /* Semantic Borders */
+        'border': 'var(--color-border)',
       },
       fontFamily: {
         display: ['Cormorant Garamond', 'ui-serif', 'Georgia', 'serif'],

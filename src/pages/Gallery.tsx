@@ -148,11 +148,11 @@ export function Gallery() {
   return (
     <section className="container-x py-16 md:py-24">
       <header className="max-w-3xl" style={{ opacity: 1, visibility: 'visible' }}>
-        <p className="eyebrow" style={{ color: '#E55625', fontWeight: '600' }}>Gallery</p>
-        <h1 className="mt-4 font-display text-4xl tracking-tightish md:text-5xl" style={{ color: '#1F2645' }}>
+        <p className="eyebrow" style={{ color: 'var(--color-accent-orange)', fontWeight: '600' }}>Gallery</p>
+        <h1 className="mt-4 font-display text-4xl tracking-tightish md:text-5xl" style={{ color: 'var(--color-text-primary)' }}>
           Our Portfolio of Events<br />& Services
         </h1>
-        <p className="mt-5 text-base leading-relaxed" style={{ color: '#1F2645' }}>
+        <p className="mt-5 text-base leading-relaxed" style={{ color: 'var(--color-text-primary)' }}>
           Explore our diverse range of event setups, from elegant tents and stunning decor to professional audio systems and complete event production.
         </p>
       </header>
@@ -164,13 +164,13 @@ export function Gallery() {
             placeholder="Search gallery by name or category..."
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
-            className="w-full px-4 py-3 pl-12 rounded-2xl border border-gray-300 focus:border-accent focus:ring-2 focus:ring-accent/20 outline-none transition-all text-gray-900 placeholder-gray-500"
+            className="w-full px-4 py-3 pl-12 rounded-2xl border border-border focus:border-accent focus:ring-2 focus:ring-accent/20 outline-none transition-all text-text-primary placeholder-text-muted bg-surface"
           />
-          <svg className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <svg className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-text-muted" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
           </svg>
           {searchQuery && (
-            <button type="button" onClick={() => setSearchQuery('')} className="absolute right-4 top-1/2 -translate-y-1/2 text-gray-400 hover:text-gray-600 transition-colors" aria-label="Clear search">
+            <button type="button" onClick={() => setSearchQuery('')} className="absolute right-4 top-1/2 -translate-y-1/2 text-text-muted hover:text-text-primary transition-colors" aria-label="Clear search">
               <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
               </svg>
@@ -188,7 +188,7 @@ export function Gallery() {
               type="button"
               className={[
                 'rounded-full border px-3 py-1.5 transition text-sm font-medium',
-                selected ? 'border-accent bg-accent text-white shadow-sm' : 'border-gray-300 bg-white text-gray-700 hover:border-accent hover:bg-accent/5',
+                selected ? 'border-accent bg-accent text-white shadow-sm' : 'border-border bg-surface text-text-primary hover:border-accent hover:bg-accent/5',
               ].join(' ')}
               onClick={() => setActiveFilter(f)}
               aria-pressed={selected}
@@ -199,9 +199,9 @@ export function Gallery() {
         })}
       </div>
 
-      <div className="mt-6 flex items-center justify-between text-sm text-gray-600">
+      <div className="mt-6 flex items-center justify-between text-sm text-text-secondary">
         <p>
-          Showing <span className="font-semibold text-gray-900">{displayed.length}</span> of <span className="font-semibold text-gray-900">{filtered.length}</span> items
+          Showing <span className="font-semibold text-text-primary">{displayed.length}</span> of <span className="font-semibold text-text-primary">{filtered.length}</span> items
           {searchQuery && <span className="ml-1">matching "{searchQuery}"</span>}
         </p>
         {savedItems.size > 0 && (
@@ -209,7 +209,7 @@ export function Gallery() {
             <svg className="w-4 h-4 text-red-500" fill="currentColor" viewBox="0 0 24 24">
               <path d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
             </svg>
-            <span className="font-semibold text-gray-900">{savedItems.size}</span> saved
+            <span className="font-semibold text-text-primary">{savedItems.size}</span> saved
           </p>
         )}
       </div>
@@ -234,12 +234,12 @@ export function Gallery() {
               >
                 <motion.button
                   type="button"
-                  className="relative block w-full overflow-hidden rounded-xl sm:rounded-2xl shadow-sm hover:shadow-2xl transition-all duration-300 bg-white"
+                  className="relative block w-full overflow-hidden rounded-xl sm:rounded-2xl shadow-sm hover:shadow-2xl transition-all duration-300 bg-surface"
                   onClick={() => setActiveImage(img)}
                   whileHover={{ y: -6, scale: 1.01 }}
                   transition={{ duration: 0.3, ease: 'easeOut' }}
                 >
-                  <div className="relative overflow-hidden bg-gray-100" style={{ height: `${imageHeight}px` }}>
+                    <div className="relative overflow-hidden bg-background-alt" style={{ height: `${imageHeight}px` }}>
                     <img src={img.image} alt={img.label} loading="lazy" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                     <div className="absolute inset-0 flex flex-col justify-between p-3 sm:p-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
@@ -284,7 +284,7 @@ export function Gallery() {
 
         {displayed.length < filtered.length && (
           <div ref={loadMoreRef} className="mt-12 text-center">
-            <div className="inline-flex items-center gap-2 text-gray-500">
+            <div className="inline-flex items-center gap-2 text-text-muted">
               <svg className="animate-spin h-5 w-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
                 <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
                 <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
@@ -296,16 +296,16 @@ export function Gallery() {
 
         {displayed.length === filtered.length && filtered.length > 20 && (
           <div className="mt-12 text-center">
-            <p className="text-gray-500 text-sm">You've reached the end of the gallery</p>
+            <p className="text-text-muted text-sm">You've reached the end of the gallery</p>
           </div>
         )}
 
         {filtered.length === 0 && (
           <div className="mt-12 text-center py-12">
-            <svg className="mx-auto h-12 w-12 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <svg className="mx-auto h-12 w-12 text-text-muted" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
             </svg>
-            <p className="mt-4 text-gray-500 text-lg">No images found matching your search</p>
+            <p className="mt-4 text-text-muted text-lg">No images found matching your search</p>
             <button type="button" onClick={() => { setSearchQuery(''); setActiveFilter('All') }} className="mt-4 px-4 py-2 bg-accent text-white rounded-full hover:bg-accent/90 transition-colors">
               Clear filters
             </button>
@@ -316,7 +316,7 @@ export function Gallery() {
       <AnimatePresence>
         {activeImage ? (
           <motion.div className="fixed inset-0 z-50 flex items-center justify-center bg-black/80 backdrop-blur-sm px-4 py-8" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} role="dialog" aria-modal="true" aria-label={activeImage.label} onClick={() => setActiveImage(null)}>
-            <motion.div className="relative max-w-5xl w-full max-h-[90vh] bg-white rounded-2xl overflow-hidden shadow-2xl" initial={{ scale: 0.9, opacity: 0 }} animate={{ scale: 1, opacity: 1 }} exit={{ scale: 0.9, opacity: 0 }} transition={{ duration: 0.3, ease: 'easeOut' }} onClick={(e) => e.stopPropagation()}>
+            <motion.div className="relative max-w-5xl w-full max-h-[90vh] bg-surface rounded-2xl overflow-hidden shadow-2xl" initial={{ scale: 0.9, opacity: 0 }} animate={{ scale: 1, opacity: 1 }} exit={{ scale: 0.9, opacity: 0 }} transition={{ duration: 0.3, ease: 'easeOut' }} onClick={(e) => e.stopPropagation()}>
               <div className="absolute top-4 right-4 z-10 flex items-center gap-2">
                 <button
                   type="button"
@@ -337,11 +337,11 @@ export function Gallery() {
               <div className="relative w-full" style={{ maxHeight: 'calc(90vh - 120px)' }}>
                 <img src={activeImage.image} alt={activeImage.label} className="w-full h-full object-contain" />
               </div>
-              <div className="px-6 py-5 border-t border-gray-200 bg-gray-50">
+              <div className="px-6 py-5 border-t border-border bg-background-alt">
                 <div className="flex items-start justify-between gap-4">
                   <div>
                     <span className="inline-block rounded-full bg-accent/10 text-accent px-3 py-1 text-xs uppercase tracking-wider font-semibold mb-2">{activeImage.type}</span>
-                    <h3 className="text-xl font-bold text-gray-900">{activeImage.label}</h3>
+                    <h3 className="text-xl font-bold text-text-primary">{activeImage.label}</h3>
                   </div>
                 </div>
               </div>

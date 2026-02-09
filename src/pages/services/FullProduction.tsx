@@ -4,23 +4,22 @@ import ServiceProducts from '../../components/sections/ServiceProducts'
 
 export function FullProduction() {
   return (
-    <section className="container-x py-16 md:py-24 bg-white">
+    <section className="container-x py-16 md:py-24 bg-background">
       <header className="grid gap-8 md:grid-cols-[minmax(0,1.4fr)_minmax(0,1fr)] md:items-end">
         <div>
-          <p className="eyebrow text-[#E55625] font-bold">Services · Full production</p>
-          <h1 className="mt-4 font-display text-4xl tracking-tightish md:text-5xl text-[#1F2645] font-bold">
+          <p className="eyebrow text-accent font-bold">Services · Full production</p>
+          <h1 className="mt-4 font-display text-4xl tracking-tightish md:text-5xl text-text-primary font-bold">
             One team from first walkthrough
             <br />
             to final guest exit.
           </h1>
-          <p className="mt-5 text-base leading-relaxed text-gray-900">
-            We oversee tents, décor, catering, sound, MC, and show-calling as a single production—so you don&apos;t have
+          <p className="mt-5 text-base leading-relaxed text-text-primary">, décor, catering, sound, MC, and show-calling as a single production—so you don&apos;t have
             to play traffic controller.
           </p>
         </div>
-        <div className="card p-5 text-sm text-gray-900 border-teal-pale bg-teal-50">
-          <div className="text-xs uppercase tracking-[0.14em] text-gray-700 font-semibold">Ideal for</div>
-          <p className="mt-2 text-gray-900">
+        <div className="card p-5 text-sm text-text-primary border-teal-pale bg-teal-50">
+          <div className="text-xs uppercase tracking-[0.14em] text-text-secondary font-semibold">Ideal for</div>
+          <p className="mt-2 text-text-primary">
             Weddings, brand experiences, fundraisers, and ceremonies where every element needs to work together.
           </p>
         </div>
@@ -28,10 +27,10 @@ export function FullProduction() {
 
       <div className="mt-10 grid gap-10 md:grid-cols-[minmax(0,1.2fr)_minmax(0,1.1fr)] md:items-start">
         <section aria-labelledby="prod-included-heading">
-          <h2 id="prod-included-heading" className="text-sm font-semibold tracking-tightish text-gray-900">
+          <h2 id="prod-included-heading" className="text-sm font-semibold tracking-tightish text-text-primary">
             What&apos;s included
           </h2>
-          <ul className="mt-3 grid gap-3 text-sm leading-relaxed text-gray-900 md:grid-cols-2">
+          <ul className="mt-3 grid gap-3 text-sm leading-relaxed text-text-primary md:grid-cols-2">
             <li>Dedicated producer as your single point of contact.</li>
             <li>Budgeting and vendor recommendations across all key categories.</li>
             <li>Run-of-show creation, including technical cues and contingency plans.</li>
@@ -47,14 +46,14 @@ export function FullProduction() {
         >
           <div className="flex items-center gap-4">
             <TimelineConnector />
-            <h2 id="prod-process-heading" className="text-sm font-semibold tracking-tightish text-gray-900">
+            <h2 id="prod-process-heading" className="text-sm font-semibold tracking-tightish text-text-primary">
               Process
             </h2>
           </div>
-          <ol className="space-y-4 text-sm text-gray-900">
+          <ol className="space-y-4 text-sm text-text-primary">
             <li>
-              <div className="font-medium text-gray-900">1. Discovery and scope</div>
-              <p className="mt-1 leading-relaxed text-gray-800">
+              <div className="font-medium text-text-primary">1. Discovery and scope</div>
+              <p className="mt-1 leading-relaxed text-text-secondary">
                 We align on priorities, budget ranges, and what &quot;success&quot; looks like for you and your guests.
               </p>
             </li>
@@ -75,7 +74,7 @@ export function FullProduction() {
       </div>
 
       <section className="mt-12" aria-labelledby="prod-gallery-heading">
-        <h2 id="prod-gallery-heading" className="text-sm font-semibold tracking-tightish text-gray-900">
+        <h2 id="prod-gallery-heading" className="text-sm font-semibold tracking-tightish text-text-primary">
           Recent productions
         </h2>
         <div className="mt-4 grid gap-4 md:grid-cols-3">

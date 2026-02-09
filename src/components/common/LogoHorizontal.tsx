@@ -1,6 +1,17 @@
+import { useTheme } from '../../context/ThemeContext'
+
 export function LogoHorizontal({ className = '', isDark = false }: { className?: string; isDark?: boolean }) {
-  const textColor = isDark ? '#FFFFFF' : '#E55625'
-  const accentColor = isDark ? '#E55625' : '#1F2645'
+  const { theme } = useTheme()
+  const systemDark = theme === 'dark'
+
+  const dark = isDark || systemDark
+  const textColor = dark ? '#FFFFFF' : '#E55625'
+  const accentColor = dark ? '#E55625' : '#1F2645'
+  // Tent fill colors — light shades in light mode, dark shades in dark mode
+  const tentWhite = dark ? '#2A3050' : '#FFFFFF'
+  const tentLight = dark ? '#252B48' : '#F5F5F5'
+  const tentMid = dark ? '#1F2645' : '#E0E0E0'
+  const tentDark = dark ? '#1A2040' : '#D0D0D0'
   
   return (
     <svg 
@@ -55,23 +66,23 @@ export function LogoHorizontal({ className = '', isDark = false }: { className?:
             <rect x="-45" y="13" width="90" height="3" rx="1" />
           </g>
           
-          <path d="M0 -50 L-55 15 L55 15 Z" fill="#FFFFFF" opacity="0.95"/>
-          <path d="M0 -50 L-55 15 L-45 15 L0 -40 Z" fill="#F5F5F5" opacity="0.98"/>
-          <path d="M0 -50 L55 15 L45 15 L0 -40 Z" fill="#F5F5F5" opacity="0.98"/>
+          <path d="M0 -50 L-55 15 L55 15 Z" fill={tentWhite} opacity="0.95"/>
+          <path d="M0 -50 L-55 15 L-45 15 L0 -40 Z" fill={tentLight} opacity="0.98"/>
+          <path d="M0 -50 L55 15 L45 15 L0 -40 Z" fill={tentLight} opacity="0.98"/>
           
-          <path d="M0 -50 C -15 -35, -30 -20, -45 15 L -55 15 C -35 -15, -15 -35, 0 -50 Z" fill="#E0E0E0" opacity="0.8"/>
-          <path d="M0 -50 C 15 -35, 30 -20, 45 15 L 55 15 C 35 -15, 15 -35, 0 -50 Z" fill="#E0E0E0" opacity="0.8"/>
-          <path d="M-25 -15 L-30 5 L-20 5 Z" fill="#D0D0D0" opacity="0.7"/>
-          <path d="M25 -15 L30 5 L20 5 Z" fill="#D0D0D0" opacity="0.7"/>
+          <path d="M0 -50 C -15 -35, -30 -20, -45 15 L -55 15 C -35 -15, -15 -35, 0 -50 Z" fill={tentMid} opacity="0.8"/>
+          <path d="M0 -50 C 15 -35, 30 -20, 45 15 L 55 15 C 35 -15, 15 -35, 0 -50 Z" fill={tentMid} opacity="0.8"/>
+          <path d="M-25 -15 L-30 5 L-20 5 Z" fill={tentDark} opacity="0.7"/>
+          <path d="M25 -15 L30 5 L20 5 Z" fill={tentDark} opacity="0.7"/>
           
-          <path d="M-45 15 L-45 50 L45 50 L45 15 Z" fill="#FFFFFF" opacity="0.9"/>
+          <path d="M-45 15 L-45 50 L45 50 L45 15 Z" fill={tentWhite} opacity="0.9"/>
           
-          <path d="M-45 15 L-35 50 L-25 50 L-35 15 Z" fill="#F5F5F5" opacity="0.95"/>
-          <path d="M45 15 L35 50 L25 50 L35 15 Z" fill="#F5F5F5" opacity="0.95"/>
-          <path d="M-35 15 C -40 25, -40 40, -35 50 L-45 50 L-45 15 Z" fill="#E0E0E0" opacity="0.7"/>
-          <path d="M35 15 C 40 25, 40 40, 35 50 L45 50 L45 15 Z" fill="#E0E0E0" opacity="0.7"/>
-          <path d="M-15 15 L-20 50 L-10 50 L-5 15 Z" fill="#D0D0D0" opacity="0.6"/>
-          <path d="M15 15 L20 50 L10 50 L5 15 Z" fill="#D0D0D0" opacity="0.6"/>
+          <path d="M-45 15 L-35 50 L-25 50 L-35 15 Z" fill={tentLight} opacity="0.95"/>
+          <path d="M45 15 L35 50 L25 50 L35 15 Z" fill={tentLight} opacity="0.95"/>
+          <path d="M-35 15 C -40 25, -40 40, -35 50 L-45 50 L-45 15 Z" fill={tentMid} opacity="0.7"/>
+          <path d="M35 15 C 40 25, 40 40, 35 50 L45 50 L45 15 Z" fill={tentMid} opacity="0.7"/>
+          <path d="M-15 15 L-20 50 L-10 50 L-5 15 Z" fill={tentDark} opacity="0.6"/>
+          <path d="M15 15 L20 50 L10 50 L5 15 Z" fill={tentDark} opacity="0.6"/>
           <rect x="-45" y="48" width="90" height="2" fill={accentColor} opacity="0.6"/>
         </g>
       </g>
@@ -81,7 +92,7 @@ export function LogoHorizontal({ className = '', isDark = false }: { className?:
           Event Solutions
         </text>
         
-        <text x="190" y="115" fontFamily="'Trebuchet MS', sans-serif" fontSize="22" fill={isDark ? '#FFFFFF' : accentColor} textAnchor="start" letterSpacing="4" fontWeight="500">
+        <text x="190" y="115" fontFamily="'Trebuchet MS', sans-serif" fontSize="22" fill={dark ? '#FFFFFF' : accentColor} textAnchor="start" letterSpacing="4" fontWeight="500">
           THIKA
         </text>
       </g>

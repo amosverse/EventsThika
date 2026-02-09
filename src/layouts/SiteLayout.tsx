@@ -30,7 +30,7 @@ export function SiteLayout() {
     <div className="min-h-dvh bg-background text-text-primary antialiased">
       <a
         href="#main"
-        className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-50 focus:rounded-xl focus:bg-white focus:px-6 focus:py-3 focus:text-base focus:shadow-lift focus:outline-none"
+        className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-50 focus:rounded-xl focus:bg-surface focus:px-6 focus:py-3 focus:text-base focus:shadow-lift focus:outline-none"
       >
         Skip to content
       </a>

@@ -19,10 +19,10 @@ export function NotFound() {
             />
           </div>
 
-          <h2 className="font-display text-3xl md:text-4xl tracking-tightish text-[#1F2645] dark:text-white mb-4">
+          <h2 className="font-display text-3xl md:text-4xl tracking-tightish text-text-primary mb-4">
             This page doesn't exist.
           </h2>
-          <p className="text-base md:text-lg leading-relaxed text-gray-600 dark:text-gray-300 mb-8 max-w-2xl mx-auto">
+          <p className="text-base md:text-lg leading-relaxed text-text-secondary mb-8 max-w-2xl mx-auto">
             The link may be outdated, or the page has moved. Need help finding something specific?
           </p>
           
@@ -37,7 +37,7 @@ export function NotFound() {
               href="https://wa.me/254728288688?text=Hi!%20I%20couldn't%20find%20the%20page%20I%20was%20looking%20for.%20Can%20you%20help%20me%3F" 
               target="_blank" 
               rel="noopener noreferrer" 
-              className="btn btn--ghost px-8 py-3 rounded-xl font-semibold border-2 border-gray-300 hover:border-accent hover:text-accent transition-colors"
+              className="btn btn--ghost px-8 py-3 rounded-xl font-semibold border-2 border-border hover:border-accent hover:text-accent transition-colors"
             >
               Contact us
             </a>

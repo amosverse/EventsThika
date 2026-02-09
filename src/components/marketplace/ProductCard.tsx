@@ -24,7 +24,7 @@ export default function ProductCard({ product, onQuickView }: ProductCardProps) 
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       whileHover={{ y: -5 }}
-      className="bg-white dark:bg-[#1F2645]/50 rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 border border-gray-100 dark:border-white/10 group"
+      className="bg-surface rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 border border-border group"
     >
       {/* Image Container */}
       <div className="relative aspect-[4/3] overflow-hidden">
@@ -38,32 +38,32 @@ export default function ProductCard({ product, onQuickView }: ProductCardProps) 
         {onQuickView && (
           <button
             onClick={() => onQuickView(product)}
-            className="absolute top-3 right-3 p-2 bg-white/90 dark:bg-[#1F2645]/90 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300 hover:bg-[#E55625] hover:text-white"
+            className="absolute top-3 right-3 p-2 bg-surface/90 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300 hover:bg-accent hover:text-white"
           >
             <Eye className="w-5 h-5" />
           </button>
         )}
         
         {/* Category Badge */}
-        <div className="absolute top-3 left-3 px-3 py-1 bg-[#E55625] text-white text-xs font-semibold rounded-full uppercase tracking-wide">
+        <div className="absolute top-3 left-3 px-3 py-1 bg-accent text-white text-xs font-semibold rounded-full uppercase tracking-wide">
           {product.category}
         </div>
         
         {/* Rating */}
-        <div className="absolute bottom-3 left-3 flex items-center gap-1 px-2 py-1 bg-white/90 dark:bg-[#1F2645]/90 rounded-full">
+        <div className="absolute bottom-3 left-3 flex items-center gap-1 px-2 py-1 bg-surface/90 rounded-full">
           <Star className="w-4 h-4 fill-yellow-400 text-yellow-400" />
-          <span className="text-sm font-semibold text-gray-800 dark:text-white">{product.rating}</span>
-          <span className="text-xs text-gray-500 dark:text-gray-400">({product.reviews})</span>
+          <span className="text-sm font-semibold text-text-primary">{product.rating}</span>
+          <span className="text-xs text-text-muted">({product.reviews})</span>
         </div>
       </div>
 
       {/* Content */}
       <div className="p-5">
-        <h3 className="text-lg font-bold text-[#1F2645] dark:text-white mb-1 line-clamp-1">
+        <h3 className="text-lg font-bold text-text-primary mb-1 line-clamp-1">
           {product.name}
         </h3>
         
-        <p className="text-sm text-gray-600 dark:text-gray-300 mb-3 line-clamp-2">
+        <p className="text-sm text-text-secondary mb-3 line-clamp-2">
           {product.description}
         </p>
 
@@ -73,7 +73,7 @@ export default function ProductCard({ product, onQuickView }: ProductCardProps) 
             {product.features.slice(0, 2).map((feature, idx) => (
               <span
                 key={idx}
-                className="text-xs px-2 py-1 bg-gray-100 dark:bg-white/10 text-gray-600 dark:text-gray-300 rounded-full"
+                className="text-xs px-2 py-1 bg-background-alt text-text-secondary rounded-full"
               >
                 {feature}
               </span>
@@ -83,32 +83,32 @@ export default function ProductCard({ product, onQuickView }: ProductCardProps) 
 
         {/* Price */}
         <div className="flex items-baseline gap-1 mb-4">
-          <span className="text-xl sm:text-2xl font-bold text-[#E55625]">
+          <span className="text-xl sm:text-2xl font-bold text-accent">
             {formatPrice(product.price)}
           </span>
-          <span className="text-sm sm:text-base font-medium text-gray-600 dark:text-gray-300">
+          <span className="text-sm sm:text-base font-medium text-text-secondary">
             {product.unit}
           </span>
         </div>
 
         {/* Quantity Selector */}
-        <div className="flex items-center justify-center border border-gray-200 dark:border-white/20 rounded-lg mb-3 w-fit mx-auto">
+        <div className="flex items-center justify-center border border-border rounded-lg mb-3 w-fit mx-auto">
           <button
             onClick={() => setQuantity(Math.max(1, quantity - 1))}
-            className="p-2 hover:bg-gray-100 dark:hover:bg-white/10 transition-colors rounded-l-lg"
+            className="p-2 hover:bg-background-alt transition-colors rounded-l-lg"
             aria-label="Decrease quantity"
           >
-            <Minus className="w-4 h-4 text-gray-600 dark:text-gray-300" />
+            <Minus className="w-4 h-4 text-text-secondary" />
           </button>
-          <span className="px-4 py-2 text-sm font-semibold text-[#1F2645] dark:text-white min-w-[50px] text-center">
+          <span className="px-4 py-2 text-sm font-semibold text-text-primary min-w-[50px] text-center">
             {quantity}
           </span>
           <button
             onClick={() => setQuantity(quantity + 1)}
-            className="p-2 hover:bg-gray-100 dark:hover:bg-white/10 transition-colors rounded-r-lg"
+            className="p-2 hover:bg-background-alt transition-colors rounded-r-lg"
             aria-label="Increase quantity"
           >
-            <Plus className="w-4 h-4 text-gray-600 dark:text-gray-300" />
+            <Plus className="w-4 h-4 text-text-secondary" />
           </button>
         </div>
 
@@ -123,7 +123,7 @@ export default function ProductCard({ product, onQuickView }: ProductCardProps) 
             className={`flex items-center justify-center p-2.5 sm:p-3 rounded-lg transition-all duration-300 min-w-[44px] min-h-[44px] ${
               product.available
                 ? 'bg-[#25D366] hover:bg-[#1faa52] text-white'
-                : 'bg-gray-300 text-gray-500 cursor-not-allowed pointer-events-none'
+                : 'bg-border text-text-muted cursor-not-allowed pointer-events-none'
             }`}
             aria-label="Inquire on WhatsApp"
             title="Inquire on WhatsApp"
@@ -144,8 +144,8 @@ export default function ProductCard({ product, onQuickView }: ProductCardProps) 
             whileTap={{ scale: 0.95 }}
             className={`flex-1 flex items-center justify-center gap-1.5 sm:gap-2 py-2.5 sm:py-3 px-3 sm:px-4 rounded-lg font-semibold text-sm transition-all duration-300 min-h-[44px] ${
               product.available
-                ? 'bg-[#E55625] hover:bg-[#d14a1f] text-white'
-                : 'bg-gray-300 text-gray-500 cursor-not-allowed'
+                ? 'bg-accent hover:bg-accent-hover text-white'
+                : 'bg-border text-text-muted cursor-not-allowed'
             }`}
             aria-label="Add to cart"
           >

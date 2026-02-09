@@ -34,16 +34,16 @@ export default function ServiceProducts({ category, title, maxItems = 8 }: Servi
     <section className="mt-16 pt-12 border-t border-border" style={{ opacity: 1, visibility: 'visible' }}>
       <div className="flex items-center justify-between mb-8">
         <div>
-          <h2 className="text-2xl font-display font-bold text-[#1F2645] tracking-tightish">
+          <h2 className="text-2xl font-display font-bold text-text-primary tracking-tightish">
             {title || categoryTitles[category]}
           </h2>
-          <p className="mt-2 text-sm text-gray-600">
+          <p className="mt-2 text-sm text-text-secondary">
             Add items directly to your cart and checkout when ready
           </p>
         </div>
         <Link
           to={`/marketplace?category=${category}`}
-          className="hidden md:flex items-center gap-2 text-[#E55625] font-semibold hover:underline"
+          className="hidden md:flex items-center gap-2 text-accent font-semibold hover:underline"
         >
           View all {category}
           <ArrowRight className="w-4 h-4" />
@@ -70,7 +70,7 @@ export default function ServiceProducts({ category, title, maxItems = 8 }: Servi
       <div className="mt-8 text-center md:hidden">
         <Link
           to={`/marketplace?category=${category}`}
-          className="inline-flex items-center gap-2 px-6 py-3 bg-[#E55625] text-white font-semibold rounded-xl hover:bg-[#d14a1f] transition-colors"
+          className="inline-flex items-center gap-2 px-6 py-3 bg-accent text-white font-semibold rounded-xl hover:bg-accent-hover transition-colors"
         >
           View all {category}
           <ArrowRight className="w-4 h-4" />

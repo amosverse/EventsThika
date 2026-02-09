@@ -9,22 +9,81 @@
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
 
-    /* Strict Color System */
-    --color-primary-dark: #1F2645;
-    --color-accent-orange: #E55625;
-    --color-success-green: #4CAF50;
+    /* Strict Color System - Core */
+    --color-primary: #1F2645;
+    --color-accent: #E55625;
+    --color-accent-hover: #D14A1F;
+    --color-accent-light: #F37B4D;
+    --color-secondary: #4CAF50;
+    --color-success: #4CAF50;
+    
+    /* Backgrounds */
     --color-background: #FFFFFF;
     --color-background-alt: #F5F7FA;
+    --color-surface: #FFFFFF;
+    --color-surface-hover: rgba(0, 0, 0, 0.04);
+    --color-surface-overlay: rgba(255, 255, 255, 0.95);
+    --color-surface-overlay-mobile: rgba(255, 255, 255, 0.98);
     
-    /* Headline accent colors */
-    --color-headline-blue: #1F2645;
-    --color-headline-orange: #E55625;
-    
-    /* Derived colors for text hierarchy */
+    /* Text Hierarchy */
     --color-text-primary: #1F2645;
     --color-text-secondary: rgba(31, 38, 69, 0.7);
     --color-text-muted: rgba(31, 38, 69, 0.5);
+    
+    /* Borders */
     --color-border: rgba(31, 38, 69, 0.12);
+    
+    /* Brand Teal */
+    --color-teal: #14B8A6;
+    --color-teal-pale: #CCF7ED;
+    --color-teal-subtle: #F0FDFA;
+    
+    /* Legacy aliases for backward compatibility */
+    --color-primary-dark: #1F2645;
+    --color-accent-orange: #E55625;
+    --color-success-green: #4CAF50;
+    --color-headline-blue: #1F2645;
+    --color-headline-orange: #E55625;
+  }
+
+  .dark {
+    color-scheme: dark;
+
+    /* Strict Color System - Core */
+    --color-primary: #E8EAF0;
+    --color-accent: #FF6B3D;
+    --color-accent-hover: #FF7A4F;
+    --color-accent-light: #FFA07A;
+    --color-secondary: #66BB6A;
+    --color-success: #66BB6A;
+    
+    /* Backgrounds */
+    --color-background: #0F1419;
+    --color-background-alt: #1A1F2E;
+    --color-surface: #1A1F2E;
+    --color-surface-hover: rgba(255, 255, 255, 0.06);
+    --color-surface-overlay: rgba(15, 20, 25, 0.95);
+    --color-surface-overlay-mobile: rgba(15, 20, 25, 0.98);
+
+    /* Text Hierarchy */
+    --color-text-primary: #E8EAF0;
+    --color-text-secondary: rgba(232, 234, 240, 0.7);
+    --color-text-muted: rgba(232, 234, 240, 0.5);
+    
+    /* Borders */
+    --color-border: rgba(232, 234, 240, 0.12);
+    
+    /* Brand Teal */
+    --color-teal: #14B8A6;
+    --color-teal-pale: #042F2E;
+    --color-teal-subtle: #042F2E;
+    
+    /* Legacy aliases for backward compatibility */
+    --color-primary-dark: #E8EAF0;
+    --color-accent-orange: #FF6B3D;
+    --color-success-green: #66BB6A;
+    --color-headline-blue: #E8EAF0;
+    --color-headline-orange: #FF6B3D;
   }
 
   html,
@@ -32,6 +91,30 @@
     height: 100%;
     overflow-x: hidden;
     scroll-behavior: smooth;
+  }
+
+  /* Smooth theme transitions */
+  *,
+  *::before,
+  *::after {
+    transition-property: background-color, border-color, color, fill, stroke;
+    transition-duration: 0.2s;
+    transition-timing-function: ease-in-out;
+  }
+
+  /* Respect user motion preferences */
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      transition-duration: 0.01ms !important;
+      animation-duration: 0.01ms !important;
+    }
+  }
+
+  /* Prevent transitions on page load */
+  .preload * {
+    transition: none !important;
   }
 
   body {
@@ -58,10 +141,8 @@
     color: var(--color-primary-dark);
   }
 
-  @media (prefers-color-scheme: dark) {
-    ::selection {
-      background: rgba(255, 107, 61, 0.25);
-    }
+  .dark ::selection {
+    background: rgba(255, 107, 61, 0.25);
   }
 
   a {
@@ -178,15 +259,15 @@
     }
   }
 
-  /* Ghost Button - Primary Dark */
+  /* Ghost Button - Theme-aware */
   .btn--ghost {
-    @apply border border-primary-dark bg-transparent text-primary-dark;
+    @apply border border-text-primary bg-transparent text-text-primary;
     min-height: 44px;
     min-width: 44px;
   }
 
   .btn--ghost:hover {
-    @apply bg-primary-dark text-white;
+    @apply bg-text-primary text-background;
   }
 
   /* Responsive Grid Patterns */
@@ -218,8 +299,12 @@
 
   /* Modern Card Component */
   .card {
-    @apply bg-white dark:bg-[#1A1F2E] rounded-2xl shadow-sm border border-border transition-all duration-300;
+    @apply bg-surface rounded-2xl shadow-sm border border-border transition-all duration-300;
     overflow: hidden;
+  }
+
+  .dark .card {
+    background-color: #1A1F2E;
   }
 
   .card:hover {
@@ -235,11 +320,9 @@
     border: 1px solid rgba(255, 255, 255, 0.2);
   }
 
-  @media (prefers-color-scheme: dark) {
-    .glass {
-      background: rgba(26, 31, 46, 0.9);
-      border: 1px solid rgba(232, 234, 240, 0.1);
-    }
+  .dark .glass {
+    background: rgba(26, 31, 46, 0.9);
+    border: 1px solid rgba(232, 234, 240, 0.1);
   }
 
   /* Responsive spacing scale */
@@ -261,8 +344,10 @@
   }
 
   .card {
-    @apply rounded-xl2 border border-border bg-surface dark:bg-[#1A1F2E] shadow-sm transition;
+    @apply rounded-xl2 border border-border bg-surface shadow-sm transition;
   }
+
+  /* Duplicate .dark .card removed - see above */
 
   .btn-nav {
     @apply border border-accent bg-transparent text-accent;

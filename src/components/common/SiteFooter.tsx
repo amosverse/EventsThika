@@ -4,11 +4,11 @@ import { Facebook, Instagram, Youtube, MessageCircle } from 'lucide-react'
 
 export function SiteFooter() {
   return (
-    <footer className="mt-20 border-t border-border bg-primary-dark text-white">
+    <footer className="mt-20 border-t border-white/20 bg-[#1F2645] text-white">
       <div className="container-x grid gap-8 py-12 grid-cols-1 sm:grid-cols-2 lg:grid-cols-[1.4fr_1fr_1fr] sm:gap-10 lg:gap-10 lg:py-14">
         <div className="max-w-md sm:col-span-2 lg:col-span-1">
-          <LogoHorizontal className="h-20 w-auto" isDark={true} />
-          <p className="mt-3 text-sm leading-relaxed text-white/70">
+          <LogoHorizontal className="h-20 w-auto" />
+          <p className="mt-3 text-sm leading-relaxed text-white/80">
             Tents, décor, catering, sound, DJ/MC, and full production—built with calm process and sharp execution.
           </p>
           
@@ -71,32 +71,32 @@ export function SiteFooter() {
           <div className="eyebrow text-white/80">Services</div>
           <ul className="mt-4 grid gap-2 text-sm">
             <li>
-              <NavLink className="underline-anim text-white hover:text-accent-light" to="/services/tent-rentals">
+              <NavLink className="underline-anim text-white/90 hover:text-accent" to="/services/tent-rentals">
                 Tent rentals
               </NavLink>
             </li>
             <li>
-              <NavLink className="underline-anim text-white hover:text-accent-light" to="/services/decorations">
+              <NavLink className="underline-anim text-white/90 hover:text-accent" to="/services/decorations">
                 Event décor
               </NavLink>
             </li>
             <li>
-              <NavLink className="underline-anim text-white hover:text-accent-light" to="/services/catering">
+              <NavLink className="underline-anim text-white/90 hover:text-accent" to="/services/catering">
                 Catering
               </NavLink>
             </li>
             <li>
-              <NavLink className="underline-anim text-white hover:text-accent-light" to="/services/sound-dj">
+              <NavLink className="underline-anim text-white/90 hover:text-accent" to="/services/sound-dj">
                 PA & DJ systems
               </NavLink>
             </li>
             <li>
-              <NavLink className="underline-anim text-white hover:text-accent-light" to="/services/mc">
+              <NavLink className="underline-anim text-white/90 hover:text-accent" to="/services/mc">
                 MC services
               </NavLink>
             </li>
             <li>
-              <NavLink className="underline-anim text-white hover:text-accent-light" to="/services/full-production">
+              <NavLink className="underline-anim text-white/90 hover:text-accent" to="/services/full-production">
                 Full production
               </NavLink>
             </li>
@@ -107,17 +107,17 @@ export function SiteFooter() {
           <div className="eyebrow text-white/80">Contact</div>
           <ul className="mt-4 grid gap-2 text-sm">
             <li>
-              <a className="underline-anim text-white hover:text-accent-light" href="mailto:hello@eventstudio.com">
+              <a className="underline-anim text-white/90 hover:text-accent" href="mailto:hello@eventstudio.com">
                 hello@eventstudio.com
               </a>
             </li>
             <li>
-              <a className="underline-anim text-white hover:text-accent-light" href="tel:+254728288688">
+              <a className="underline-anim text-white/90 hover:text-accent" href="tel:+254728288688">
                 +254 728 288 688
               </a>
             </li>
             <li>
-              <NavLink className="underline-anim text-white hover:text-accent-light" to="/contact">
+              <NavLink className="underline-anim text-white/90 hover:text-accent" to="/contact">
                 Email us
               </NavLink>
             </li>
@@ -126,9 +126,9 @@ export function SiteFooter() {
       </div>
 
       <div className="border-t border-white/20">
-        <div className="container-x flex flex-col gap-2 py-6 text-xs text-white/60 md:flex-row md:items-center md:justify-between">
+        <div className="container-x flex flex-col gap-2 py-6 text-xs text-white/70 md:flex-row md:items-center">
           <span>© {new Date().getFullYear()} Event Solutions Thika.</span>
-          <span>Making your event a planned success.</span>
+          <span className="md:ml-auto">Making your event a planned success.</span>
         </div>
       </div>
     </footer>

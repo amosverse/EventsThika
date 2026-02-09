@@ -5,6 +5,15 @@ import { Link } from 'react-router-dom'
 
 import { Testimonials } from '../components/sections/Testimonials'
 
+// Import service images
+import tent100Image from '../assets/100tent.jpg'
+import decorImage from '../assets/decor.jpg'
+import catering1Image from '../assets/catering1.jpg'
+import djPaImage from '../assets/Dj&PA.jpg'
+import stageImage from '../assets/stage.jpg'
+import fullprodImage from '../assets/fullprod.jpg'
+import weddingImage from '../assets/wedding.jpg'
+
 // Parallax configuration values for tuning motion intensity
 const PARALLAX_CONFIG = {
   background: {
@@ -28,37 +37,37 @@ const services = [
     slug: '/services/tent-rentals',
     title: 'Tent structures',
     copy: 'Framed and stretch tents sized precisely to your guest list and site.',
-    image: new URL('../assets/100tent.jpg', import.meta.url).href,
+    image: tent100Image,
   },
   {
     slug: '/services/decorations',
     title: 'Event décor',
     copy: 'Tablescapes, florals, and lighting that feel tailored, not templated.',
-    image: new URL('../assets/decor.jpg', import.meta.url).href,
+    image: decorImage,
   },
   {
     slug: '/services/catering',
     title: 'Catering',
     copy: 'Trusted culinary partners for plated dinners, buffets, and cocktail service.',
-    image: new URL('../assets/catering1.jpg', import.meta.url).href,
+    image: catering1Image,
   },
   {
     slug: '/services/sound-dj',
     title: 'Sound & DJ',
     copy: 'PA systems, music direction, and technical operators who keep sound invisible.',
-    image: new URL('../assets/Dj&PA.jpg', import.meta.url).href,
+    image: djPaImage,
   },
   {
     slug: '/services/mc',
     title: 'MC services',
     copy: 'Hosts who guide the room with warmth and clarity—never overbearing.',
-    image: new URL('../assets/stage.jpg', import.meta.url).href,
+    image: stageImage,
   },
   {
     slug: '/services/full-production',
     title: 'Full production',
     copy: 'From first walkthrough to last light off, we own the run of show.',
-    image: new URL('../assets/fullprod.jpg', import.meta.url).href,
+    image: fullprodImage,
   },
 ]
 
@@ -118,8 +127,8 @@ function AnimatedStat({ label, value, numericValue }: { label: string; value: st
 
   return (
     <div>
-      <dt className="text-xs uppercase tracking-[0.14em] text-gray-900 font-semibold">{label}</dt>
-      <dd className="mt-1 text-lg font-bold text-gray-900">{displayValue}</dd>
+      <dt className="text-xs uppercase tracking-[0.14em] text-text-primary font-semibold">{label}</dt>
+      <dd className="mt-1 text-lg font-bold text-text-primary">{displayValue}</dd>
     </div>
   )
 }
@@ -170,11 +179,11 @@ export function Home() {
       {/* HERO SECTION - Fixed: Added min-height to prevent collapse and proper z-index stacking */}
       <section ref={heroRef} className="relative overflow-hidden min-h-[600px] md:min-h-[700px]">
         {/* Background Image with zoom animation - Full width */}
-        {/* Fixed: Added z-0 to establish stacking context */}
+        {/* Fixed: Added z-0 to establish stacking context, dark mode filter for night effect */}
         <motion.div 
-          className="absolute inset-0 w-full h-full will-change-transform z-0"
+          className="absolute inset-0 w-full h-full will-change-transform z-0 dark:brightness-[0.35] dark:contrast-125"
           style={{
-            backgroundImage: `url(${new URL('../assets/wedding.jpg', import.meta.url).href})`,
+            backgroundImage: `url(${weddingImage})`,
             backgroundSize: 'cover',
             backgroundPosition: 'center',
             backgroundAttachment: 'fixed',
@@ -183,9 +192,10 @@ export function Home() {
           }}
         />
         
-        {/* Subtle overlay for text readability without blur */}
+        {/* Theme-aware overlay for optimal text readability */}
         {/* Fixed: Added z-[1] to layer above background but below content */}
-        <div className="absolute inset-0 w-full h-full bg-gradient-to-br from-white/75 via-white/60 to-white/70 z-[1]" />
+        <div className="absolute inset-0 w-full h-full bg-background/90 backdrop-blur-sm z-[1]" />
+        <div className="absolute inset-0 w-full h-full bg-gradient-to-br from-background/80 via-background/60 to-background/80 z-[1]" />
         
         {/* Content with foreground parallax */}
         {/* Fixed: Changed z-10 to z-[2] to ensure content is above overlay */}
@@ -198,13 +208,13 @@ export function Home() {
           }}
         >
           <div style={{ opacity: 1, visibility: 'visible' }}>
-            <p className="eyebrow text-xs sm:text-sm" style={{ color: '#1F2645', fontWeight: '600' }}>Gloria Events Solutions</p>
-            <h1 className="mt-4 sm:mt-6 font-display tracking-tightish text-primary-dark text-3xl sm:text-4xl md:text-5xl lg:text-6xl leading-tight">
+            <p className="eyebrow text-xs sm:text-sm font-semibold text-text-primary">Gloria Events Solutions</p>
+            <h1 className="mt-4 sm:mt-6 font-display tracking-tightish text-text-primary text-3xl sm:text-4xl md:text-5xl lg:text-6xl leading-tight">
               <span className="headline-blue">Y</span>our ev<span className="headline-orange">ent</span>.
               <br />
               <span className="headline-blue">Flaw</span>lessly <span className="headline-orange">exe</span>cuted.
             </h1>
-            <p className="mt-4 sm:mt-5 max-w-xl text-base sm:text-lg leading-relaxed" style={{ color: '#1F2645' }}>
+            <p className="mt-4 sm:mt-5 max-w-xl text-base sm:text-lg leading-relaxed text-text-primary">
               We handle the pressure so you don't have to. Full-service event production for weddings, corporate functions, and celebrations—delivered with precision, backed by experience.
             </p>
 
@@ -251,12 +261,12 @@ export function Home() {
 
               <div className="mt-4 sm:mt-5 space-y-2 sm:space-y-3 text-sm">
                 <div className="flex justify-between gap-4">
-                  <span className="text-xs uppercase tracking-[0.14em]" style={{ color: '#1F2645' }}>We specialize in</span>
-                  <span className="text-right" style={{ color: '#1F2645' }}>Weddings, corporate events, celebrations</span>
+                  <span className="text-xs uppercase tracking-[0.14em]" style={{ color: 'var(--color-text-primary)' }}>We specialize in</span>
+                  <span className="text-right" style={{ color: 'var(--color-text-primary)' }}>Weddings, corporate events, celebrations</span>
                 </div>
                 <div className="flex justify-between gap-4">
-                  <span className="text-xs uppercase tracking-[0.14em]" style={{ color: '#1F2645' }}>Full-scope delivery</span>
-                  <span style={{ color: '#1F2645' }}>Venue setup, tents, décor, sound, catering, coordination</span>
+                  <span className="text-xs uppercase tracking-[0.14em]" style={{ color: 'var(--color-text-primary)' }}>Full-scope delivery</span>
+                  <span style={{ color: 'var(--color-text-primary)' }}>Venue setup, tents, décor, sound, catering, coordination</span>
                 </div>
               </div>
             </div>
@@ -267,7 +277,7 @@ export function Home() {
 
       {/* SERVICES SECTION - Fixed: Added relative positioning and z-[10] to ensure it's above hero parallax */}
       <section 
-        className="relative z-[10] overflow-hidden bg-gradient-to-b from-white via-background-alt to-white pt-16 pb-8 md:pt-24 md:pb-12" 
+        className="relative z-[10] overflow-hidden bg-gradient-to-b from-background via-background-alt to-background pt-16 pb-8 md:pt-24 md:pb-12" 
         aria-labelledby="home-services-heading"
       >
         {/* Decorative background elements */}
@@ -301,7 +311,7 @@ export function Home() {
               <br />
               <span className="text-accent">built for the day.</span>
             </h2>
-            <p className="mt-4 max-w-2xl text-base leading-relaxed text-gray-800">
+            <p className="mt-4 max-w-2xl text-base leading-relaxed text-text-secondary">
               We treat your event like a live production. Clear timelines, precise layouts, and technical teams who know
               exactly where they need to be—and when.
             </p>
@@ -311,29 +321,27 @@ export function Home() {
             {services.map((service, index) => (
               <Link to={service.slug} key={service.slug}>
                 <motion.article
-                  className="group relative overflow-hidden rounded-xl bg-white border border-gray-200 shadow-sm hover:shadow-xl transition-all duration-500 cursor-pointer hover:bg-white/80 hover:backdrop-blur-xl"
+                  className="group relative overflow-hidden rounded-xl bg-surface border border-border shadow-sm hover:shadow-xl transition-all duration-500 cursor-pointer"
                   style={{ opacity: 1, visibility: 'visible' }}
                   whileHover={{ y: -8, scale: 1.02 }}
                   transition={{ type: 'spring', stiffness: 300, damping: 25 }}
                 >
                   {/* Image container with overlay */}
-                  <div className="relative h-36 sm:h-40 md:h-44 overflow-hidden">
-                  <motion.div
-                    className="absolute inset-0"
-                    style={{
-                      backgroundImage: `url(${service.image})`,
-                      backgroundSize: 'cover',
-                      backgroundPosition: 'center',
-                    }}
-                    whileHover={{ scale: 1.1 }}
-                    transition={{ duration: 0.6, ease: 'easeOut' }}
-                  />
-                  {/* Gradient overlay */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-primary-dark/90 via-primary-dark/40 to-transparent" />
+                  <div className="relative h-36 sm:h-40 md:h-44 overflow-hidden bg-surface">
+                    {service.image && (
+                      <img
+                        src={service.image}
+                        alt={service.title}
+                        className="w-full h-full object-cover"
+                        loading="lazy"
+                      />
+                    )}
+                    {/* Gradient overlay */}
+                    <div className="absolute inset-0 bg-gradient-to-t from-primary-dark/90 via-primary-dark/40 to-transparent" />
                   
                   {/* Colored accent bar on top */}
                   <motion.div 
-                    className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-accent to-success"
+                    className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-accent to-success z-20"
                     initial={{ scaleX: 0 }}
                     whileInView={{ scaleX: 1 }}
                     transition={{ duration: 0.6, delay: index * 0.1 }}
@@ -341,7 +349,7 @@ export function Home() {
                   />
                   
                   {/* Service number badge */}
-                  <div className="absolute top-3 right-3 sm:top-4 sm:right-4 w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-white/20 backdrop-blur-sm flex items-center justify-center text-white font-bold text-xs sm:text-sm border border-white/30">
+                  <div className="absolute top-3 right-3 sm:top-4 sm:right-4 w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-white/20 backdrop-blur-sm flex items-center justify-center text-white font-bold text-xs sm:text-sm border border-white/30 z-20">
                     {(index + 1).toString().padStart(2, '0')}
                   </div>
                 </div>
@@ -353,10 +361,10 @@ export function Home() {
                     <div className="w-1 h-1 sm:w-1.5 sm:h-1.5 rounded-full bg-white" />
                   </div>
                   
-                  <h3 className="font-display text-base sm:text-lg md:text-xl tracking-tightish text-gray-900 leading-tight mt-1 group-hover:text-accent transition-colors duration-300">
+                  <h3 className="font-display text-base sm:text-lg md:text-xl tracking-tightish text-text-primary leading-tight mt-1 group-hover:text-accent transition-colors duration-300">
                     {service.title}
                   </h3>
-                  <p className="mt-2 text-xs sm:text-sm leading-relaxed text-gray-700">
+                  <p className="mt-2 text-xs sm:text-sm leading-relaxed text-text-secondary">
                     {service.copy}
                   </p>
                   
@@ -383,13 +391,13 @@ export function Home() {
           
           {/* CTA section below services */}
           <motion.div 
-            className="mt-8 text-center bg-primary-dark rounded-2xl p-8 shadow-lg"
+            className="mt-8 text-center bg-[#1F2645] text-white rounded-2xl p-8 shadow-lg border border-white/20"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.3 }}
             viewport={{ once: true }}
           >
-            <p className="text-white/70 text-sm mb-4 flex justify-center gap-2 flex-wrap">
+            <p className="text-white/80 text-sm mb-4 flex justify-center gap-2 flex-wrap">
               {['Need', 'something', 'custom?'].map((word, index) => (
                 <motion.span
                   key={word}
@@ -475,12 +483,12 @@ export function Home() {
                 </svg>
               </span>
             </p>
-            <h2 id="home-why-heading" className="mt-3 font-display text-3xl tracking-tightish md:text-4xl text-gray-900">
+            <h2 id="home-why-heading" className="mt-3 font-display text-3xl tracking-tightish md:text-4xl text-text-primary">
               Calm behind the scenes.
               <br />
               Energy in the room.
             </h2>
-            <p className="mt-4 text-sm leading-relaxed text-gray-800 max-w-md">
+            <p className="mt-4 text-sm leading-relaxed text-text-secondary max-w-md">
               We&apos;ve supported brand launches, weddings, fundraisers, and ceremonies with the same focus: guests
               should feel cared for, and you should feel present.
             </p>
@@ -489,8 +497,8 @@ export function Home() {
           <div className="grid gap-5" style={{ opacity: 1, visibility: 'visible' }}>
             {pillars.map((pillar) => (
               <article key={pillar.title} className="card p-5">
-                <h3 className="text-sm font-semibold tracking-tightish text-gray-900">{pillar.title}</h3>
-                <p className="mt-2 text-sm leading-relaxed text-gray-700">{pillar.body}</p>
+                <h3 className="text-sm font-semibold tracking-tightish text-text-primary">{pillar.title}</h3>
+                <p className="mt-2 text-sm leading-relaxed text-text-secondary">{pillar.body}</p>
               </article>
             ))}
           </div>
@@ -504,7 +512,7 @@ export function Home() {
       >
         <div className="container-x">
         <div
-          className="grid gap-8 rounded-[30px] border border-border bg-white px-6 py-10 shadow-liftSm md:grid-cols-[minmax(0,1.4fr)_minmax(0,1fr)] md:px-10"
+          className="grid gap-8 rounded-[30px] border border-border bg-surface px-6 py-10 shadow-liftSm md:grid-cols-[minmax(0,1.4fr)_minmax(0,1fr)] md:px-10"
           style={{ opacity: 1, visibility: 'visible' }}
         >
           <div>
@@ -527,22 +535,22 @@ export function Home() {
                 </svg>
               </span>
             </p>
-            <h2 id="home-cta-heading" className="mt-3 font-display text-3xl tracking-tightish md:text-4xl text-gray-900">
+            <h2 id="home-cta-heading" className="mt-3 font-display text-3xl tracking-tightish md:text-4xl text-text-primary">
               Share the date, the room, and the feeling you&apos;re after.
             </h2>
-            <p className="mt-4 text-sm leading-relaxed text-gray-800 max-w-lg">
+            <p className="mt-4 text-sm leading-relaxed text-text-secondary max-w-lg">
               We&apos;ll respond with availability, a rough budget range, and a proposed path to move forward—no
               pressure, no automated sequences.
             </p>
           </div>
 
-          <div className="space-y-4 text-sm text-gray-900">
+          <div className="space-y-4 text-sm text-text-primary">
             <div>
-              <div className="text-xs uppercase tracking-[0.14em] text-gray-600">Typical response time</div>
-              <div className="mt-1 text-gray-900">Within one business day</div>
+              <div className="text-xs uppercase tracking-[0.14em] text-text-secondary">Typical response time</div>
+              <div className="mt-1 text-text-primary">Within one business day</div>
             </div>
             <div>
-              <div className="text-xs uppercase tracking-[0.14em] text-gray-600">Ideal notice</div>
+              <div className="text-xs uppercase tracking-[0.14em] text-text-secondary">Ideal notice</div>
               <div className="mt-1">8–12 weeks before your event</div>
             </div>
 

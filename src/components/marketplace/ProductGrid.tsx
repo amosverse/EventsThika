@@ -63,11 +63,11 @@ export default function ProductGrid() {
   }, [selectedCategory, searchQuery, sortBy, priceRange])
 
   return (
-    <div className="min-h-screen bg-gray-50 dark:bg-[#0F1629]">
+    <div className="min-h-screen bg-background-alt">
       {/* Hero Section */}
-      <section className="relative bg-gradient-to-br from-[#1F2645] to-[#2a3456] py-20 overflow-hidden">
+      <section className="relative bg-gradient-to-br from-primary-dark to-[#2a3456] py-20 overflow-hidden">
         <div className="absolute inset-0 opacity-10">
-          <div className="absolute top-20 left-10 w-72 h-72 bg-[#E55625] rounded-full blur-3xl" />
+          <div className="absolute top-20 left-10 w-72 h-72 bg-accent rounded-full blur-3xl" />
           <div className="absolute bottom-10 right-10 w-96 h-96 bg-[#4CAF50] rounded-full blur-3xl" />
         </div>
         
@@ -78,7 +78,7 @@ export default function ProductGrid() {
             className="text-center"
           >
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-display font-bold text-white mb-4">
-              Event Rental <span className="text-[#E55625]">Marketplace</span>
+              Event Rental <span className="text-accent">Marketplace</span>
             </h1>
             <p className="text-lg md:text-xl text-gray-300 max-w-2xl mx-auto mb-8">
               Browse our extensive collection of premium event equipment. Tents, chairs, tables, décor, and more.
@@ -92,12 +92,12 @@ export default function ProductGrid() {
                 placeholder="Search for tents, chairs, tables..."
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
-                className="w-full pl-12 pr-4 py-4 bg-white dark:bg-white/10 border border-gray-200 dark:border-white/20 rounded-xl text-[#1F2645] dark:text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#E55625] text-lg"
+                className="w-full pl-12 pr-4 py-4 bg-surface border border-border rounded-xl text-text-primary placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-accent text-lg"
               />
               {searchQuery && (
                 <button
                   onClick={() => setSearchQuery('')}
-                  className="absolute right-4 top-1/2 -translate-y-1/2 p-1 hover:bg-gray-100 dark:hover:bg-white/10 rounded-full"
+                  className="absolute right-4 top-1/2 -translate-y-1/2 p-1 hover:bg-background-alt rounded-full"
                 >
                   <X className="w-5 h-5 text-gray-400" />
                 </button>
@@ -108,7 +108,7 @@ export default function ProductGrid() {
       </section>
 
       {/* Category Pills */}
-      <section className="sticky top-0 z-40 bg-white dark:bg-[#1F2645] border-b border-gray-200 dark:border-white/10 shadow-sm">
+      <section className="sticky top-0 z-40 bg-surface border-b border-border shadow-sm">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center gap-2 py-4 overflow-x-auto scrollbar-hide">
             {categories.map((category) => (
@@ -117,8 +117,8 @@ export default function ProductGrid() {
                 onClick={() => setSelectedCategory(category.id)}
                 className={`flex items-center gap-2 px-4 py-2 rounded-full whitespace-nowrap text-sm font-semibold transition-all ${
                   selectedCategory === category.id
-                    ? 'bg-[#E55625] text-white'
-                    : 'bg-gray-100 dark:bg-white/10 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-white/20'
+                    ? 'bg-accent text-white'
+                    : 'bg-background-alt text-text-secondary hover:bg-background-alt'
                 }`}
               >
                 <span>{category.icon}</span>
@@ -134,8 +134,8 @@ export default function ProductGrid() {
         {/* Toolbar */}
         <div className="flex flex-wrap items-center justify-between gap-4 mb-6">
           <div className="flex items-center gap-2">
-            <span className="text-gray-600 dark:text-gray-300">
-              <strong className="text-[#1F2645] dark:text-white">{filteredAndSortedProducts.length}</strong> products found
+            <span className="text-text-secondary">
+              <strong className="text-text-primary">{filteredAndSortedProducts.length}</strong> products found
             </span>
           </div>
           
@@ -145,8 +145,8 @@ export default function ProductGrid() {
               onClick={() => setShowFilters(!showFilters)}
               className={`flex items-center gap-2 px-4 py-2 rounded-lg border ${
                 showFilters
-                  ? 'border-[#E55625] bg-[#E55625]/10 text-[#E55625]'
-                  : 'border-gray-200 dark:border-white/20 text-gray-700 dark:text-gray-300'
+                  ? 'border-accent bg-accent/10 text-accent'
+                  : 'border-border text-text-secondary'
               } transition-colors`}
             >
               <SlidersHorizontal className="w-4 h-4" />
@@ -157,7 +157,7 @@ export default function ProductGrid() {
             <select
               value={sortBy}
               onChange={(e) => setSortBy(e.target.value as SortOption)}
-              className="px-4 py-2 bg-white dark:bg-white/10 border border-gray-200 dark:border-white/20 rounded-lg text-gray-700 dark:text-gray-300 focus:outline-none focus:ring-2 focus:ring-[#E55625]"
+              className="px-4 py-2 bg-surface border border-border rounded-lg text-text-secondary focus:outline-none focus:ring-2 focus:ring-accent"
             >
               <option value="featured">Featured</option>
               <option value="price-asc">Price: Low to High</option>
@@ -167,16 +167,16 @@ export default function ProductGrid() {
             </select>
             
             {/* View Mode Toggle */}
-            <div className="hidden md:flex items-center border border-gray-200 dark:border-white/20 rounded-lg overflow-hidden">
+            <div className="hidden md:flex items-center border border-border rounded-lg overflow-hidden">
               <button
                 onClick={() => setViewMode('grid')}
-                className={`p-2 ${viewMode === 'grid' ? 'bg-[#E55625] text-white' : 'text-gray-600 dark:text-gray-300'}`}
+                className={`p-2 ${viewMode === 'grid' ? 'bg-accent text-white' : 'text-text-secondary'}`}
               >
                 <Grid3X3 className="w-5 h-5" />
               </button>
               <button
                 onClick={() => setViewMode('list')}
-                className={`p-2 ${viewMode === 'list' ? 'bg-[#E55625] text-white' : 'text-gray-600 dark:text-gray-300'}`}
+                className={`p-2 ${viewMode === 'list' ? 'bg-accent text-white' : 'text-text-secondary'}`}
               >
                 <List className="w-5 h-5" />
               </button>
@@ -193,11 +193,11 @@ export default function ProductGrid() {
               exit={{ height: 0, opacity: 0 }}
               className="overflow-hidden mb-6"
             >
-              <div className="p-6 bg-white dark:bg-white/5 rounded-xl border border-gray-200 dark:border-white/10">
+              <div className="p-6 bg-background-alt rounded-xl border border-border">
                 <div className="grid md:grid-cols-3 gap-6">
                   {/* Price Range */}
                   <div>
-                    <label className="block text-sm font-semibold text-[#1F2645] dark:text-white mb-2">
+                    <label className="block text-sm font-semibold text-text-primary mb-2">
                       Price Range (KES)
                     </label>
                     <div className="flex items-center gap-3">
@@ -206,7 +206,7 @@ export default function ProductGrid() {
                         value={priceRange[0]}
                         onChange={(e) => setPriceRange([Number(e.target.value), priceRange[1]])}
                         placeholder="Min"
-                        className="w-full px-3 py-2 bg-gray-50 dark:bg-white/10 border border-gray-200 dark:border-white/20 rounded-lg text-[#1F2645] dark:text-white"
+                        className="w-full px-3 py-2 bg-background-alt border border-border rounded-lg text-text-primary"
                       />
                       <span className="text-gray-400">-</span>
                       <input
@@ -214,24 +214,24 @@ export default function ProductGrid() {
                         value={priceRange[1]}
                         onChange={(e) => setPriceRange([priceRange[0], Number(e.target.value)])}
                         placeholder="Max"
-                        className="w-full px-3 py-2 bg-gray-50 dark:bg-white/10 border border-gray-200 dark:border-white/20 rounded-lg text-[#1F2645] dark:text-white"
+                        className="w-full px-3 py-2 bg-background-alt border border-border rounded-lg text-text-primary"
                       />
                     </div>
                   </div>
 
                   {/* Rating Filter */}
                   <div>
-                    <label className="block text-sm font-semibold text-[#1F2645] dark:text-white mb-2">
+                    <label className="block text-sm font-semibold text-text-primary mb-2">
                       Minimum Rating
                     </label>
                     <div className="flex items-center gap-2">
                       {[4, 4.5, 4.8].map((rating) => (
                         <button
                           key={rating}
-                          className="flex items-center gap-1 px-3 py-2 bg-gray-50 dark:bg-white/10 border border-gray-200 dark:border-white/20 rounded-lg hover:border-[#E55625] transition-colors"
+                          className="flex items-center gap-1 px-3 py-2 bg-background-alt border border-border rounded-lg hover:border-accent transition-colors"
                         >
                           <Star className="w-4 h-4 fill-yellow-400 text-yellow-400" />
-                          <span className="text-sm text-[#1F2645] dark:text-white">{rating}+</span>
+                          <span className="text-sm text-text-primary">{rating}+</span>
                         </button>
                       ))}
                     </div>
@@ -246,7 +246,7 @@ export default function ProductGrid() {
                         setPriceRange([0, 100000])
                         setSortBy('featured')
                       }}
-                      className="px-4 py-2 text-[#E55625] font-semibold hover:bg-[#E55625]/10 rounded-lg transition-colors"
+                      className="px-4 py-2 text-accent font-semibold hover:bg-accent/10 rounded-lg transition-colors"
                     >
                       Reset All Filters
                     </button>
@@ -261,10 +261,10 @@ export default function ProductGrid() {
         {filteredAndSortedProducts.length === 0 ? (
           <div className="text-center py-16">
             <div className="text-6xl mb-4">🔍</div>
-            <h3 className="text-xl font-semibold text-[#1F2645] dark:text-white mb-2">
+            <h3 className="text-xl font-semibold text-text-primary mb-2">
               No products found
             </h3>
-            <p className="text-gray-600 dark:text-gray-400 mb-4">
+            <p className="text-text-muted mb-4">
               Try adjusting your search or filter criteria
             </p>
             <button
@@ -273,7 +273,7 @@ export default function ProductGrid() {
                 setSearchQuery('')
                 setPriceRange([0, 100000])
               }}
-              className="px-6 py-2 bg-[#E55625] text-white rounded-lg font-semibold hover:bg-[#d14a1f] transition-colors"
+              className="px-6 py-2 bg-accent text-white rounded-lg font-semibold hover:bg-accent-hover transition-colors"
             >
               Clear Filters
             </button>

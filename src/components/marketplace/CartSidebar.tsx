@@ -25,24 +25,24 @@ export default function CartSidebar() {
             animate={{ x: 0 }}
             exit={{ x: '100%' }}
             transition={{ type: 'spring', damping: 25, stiffness: 200 }}
-            className="fixed right-0 top-0 h-full w-full max-w-md bg-white dark:bg-[#1F2645] shadow-2xl z-50 flex flex-col"
+            className="fixed right-0 top-0 h-full w-full max-w-md bg-surface shadow-2xl z-50 flex flex-col"
           >
             {/* Header */}
-            <div className="flex items-center justify-between p-5 border-b border-gray-200 dark:border-white/10">
+            <div className="flex items-center justify-between p-5 border-b border-border">
               <div className="flex items-center gap-3">
-                <ShoppingBag className="w-6 h-6 text-[#E55625]" />
-                <h2 className="text-xl font-bold text-[#1F2645] dark:text-white">
+                <ShoppingBag className="w-6 h-6 text-accent" />
+                <h2 className="text-xl font-bold text-text-primary">
                   Your Cart
                 </h2>
-                <span className="px-2 py-0.5 bg-[#E55625] text-white text-sm font-semibold rounded-full">
+                <span className="px-2 py-0.5 bg-accent text-white text-sm font-semibold rounded-full">
                   {getItemCount()}
                 </span>
               </div>
               <button
                 onClick={() => setIsCartOpen(false)}
-                className="p-2 hover:bg-gray-100 dark:hover:bg-white/10 rounded-full transition-colors"
+                className="p-2 hover:bg-background-alt rounded-full transition-colors"
               >
-                <X className="w-6 h-6 text-gray-600 dark:text-gray-300" />
+                <X className="w-6 h-6 text-text-secondary" />
               </button>
             </div>
 
@@ -50,16 +50,16 @@ export default function CartSidebar() {
             <div className="flex-1 overflow-y-auto p-5">
               {items.length === 0 ? (
                 <div className="flex flex-col items-center justify-center h-full text-center">
-                  <ShoppingBag className="w-16 h-16 text-gray-300 dark:text-gray-600 mb-4" />
-                  <h3 className="text-lg font-semibold text-gray-600 dark:text-gray-300 mb-2">
+                  <ShoppingBag className="w-16 h-16 text-text-muted mb-4" />
+                  <h3 className="text-lg font-semibold text-text-secondary mb-2">
                     Your cart is empty
                   </h3>
-                  <p className="text-gray-500 dark:text-gray-400 mb-4">
+                  <p className="text-text-muted mb-4">
                     Start adding items to your rental order
                   </p>
                   <button
                     onClick={() => setIsCartOpen(false)}
-                    className="px-6 py-2 bg-[#E55625] text-white rounded-lg font-semibold hover:bg-[#d14a1f] transition-colors"
+                    className="px-6 py-2 bg-accent text-white rounded-lg font-semibold hover:bg-accent-hover transition-colors"
                   >
                     Browse Products
                   </button>
@@ -74,7 +74,7 @@ export default function CartSidebar() {
                         initial={{ opacity: 0, x: 20 }}
                         animate={{ opacity: 1, x: 0 }}
                         exit={{ opacity: 0, x: -20 }}
-                        className="flex gap-4 p-4 bg-gray-50 dark:bg-white/5 rounded-xl"
+                        className="flex gap-4 p-4 bg-background-alt rounded-xl"
                       >
                         {/* Image */}
                         <img
@@ -85,10 +85,10 @@ export default function CartSidebar() {
                         
                         {/* Details */}
                         <div className="flex-1 min-w-0">
-                          <h4 className="font-semibold text-[#1F2645] dark:text-white truncate">
+                          <h4 className="font-semibold text-text-primary truncate">
                             {item.product.name}
                           </h4>
-                          <p className="text-sm text-gray-500 dark:text-gray-400">
+                          <p className="text-sm text-text-muted">
                             {formatPrice(item.product.price)} {item.product.unit}
                           </p>
                           
@@ -96,18 +96,18 @@ export default function CartSidebar() {
                           <div className="flex items-center gap-2 mt-2">
                             <button
                               onClick={() => updateQuantity(item.product.id, item.quantity - 1)}
-                              className="p-1 hover:bg-gray-200 dark:hover:bg-white/10 rounded transition-colors"
+                              className="p-1 hover:bg-background-alt rounded transition-colors"
                             >
-                              <Minus className="w-4 h-4 text-gray-600 dark:text-gray-300" />
+                              <Minus className="w-4 h-4 text-text-secondary" />
                             </button>
-                            <span className="text-sm font-semibold text-[#1F2645] dark:text-white min-w-[24px] text-center">
+                            <span className="text-sm font-semibold text-text-primary min-w-[24px] text-center">
                               {item.quantity}
                             </span>
                             <button
                               onClick={() => updateQuantity(item.product.id, item.quantity + 1)}
-                              className="p-1 hover:bg-gray-200 dark:hover:bg-white/10 rounded transition-colors"
+                              className="p-1 hover:bg-background-alt rounded transition-colors"
                             >
-                              <Plus className="w-4 h-4 text-gray-600 dark:text-gray-300" />
+                              <Plus className="w-4 h-4 text-text-secondary" />
                             </button>
                             <button
                               onClick={() => removeItem(item.product.id)}
@@ -120,7 +120,7 @@ export default function CartSidebar() {
                         
                         {/* Subtotal */}
                         <div className="text-right">
-                          <span className="font-bold text-[#E55625]">
+                          <span className="font-bold text-accent">
                             {formatPrice(item.product.price * item.quantity)}
                           </span>
                         </div>
@@ -133,16 +133,16 @@ export default function CartSidebar() {
 
             {/* Footer */}
             {items.length > 0 && (
-              <div className="border-t border-gray-200 dark:border-white/10 p-5 space-y-4">
+              <div className="border-t border-border p-5 space-y-4">
                 {/* Subtotal */}
                 <div className="flex justify-between items-center">
-                  <span className="text-gray-600 dark:text-gray-300">Subtotal</span>
-                  <span className="text-xl font-bold text-[#1F2645] dark:text-white">
+                  <span className="text-text-secondary">Subtotal</span>
+                  <span className="text-xl font-bold text-text-primary">
                     {formatPrice(getCartTotal())}
                   </span>
                 </div>
                 
-                <p className="text-sm text-gray-500 dark:text-gray-400">
+                <p className="text-sm text-text-muted">
                   Delivery and setup fees calculated at checkout
                 </p>
                 
@@ -152,7 +152,7 @@ export default function CartSidebar() {
                   target="_blank"
                   rel="noopener noreferrer"
                   onClick={() => setIsCartOpen(false)}
-                  className="w-full flex items-center justify-center gap-2 py-3 bg-[#E55625] hover:bg-[#d14a1f] text-white font-bold rounded-xl transition-colors"
+                  className="w-full flex items-center justify-center gap-2 py-3 bg-accent hover:bg-accent-hover text-white font-bold rounded-xl transition-colors"
                 >
                   Inquire on WhatsApp
                   <ArrowRight className="w-5 h-5" />
@@ -161,7 +161,7 @@ export default function CartSidebar() {
                 {/* Continue Shopping */}
                 <button
                   onClick={() => setIsCartOpen(false)}
-                  className="w-full py-3 border-2 border-[#1F2645] dark:border-white/30 text-[#1F2645] dark:text-white font-semibold rounded-xl hover:bg-[#1F2645] hover:text-white dark:hover:bg-white/10 transition-colors"
+                  className="w-full py-3 border-2 border-text-primary font-semibold rounded-xl hover:bg-primary-dark hover:text-white transition-colors"
                 >
                   Continue Shopping
                 </button>
